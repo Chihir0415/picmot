@@ -100,13 +100,17 @@
 
 - (void)pushedNewBtn
 {
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        UIImagePickerController *camera = [[UIImagePickerController alloc] init];
-        camera.delegate = self;
-        camera.allowsEditing = NO;
-        camera.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:camera  animated:YES completion: nil];
-    }
+    
+        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Photo Library", nil];
+        [sheet showInView:self.view.window];
+    
+//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+//        UIImagePickerController *camera = [[UIImagePickerController alloc] init];
+//        camera.delegate = self;
+//        camera.allowsEditing = NO;
+//        camera.sourceType = UIImagePickerControllerSourceTypeCamera;
+//        [self presentViewController:camera  animated:YES completion: nil];
+//    }
 }
 
 - (void)pushedEditBtn
@@ -160,6 +164,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     
     //カメラ・ライブラリからEditに進んだ時の画面
     CLImageEditor *editor = [[CLImageEditor alloc] initWithImage:image];
@@ -226,29 +231,30 @@
 
 #pragma mark- Actionsheet delegate
 
+
 //アクションシートで分岐するタイプ
-//- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-//{
-//    if(buttonIndex==actionSheet.cancelButtonIndex){
-//        return;
-//    }
-//    
-//    UIImagePickerControllerSourceType type = UIImagePickerControllerSourceTypePhotoLibrary;
-//    
-//    if([UIImagePickerController isSourceTypeAvailable:type]){
-//        if(buttonIndex==0 && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-//            type = UIImagePickerControllerSourceTypeCamera;
-//        }
-//        
-//        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//        picker.allowsEditing = NO;
-//        picker.delegate   = self;
-//        picker.sourceType = type;
-//        
-//        [self presentViewController:picker animated:YES completion:nil];
-//    }
-//}
-//
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==actionSheet.cancelButtonIndex){
+        return;
+    }
+    
+    UIImagePickerControllerSourceType type = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    if([UIImagePickerController isSourceTypeAvailable:type]){
+        if(buttonIndex==0 && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+            type = UIImagePickerControllerSourceTypeCamera;
+        }
+        
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.allowsEditing = NO;
+        picker.delegate   = self;
+        picker.sourceType = type;
+        
+        [self presentViewController:picker animated:YES completion:nil];
+    }
+}
+
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)library{
     [self dismissViewControllerAnimated:YES completion:nil];
