@@ -1,8 +1,8 @@
 //
 //  CLImageEditorTheme.m
 //
-//  Created by sho yakushiji on 2013/12/05.
-//  Copyright (c) 2013年 CALACULU. All rights reserved.
+//
+//  
 //
 
 #import "CLImageEditorTheme.h"
