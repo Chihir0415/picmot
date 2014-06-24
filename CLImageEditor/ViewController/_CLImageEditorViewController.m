@@ -550,18 +550,41 @@
 - (void)pushedFinishBtn:(id)sender
 {
     
-    if(self.initialImageViewState==nil){
-        if([self.delegate respondsToSelector:@selector(imageEditor:didFinishEdittingWithImage:)]){
-            [self.delegate imageEditor:self didFinishEdittingWithImage:_originalImage];
-        }
-        else{
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
+    //edit後のsaveを押した画面
+    if(_imageView.image){
+        NSArray *excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMessage];
+        
+        UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[_imageView.image] applicationActivities:nil];
+        
+        activityView.excludedActivityTypes = excludedActivityTypes;
+        activityView.completionHandler = ^(NSString *activityType, BOOL completed){
+            if(completed && [activityType isEqualToString:UIActivityTypeSaveToCameraRoll]){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Saved successfully" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            }
+        };
+        
+        [self presentViewController:activityView animated:YES completion:nil];
     }
-    else{
-        _imageView.image = _originalImage;
-        [self restoreImageView:NO];
-    }
+    //else{
+      //  [self pushedNewBtn];
+    //}
+
+    
+    
+//    
+//    if(self.initialImageViewState==nil){
+//        if([self.delegate respondsToSelector:@selector(imageEditor:didFinishEdittingWithImage:)]){
+//            [self.delegate imageEditor:self didFinishEdittingWithImage:_originalImage];
+//        }
+//        else{
+//            [self dismissViewControllerAnimated:YES completion:nil];
+//        }
+//    }
+//    else{
+//        _imageView.image = _originalImage;
+//        [self restoreImageView:NO];
+//    }
 }
 
 #pragma mark- ScrollView delegate
