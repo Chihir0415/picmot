@@ -174,6 +174,7 @@
     
     int n = (int)[Array[_i] count];
     
+    
     // UIScrollViewに表示するコンテンツViewを作成する。
     CGSize s = scrollView.frame.size;
     CGRect contentRect = CGRectMake(0, 0, s.width * n, s.height);
@@ -181,7 +182,7 @@
     
     //背景画像を変える
     UIImageView *backimage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 586)];
-    UIImage *image = [UIImage imageNamed:@"pic01.jpg"];
+    UIImage *image = [UIImage imageNamed:@"slice1.png"];
     backimage.contentMode = UIViewContentModeScaleToFill;
     [backimage setImage:image];
     [self.view addSubview:backimage];
@@ -221,6 +222,8 @@
 
     }
 
+
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     // 現在の表示位置（左上）のx座標とUIScrollViewの表示幅(320px)を用いて現在のページ番号を計算します。
@@ -241,4 +244,5 @@
     [super didReceiveMemoryWarning];
 
 }
+
 @end

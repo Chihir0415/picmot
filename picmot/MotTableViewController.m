@@ -12,6 +12,9 @@
     NSArray *_proArray;
 }
 
+@property (nonatomic, strong) NSArray *dataSourceiPhone;
+@property (nonatomic, strong) NSArray *dataSourceAndroid;
+
 @end
 
 @implementation MotTableViewController
@@ -28,21 +31,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIBarButtonItem* menu = [[UIBarButtonItem alloc]
-                              initWithTitle:@"Menu"
-                              style:UIBarButtonItemStyleBordered
-                              target:self
-                              action:@selector(barbutton1:)];
-    self.navigationItem.leftBarButtonItems = @[menu];
     
-    _tableview.dataSource = self;
-    _tableview.delegate = self;
+    self.tableview.delegate = self;
+    self.tableview.dataSource = self;
     
-    //名前を持った配列を用意する
-    _proArray = @[@"Life",@"Love",@"Work",@"Funny",@"Dreams",@"friendship",@"Proverbs",@"For Ladies",@"From Disney"];
-    //10番目に@"My favorite!"を入れこむ
+    // テーブルに表示したいデータソースをセット
+    self.dataSourceiPhone = @[@"Fovorite"];
+    self.dataSourceAndroid = @[@"Life", @"Love", @"Work", @"Funny", @"Dreams", @"friendship", @"Proverbs", @"For Ladies", @"From Disney"];
     
-    self.tableview.rowHeight = 45;
+//    UIBarButtonItem* menu = [[UIBarButtonItem alloc]
+//                              initWithTitle:@"Menu"
+//                              style:UIBarButtonItemStyleBordered
+//                              target:self
+//                              action:@selector(barbutton1:)];
+//    self.navigationItem.leftBarButtonItems = @[menu];
+//    
+//    _tableview.dataSource = self;
+//    _tableview.delegate = self;
+//    
+//    //名前を持った配列を用意する
+//    _proArray = @[@"Life",@"Love",@"Work",@"Funny",@"Dreams",@"friendship",@"Proverbs",@"For Ladies",@"From Disney"];
+//    //10番目に@"My favorite!"を入れこむ
+//    
+//    self.tableview.rowHeight = 45;
    
 //    UIImage *back = [UIImage imageNamed:@"pic01.jpg"];
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:back];
@@ -63,26 +74,71 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 9;
+    
+    NSInteger dataCount = 0;
+    
+    // テーブルに表示するデータ件数を返す
+    switch (section) {
+        case 0:
+            dataCount = self.dataSourceiPhone.count;
+            break;
+        case 1:
+            dataCount = self.dataSourceAndroid.count;
+            break;
+        default:
+            break;
+    }
+    return dataCount;
+    
+    //return 9;
     
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    //定数でCellを用意
+
     static NSString *CellIdentifier = @"Cell";
-    
+    // 再利用できるセルがあれば再利用する
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    if (!cell) {
+        // 再利用できない場合は新規で作成
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",_proArray[indexPath.row]];
-    cell.textLabel.textColor = [UIColor redColor];
-    cell.textLabel.textAlignment = UITextBorderStyleLine;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.backgroundColor = [UIColor clearColor];
+    switch (indexPath.section) {
+        case 0:
+            cell.textLabel.text = self.dataSourceiPhone[indexPath.row];
+            break;
+        case 1:
+            cell.textLabel.text = self.dataSourceAndroid[indexPath.row];
+            break;
+        default:
+            break;
+    }
+    
     return cell;
+    
+    //定数でCellを用意
+//    static NSString *CellIdentifier = @"Cell";
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//    }
+//    
+//    cell.textLabel.text = [NSString stringWithFormat:@"%@",_proArray[indexPath.row]];
+//    cell.textLabel.textColor = [UIColor redColor];
+//    cell.textLabel.textAlignment = UITextBorderStyleLine;
+//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    cell.backgroundColor = [UIColor clearColor];
+//    return cell;
     
 }
 

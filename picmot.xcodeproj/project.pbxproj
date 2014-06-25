@@ -78,6 +78,7 @@
 		60DED49718E407CB0077C7A7 /* film40.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DED49218E407CB0077C7A7 /* film40.png */; };
 		60DED49818E407CB0077C7A7 /* pencil32.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DED49318E407CB0077C7A7 /* pencil32.png */; };
 		60DED49918E407CB0077C7A7 /* round41.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DED49418E407CB0077C7A7 /* round41.png */; };
+		751E50F4195A6D840059E8D5 /* slice1.png in Resources */ = {isa = PBXBuildFile; fileRef = 751E50F3195A6D840059E8D5 /* slice1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,6 +205,7 @@
 		60DED49218E407CB0077C7A7 /* film40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = film40.png; sourceTree = "<group>"; };
 		60DED49318E407CB0077C7A7 /* pencil32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil32.png; sourceTree = "<group>"; };
 		60DED49418E407CB0077C7A7 /* round41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round41.png; sourceTree = "<group>"; };
+		751E50F3195A6D840059E8D5 /* slice1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slice1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +285,7 @@
 				6006B6B518D047570046A82F /* MotDetailViewController.h */,
 				6006B6B618D047570046A82F /* MotDetailViewController.m */,
 				6006B61418CF48F70046A82F /* Images.xcassets */,
+				751E50F2195A6D840059E8D5 /* mot_img */,
 				6006B60318CF48F70046A82F /* Supporting Files */,
 			);
 			path = picmot;
@@ -537,6 +540,14 @@
 			name = image;
 			sourceTree = "<group>";
 		};
+		751E50F2195A6D840059E8D5 /* mot_img */ = {
+			isa = PBXGroup;
+			children = (
+				751E50F3195A6D840059E8D5 /* slice1.png */,
+			);
+			path = mot_img;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -619,6 +630,7 @@
 				6006B61518CF48F70046A82F /* Images.xcassets in Resources */,
 				60A4591B18ED27B500220A3B /*  icon3.png in Resources */,
 				6006B68718CF49450046A82F /* CLImageEditor.bundle in Resources */,
+				751E50F4195A6D840059E8D5 /* slice1.png in Resources */,
 				60DED49818E407CB0077C7A7 /* pencil32.png in Resources */,
 				60C4287418EAAE600029FB7A /* 001.png in Resources */,
 				60A4591C18ED27B500220A3B /*  icon4.png in Resources */,
