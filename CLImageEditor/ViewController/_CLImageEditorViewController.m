@@ -136,34 +136,60 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
+    //ナビゲーションバーの感度を調整
     if([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]){
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
     
-    _menuView.backgroundColor = [CLImageEditorTheme toolbarColor];
-       
-    if(self.navigationController!=nil){
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(pushedFinishBtn:)];
-        [self.navigationController setNavigationBarHidden:NO animated:YES];
-        
-        _navigationBar.hidden = YES;
-        [_navigationBar popNavigationItemAnimated:NO];
-    }
-    else{
-        _navigationBar.topItem.title = self.title;
-    }
     
+    //ナビゲーションコントロールを表示する
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    //タイトルをつける
+    __naviitem.title = @"Edit";
+    //左側ボタン２つ
+    UIBarButtonItem *leftBtn1 = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemStop
+                                 target:self action:@selector(pushedCloseBtn:)];
+    //二つ目のボタン
+    UIBarButtonItem *leftBtn2 = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemReply
+                                  target:self action:@selector(pushedBackBtn:)];
+    //BarButtonItemsにセット
+    __naviitem.leftBarButtonItems = [NSArray arrayWithObjects:leftBtn1, leftBtn2, nil];
+    //右側ボタン
+    __naviitem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(pushedFinishBtn:)];
+    
+    
+//    if(self.navigationController!=nil){
+//             
+//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(pushedFinishBtn:)];
+//        [self.navigationController setNavigationBarHidden:NO animated:YES];
+//        
+//        _navigationBar.hidden = YES;
+//        [_navigationBar popNavigationItemAnimated:NO];
+//    }
+//    else{
+//        _navigationBar.topItem.title = self.title;
+//    }
+//    
+    
+    //下記、エフェクトバーの色
+    _menuView.backgroundColor = [CLImageEditorTheme toolbarColor];
+    
+    //下側、エフェクトのメニューバー
     if([UIDevice iosVersion] < 7){
         _navigationBar.barStyle = UIBarStyleBlackTranslucent;
     }
     
     [self setMenuView];
     
+    //エディット画面の画像表示
     if(_imageView==nil){
         _imageView = [UIImageView new];
         [_scrollView addSubview:_imageView];
         [self refreshImageView];
     }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -464,7 +490,7 @@
     
     if(self.currentTool){
         UINavigationItem *item  = [[UINavigationItem alloc] initWithTitle:self.currentTool.toolInfo.title];
-        item.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringWithDefaultValue(@"CLImageEditor_OKBtnTitle", nil, [CLImageEditorTheme bundle], @"OK", @"") style:UIBarButtonItemStyleDone target:self action:@selector(pushedDoneBtn:)];
+        item.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringWithDefaultValue(@"CLImageEditor_OKBtnTitle", nil, [CLImageEditorTheme bundle], @"OK", @"") style:UIBarButtonItemStyleDone target:self action:@selector(pushedOkBtn:)];
         item.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringWithDefaultValue(@"CLImageEditor_BackBtnTitle", nil, [CLImageEditorTheme bundle], @"Back", @"") style:UIBarButtonItemStylePlain target:self action:@selector(pushedCancelBtn:)];
         
         [_navigationBar pushNavigationItem:item animated:(self.navigationController==nil)];
@@ -511,7 +537,7 @@
     self.currentTool = nil;
 }
 
-- (IBAction)pushedDoneBtn:(id)sender
+- (IBAction)pushedOkBtn:(id)sender
 {
     self.view.userInteractionEnabled = NO;
     
@@ -545,6 +571,20 @@
         _imageView.image = self.initialImageViewState.image;
         [self restoreImageView:YES];
     }
+}
+
+
+- (void)pushedBackBtn:(id)sender
+{
+    
+    //エディット画面の最初の画像表示に戻る
+    if(!_originalImage){
+         _imageView = [UIImageView new];
+        [_scrollView addSubview:_imageView];
+        [self refreshImageView];
+    }
+
+
 }
 
 - (void)pushedFinishBtn:(id)sender

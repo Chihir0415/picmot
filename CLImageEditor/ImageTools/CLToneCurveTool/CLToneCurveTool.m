@@ -193,6 +193,7 @@
 {
     [_tonecurveView resetPoints];
     
+    //やじるしマークを回転させる
     CABasicAnimation* rotation;
     rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     rotation.toValue  = [NSNumber numberWithFloat:-M_PI*2.0];

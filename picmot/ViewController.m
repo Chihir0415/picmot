@@ -164,7 +164,11 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    
+    //撮影後すぐに保存する設定
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    }
     
     //カメラ・ライブラリからEditに進んだ時の画面
     CLImageEditor *editor = [[CLImageEditor alloc] initWithImage:image];
