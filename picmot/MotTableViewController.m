@@ -160,7 +160,7 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch * touchBegan = [touches anyObject];
-    _tBegan = [ touchBegan locationInView: self.view ];
+    _tBegan = [touchBegan locationInView:self.view];
 }
 
 - (void)didReceiveMemoryWarning
