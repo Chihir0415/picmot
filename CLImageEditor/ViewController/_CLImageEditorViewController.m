@@ -547,7 +547,7 @@
             [alert show];
         }
         else if(image){
-            _originalImage = image;
+            //_originalImage = image;
             _imageView.image = image;
             
             [self resetImageViewFrame];
@@ -576,15 +576,13 @@
 
 - (void)pushedBackBtn:(id)sender
 {
-    
     //エディット画面の最初の画像表示に戻る
-    if(!_originalImage){
-         _imageView = [UIImageView new];
+    if(_imageView.image != _originalImage){
         [_scrollView addSubview:_imageView];
         [self refreshImageView];
+        
     }
-
-
+    
 }
 
 - (void)pushedFinishBtn:(id)sender
@@ -610,8 +608,6 @@
       //  [self pushedNewBtn];
     //}
 
-    
-    
 //    
 //    if(self.initialImageViewState==nil){
 //        if([self.delegate respondsToSelector:@selector(imageEditor:didFinishEdittingWithImage:)]){

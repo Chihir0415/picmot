@@ -36,8 +36,8 @@
 //    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0.41 green:0.94 blue:0.55 alpha:1.0] CGColor], (id)[[UIColor colorWithRed:0.47 green:0.91 blue:0.97 alpha:1.0] CGColor], nil];
 //    [self.view.layer insertSublayer:gradient atIndex:0];
     
-//    UIImage *newback = [UIImage imageNamed:@"001.png"];
-//    self.view.backgroundColor = [UIColor colorWithPatternImage:newback];
+    //UIImage *newback = [UIImage imageNamed:@"001.png"];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:newback];
 
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"001.png"] drawInRect:self.view.bounds];
@@ -181,7 +181,11 @@
     tool= [editor.toolInfo subToolInfoWithToolName:@"CLResizeTool" recursive:YES];
     tool.available = NO;
     
-    [picker pushViewController:editor animated:YES];
+    //[self presentViewController:editor animated:YES completion:nil];
+    //[editor showInViewController:self withImageView:_imageView];
+
+    //editへ進んだときの画面を設定
+    [picker presentViewController:editor animated:YES completion:nil];
     [[UINavigationBar appearance] setAlpha:0.5];
 
 }
