@@ -79,6 +79,7 @@
 		60DED49818E407CB0077C7A7 /* pencil32.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DED49318E407CB0077C7A7 /* pencil32.png */; };
 		60DED49918E407CB0077C7A7 /* round41.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DED49418E407CB0077C7A7 /* round41.png */; };
 		751E50F4195A6D840059E8D5 /* slice1.png in Resources */ = {isa = PBXBuildFile; fileRef = 751E50F3195A6D840059E8D5 /* slice1.png */; };
+		751E50F6195A76340059E8D5 /* motList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 751E50F5195A76340059E8D5 /* motList.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +207,7 @@
 		60DED49318E407CB0077C7A7 /* pencil32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil32.png; sourceTree = "<group>"; };
 		60DED49418E407CB0077C7A7 /* round41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round41.png; sourceTree = "<group>"; };
 		751E50F3195A6D840059E8D5 /* slice1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slice1.png; sourceTree = "<group>"; };
+		751E50F5195A76340059E8D5 /* motList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = motList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +298,7 @@
 			children = (
 				60DED48D18E3FE960077C7A7 /* image */,
 				6006B60418CF48F70046A82F /* picmot-Info.plist */,
+				751E50F5195A76340059E8D5 /* motList.plist */,
 				6006B60518CF48F70046A82F /* InfoPlist.strings */,
 				6006B60818CF48F70046A82F /* main.m */,
 				6006B60A18CF48F70046A82F /* picmot-Prefix.pch */,
@@ -637,6 +640,7 @@
 				60DED49918E407CB0077C7A7 /* round41.png in Resources */,
 				60DED49718E407CB0077C7A7 /* film40.png in Resources */,
 				60DED49618E407CB0077C7A7 /* camera44.png in Resources */,
+				751E50F6195A76340059E8D5 /* motList.plist in Resources */,
 				60A4591918ED27B500220A3B /*  icon1.png in Resources */,
 				6006B60718CF48F70046A82F /* InfoPlist.strings in Resources */,
 				60A4591D18ED27B500220A3B /*  icon5.png in Resources */,
