@@ -66,7 +66,8 @@
     backimage.alpha = 0.35;
     
     _tableview.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1];
-   }
+    
+}
 
 -(void)barbutton1:(UIBarButtonItem *)menu{
     [self dismissViewControllerAnimated:YES completion: NULL];

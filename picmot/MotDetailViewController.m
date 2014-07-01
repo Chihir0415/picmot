@@ -10,6 +10,9 @@
 
 @interface MotDetailViewController (){
     int _currentPage;
+    // UIButton* favoBtn;
+    UIToolbar* motTool;
+    BOOL _isFullscreen;
 }
 @end
 
@@ -86,8 +89,25 @@
     // ２ページ目から表示したいときはこう↓
     //scrollView.contentOffset = CGPointMake(320, 0);
        scrollView.contentOffset = CGPointMake(0, 0);
+    
+    
+    // FavoriteBtn / ToolBarを生成
+    motTool = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 44, 320, 44)];
+    [self.view addSubview:motTool];
+    
+    // UIBarButtonItem
+    UIBarButtonItem* favoBtn = [[UIBarButtonItem alloc] initWithTitle:@"Favorite" style:UIBarButtonItemStyleBordered target:scrollView action:@selector(onTapFavorite:)];
+    UIBarButtonItem* download = [[UIBarButtonItem alloc] initWithTitle:@"DownLoad" style:UIBarButtonItemStyleBordered target:scrollView action:@selector(onTapDownLoad:)];
+    motTool.items = [NSArray arrayWithObjects:favoBtn, download, nil];
+    
+    
+    //_isFullscreen = NO;
+    UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    [self.view addGestureRecognizer:tapGesture];
+    //[tapGesture release];
+    
+}
 
-    }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
@@ -102,6 +122,7 @@
         _currentPage = page;
        // NSLog(@"%d",_currentPage);
     }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -109,4 +130,76 @@
     [super didReceiveMemoryWarning];
 
 }
+
+#pragma mark- TapFavorite
+- (void)onTapFavorite:(id)inSender
+{
+	// ボタンを押された時の処理をここに追加
+    
+	return;
+}
+
+#pragma mark- TapFavorite
+- (void)onTapDownLoad:(id)inSender
+{
+    // ボタンを押された時の処理をここに追加
+    return;
+}
+
+
+#pragma mark- Fullscreen
+
+- (void) handleTapGesture:(UITapGestureRecognizer*)sender {
+    
+    
+    //フルスクリーンフラグ切り替え
+    _isFullscreen = !_isFullscreen;
+    
+    //アニメーションの定義開始
+    [UIView beginAnimations:nil context:NULL];
+    
+    //アニメーション秒数の指定
+    [UIView setAnimationDuration:0.3f];
+    
+    //ステータスバーを非表示にする
+    [[UIApplication sharedApplication] setStatusBarHidden:_isFullscreen withAnimation:UIStatusBarAnimationFade];
+    
+    //ナビゲーションバーを非表示にする
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    motTool.alpha = _isFullscreen ? 0.0f : 1.0f;
+    
+    //ツールバーを非表示にする
+    motTool.alpha = _isFullscreen ? 0.0f : 1.0f;
+    
+    //アニメーション開始
+    [UIView commitAnimations];
+    
+    NSLog(@"tap");
+    
+    
+}
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    //フルスクリーンフラグ切り替え
+//    _isFullscreen = !_isFullscreen;
+//    
+//    //アニメーションの定義開始
+//    [UIView beginAnimations:nil context:NULL];
+//    
+//    //アニメーション秒数の指定
+//    [UIView setAnimationDuration:0.3f];
+//    
+//    //ステータスバーを非表示にする
+//    [[UIApplication sharedApplication] setStatusBarHidden:_isFullscreen withAnimation:UIStatusBarAnimationFade];
+//    
+//    //ナビゲーションバーを非表示にする
+//    motTool.alpha = _isFullscreen ? 0.0f : 1.0f;
+//    
+//    //ツールバーを非表示にする
+//    motTool.alpha = _isFullscreen ? 0.0f : 1.0f;
+//    
+//    //アニメーション開始
+//    [UIView commitAnimations];
+//    
+//}
 @end

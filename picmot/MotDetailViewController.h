@@ -12,4 +12,6 @@
 @property (nonatomic,retain)NSString *str;
 @property (nonatomic,assign)NSInteger i;
 @property (nonatomic,assign)NSArray *proArray;
+//@property (nonatomic) BOOL isFullscreen;
+
 @end
