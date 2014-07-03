@@ -7,6 +7,7 @@
 
 #import "CLImageEditor.h"
 
+
 @interface _CLImageEditorViewController : CLImageEditor
 <UIScrollViewDelegate, UIBarPositioningDelegate>
 {

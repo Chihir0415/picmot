@@ -6,7 +6,8 @@
 //
 
 #import "_CLImageEditorViewController.h"
-
+#import "LINEActivity.h"
+#import "DCKakaoActivity.h"
 #import "CLImageToolBase.h"
 
 
@@ -587,12 +588,41 @@
 
 - (void)pushedFinishBtn:(id)sender
 {
+ 
+//    // ModalViewController生成
+//    SaveModalViewController *savemodalViewController;
+//    savemodalViewController = [[SaveModalViewController alloc]
+//                               initWithNibName:@"SaveModalViewController" bundle:nil];
+//
+//    //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    
+////    SaveModalViewController *savemodalViewController = [storyboard instantiateViewControllerWithIdentifier:@"SaveModalViewController"];
+//   
+//    savemodalViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+//    // 浮かびあがってくるスタイル
+//    savemodalViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//    // モーダルを表示
+//    [self presentViewController:savemodalViewController animated:YES completion:nil];
+//    //モーダルビューのサイズ変更
+//    savemodalViewController.view.superview.frame = CGRectMake(70, 90, 180, 330);
+    
+    
     
     //edit後のsaveを押した画面
     if(_imageView.image){
-        NSArray *excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMessage];
         
-        UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[_imageView.image] applicationActivities:nil];
+        //LINE用
+        //NSArray *activityItems = @[item];
+        NSArray *applicationActivities = @[[[LINEActivity alloc] init],[[DCKakaoActivity alloc] init]];
+        
+        //kakao talk用
+        //NSArray *kakao = @[[[DCKakaoActivity alloc] init]];
+        
+        
+        
+        NSArray *excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMessage,UIActivityTypePostToTencentWeibo,UIActivityTypePostToFlickr];
+        
+        UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[_imageView.image,] applicationActivities:applicationActivities];
         
         activityView.excludedActivityTypes = excludedActivityTypes;
         activityView.completionHandler = ^(NSString *activityType, BOOL completed){
@@ -604,11 +634,11 @@
         
         [self presentViewController:activityView animated:YES completion:nil];
     }
-    //else{
-      //  [self pushedNewBtn];
-    //}
-
-//    
+//    else{
+//        [self pushedNewBtn];
+//    }
+//
+//
 //    if(self.initialImageViewState==nil){
 //        if([self.delegate respondsToSelector:@selector(imageEditor:didFinishEdittingWithImage:)]){
 //            [self.delegate imageEditor:self didFinishEdittingWithImage:_originalImage];

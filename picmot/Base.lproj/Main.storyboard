@@ -116,24 +116,6 @@
             </objects>
             <point key="canvasLocation" x="380" y="569"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="KeT-uv-Jrg">
-            <objects>
-                <viewController storyboardIdentifier="_CLImageEditorViewController" id="kI5-ve-xEc" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="buc-WF-Nxi"/>
-                        <viewControllerLayoutGuide type="bottom" id="h7e-r4-m94"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QBf-xQ-FuI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QRM-y5-MBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="646" y="-53"/>
-        </scene>
         <!--Mot Detail View Controller-->
         <scene sceneID="wMY-kk-Th6">
             <objects>
