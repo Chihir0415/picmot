@@ -2,8 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-<array>
-<string>
+	<array>
+		<string>
 Talent is God-given, so be thankful
 Praise is man-given, so be humble.
 Conceit is self-given, so be careful.
@@ -21,7 +21,7 @@ Tony Danki
 （トニー・ダンキ）
 （アメリカのアメフトのコーチ）
 </string>
-<string>
+		<string>
 Life is a tragedy when seen in close-up,
 but a comedy in long-shot.
 
@@ -34,7 +34,7 @@ Charlie Chaplin
 （チャーリー・チャプリン）
 （アメリカの俳優、1889-1977）
 </string>
-<string>
+		<string>
 Happiness is a perfume 
 you cannot pour on others
 without getting a few drops on yourself.
@@ -49,7 +49,7 @@ Ralph W. Emerson
 （ラルフ・Ｗ．エマーソン）
 （アメリカの詩人, 1803-1882）
  </string>
-<string>
+		<string>
 Today, which you have spent idly,
 is the tomorrow of somebody who died yesterday
 and was desperate to live.
@@ -63,7 +63,7 @@ and was desperate to live.
 趙　昌仁　著（Cho Chong）
 小説『カシコギ』より
 </string>
-<string>
+		<string>
 There is always light behind the clouds.
 
 雲の向こうは、いつも青空。
@@ -74,7 +74,7 @@ Louisa May Alcott
 （ルイーザ・メイ・オルコット）
 （米国の女性小説家 / 1832～1888）
 </string>
-<string>
+		<string>
 We keep moving forward,
 opening new doors,
 and doing new things,
@@ -90,7 +90,7 @@ Walt Disney
 （ウォルト・ディズニー）
 （米国のエンターテイナー、実業家 / 1901～1966）
 </string>
-<string>
+		<string>
 Stay hungry. Stay foolish.
 
 ハングリーであれ。愚か者であれ。
@@ -101,7 +101,7 @@ Steve Jobs
 （スティーブ・ジョブズ）
 （米国の実業家、アップル創業者 / 1955～2011）
 </string>
-<string>
+		<string>
 Our life is our art.
 
 僕らの人生は、僕らのアートなのさ。
@@ -112,7 +112,7 @@ John Winston Lennon
 （ジョン・レノン）
 （英国のミュージシャン、ビートルズのリーダー / 1940～1980）
 </string>
-<string>
+		<string>
 No one has ever drowned in sweat.
 
 汗で溺れた者はいない。
@@ -123,7 +123,7 @@ Lou Holtz
 （ルー・ホルツ）
 （米国のカレッジフットボールコーチ / 1937～）
 </string>
-<string>
+		<string>
 Everything is practice.
 
 すべては練習のなかにある。
@@ -134,7 +134,7 @@ Abédi Pelé
 （ペレ）
 （ブラジルの元サッカー選手、サッカーの王様と称される / 1940～）
 </string>
-<string>
+		<string>
 (※)Not a career. This is my life.
 
 キャリアではない。私の人生なんだ。
@@ -148,7 +148,7 @@ Steve Jobs
 
 ※not original
 </string>
-<string>
+		<string>
 Do not suppose opportunity
 will knock twice at your door.
 
@@ -160,7 +160,7 @@ Chamfort
 （シャンフォール）
 （フランスの劇作家、作家 / 1741～1794）
 </string>
-<string>
+		<string>
 To be, or not to be: that is the question.
 
 生きるべきか、死ぬべきか。
@@ -172,7 +172,7 @@ Shakespeare
 （シェイクスピア）
 （英国の劇作家、詩人 / 1564～1616）
 </string>
-<string>
+		<string>
 My life didn’t please me,
 so I created my life.
 
@@ -185,7 +185,7 @@ Coco Chanel
 （ココ・シャネル）
 （フランスの女性ファッションデザイナー / 1883～1971）
 </string>
-<string>
+		<string>
 There is more to life than increasing its speed.
 
 速度を上げるばかりが、人生ではない。
@@ -196,7 +196,7 @@ Gandhi
 （ガンジー）
 （インドの弁護士、宗教家、政治指導者 / 1869～1948）
 </string>
-<string>
+		<string>
 Change before you have to.
 
 変革せよ。変革を迫られる前に。
@@ -207,10 +207,9 @@ JackWelch
 （ジャック・ウェルチ）
 （米国の実業家 / 1935～）
 </string>
-</array>
-
-<array>
-<string>
+	</array>
+	<array>
+		<string>
 Love is best.
 
 愛は最上なり。
@@ -221,7 +220,7 @@ Robert Browning
 （ロバート・ブラウニング）
 （英国の詩人 / 1812～1889）
 </string>
-<string>
+		<string>
 A wise girl kisses but doesn’t love,
 listens but doesn’t believe,
 and leaves before she is left.
@@ -236,7 +235,7 @@ Marilyn Monroe
 （マリリン・モンロー）
 （米国の女優 / 1926～1962）
 </string>
-<string>
+		<string>
 You must love him, ere to you.
 He will seem worthy of your love.
 
@@ -249,7 +248,7 @@ William Wordsworth
 （ウィリアム・ワーズワース）
 （英国のロマン派詩人 / 1770～1850）
 </string>
-<string>
+		<string>
 A man falls in love through his eyes,
 a woman through her ears.
 
@@ -261,7 +260,7 @@ Woodrow Wyatt
 （ウッドロー・ワイヤット）
 （英国の政治家、作家、ジャーナリスト / 1918～1997）
 </string>
-<string>
+		<string>
 Love is like a flower – you’ve got to let it grow.
 
 愛とは、育てなくてはいけない花のようなもの。
@@ -272,7 +271,7 @@ John Lennon
 （ジョン・レノン）
 （英国のミュージシャン、ビートルズのリーダー / 1940～1980）
 </string>
-<string>
+		<string>
 Love fed fat soon turns to boredom.
 
 みちたりてしまった恋は、
@@ -284,7 +283,7 @@ Ovid
 （オヴィディウス）
 （古代ローマの詩人 / 紀元前43～紀元17）
 </string>
-<string>
+		<string>
 The course of true love never did run smooth.
 
 真の恋の道は、茨の道である。
@@ -295,7 +294,7 @@ Shakespeare
 （シェイクスピア）
 （英国の劇作家、詩人 / 1564～1616）
 </string>
-<string>
+		<string>
 If you would be loved, love and be lovable.
 
 愛されたいなら、愛し、愛らしくあれ。
@@ -306,7 +305,7 @@ Benjamin Franklin
 （ベンジャミン・フランクリン）
 （米国の政治家、外交官、著述家、物理学者、気象学者 / 1706～1790）
 </string>
-<string>
+		<string>
 Mr. Right is coming.
 But he’s in Africa and he’s walking.
 運命のひとは必ずあらわれる。
@@ -319,7 +318,7 @@ Oprah Gail Winfrey
 （オプラ・ウィンフリー）
 （米国の女性テレビ司会者、女優 / 1954～）
 </string>
-<string>
+		<string>
 You never know,
 maybe that’s the day she has a date with destiny.
 And it’s best to be as pretty as possible for destiny.
@@ -334,7 +333,7 @@ Coco Chanel
 （ココ・シャネル）
 （フランスの女性ファッションデザイナー / 1883～1971）
 </string>
-<string>
+		<string>
 Your love makes me at once the happiest
 and the unhappiest of men.
 
@@ -347,7 +346,7 @@ Ludwig van Beethoven
 （ベートーヴェン）
 （ドイツの作曲家 / 1770～1827）
 </string>
-<string>
+		<string>
 We waste time looking for the perfect lover,
 instead of creating the perfect love.
 
@@ -360,10 +359,9 @@ Tom Robbins
 （トム・ロビンズ）
 （米国の小説家 / 1936～）
 </string>
-</array>
-
-<array>
-<string>
+	</array>
+	<array>
+		<string>
 Genius is 1 percent inspiration and
 99 percent perspiration.
 
@@ -376,8 +374,8 @@ Thomas Alva Edison
 （トーマス・エジソン）
 （米国の発明家、起業家 / 1847～1931）
 </string>
-<string>
-(※)I'm still 30 years old.
+		<string>
+(※)I&apos;m still 30 years old.
 I have something to  want to achieve still.
 
 僕は三十歳、まだまだ成し遂げたいことがある。
@@ -391,7 +389,7 @@ Steve Jobs
 
 ※not original
 </string>
-<string>
+		<string>
 A problem is your chance to do your best.
 
 困難とは、ベストを尽くせるチャンスなのだ。
@@ -402,7 +400,7 @@ Edward Kennedy Duke Ellington
 （デューク・エリントン）
 （米国のジャズオーケストラリーダー / 1899～1974）
 </string>
-<string>
+		<string>
 Victory is sweetest when you’ve known defeat.
 
 敗北を味を知ってこそ、
@@ -414,7 +412,7 @@ Malcolm Stevenson Forbes
 （マルコム・フォーブス）
 （米国のフォーブス誌の元発行人 / 1919～1990）
 </string>
-<string>
+		<string>
 One of these days is none of these days.
 
 「いつの日か」は、決してやってこない。
@@ -425,7 +423,7 @@ Bohn, Henry George
 （ヘンリー・ジョージ・ボーン）
 （英国の出版業経営者 / 1796～1884）
 </string>
-<string>
+		<string>
 Believe and act as if it were impossible to fail.
 
 失敗なんてありえないと信じて、
@@ -437,7 +435,7 @@ Charles Franklin Kettering
 （チャールズ・ケタリング）
 （米国の農民、教員、科学者、発明家 / 1876～1958）
 </string>
-<string>
+		<string>
 Never complain. Never explain.
 
 不平を言わない。言い訳をしない。
@@ -448,7 +446,7 @@ Katharine Houghton Hepburn
 （キャサリン・ヘプバーン）
 （米国の女優 / 1907～2003）
 </string>
-<string>
+		<string>
 (※)The person who can succeed are
 challenged with the premise
 〈do not go your way is happens is natural〉.
@@ -466,7 +464,7 @@ Thomas Alva Edison
 
 ※not original
 </string>
-<string>
+		<string>
 Your regrets aren’t what you did,
 but what you didn’t do.
 So I take every opportunity.
@@ -482,9 +480,9 @@ Cameron Michelle Diaz
 （キャメロン・ディアス）
 （米国の女優 / 1972～）
 </string>
-<string>
+		<string>
 I have failed many times,
-and that's why I am a success.
+and that&apos;s why I am a success.
 
 ぼくは何度も失敗した。
 それが成功した理由だ。
@@ -495,7 +493,7 @@ Michael Jordan
 （マイケル・ジョーダン）
 （アメリカのバスケットボール選手、1963- )
 </string>
-<string>
+		<string>
 The wise love to learn,
 while fools love to teach.
 
@@ -508,7 +506,7 @@ Anton Pavlovich Chekhov
 （アントン・パヴロヴィチ・チェーホフ）
 （ロシアの作家, 1860-1904）
 </string>
-<string>
+		<string>
 The achievement of one goal 
 is the starting point of another.
 
@@ -520,10 +518,9 @@ Alexander Graham Bell
 （アレクサンダー・グラハム・ベル）
  (アメリカの電話発明者）
 </string>
-</array>
-
-<array>
-<string>
+	</array>
+	<array>
+		<string>
 Women like a man with a past,
 but they prefer a man with a present.
 
@@ -536,7 +533,7 @@ Mae West
 （メイ・ウエスト）
 （米国の女優 / 1893～1980）
 </string>
-<string>
+		<string>
 Friendship is an arrangement by which
 we undertake to exchange small favors for big ones.
 
@@ -549,7 +546,7 @@ Montesquieu
 （モンテスキュー）
 （フランスの哲学者、三権分立論を提唱 / 1689～1755）
 </string>
-<string>
+		<string>
 Time passes, and little by little everything that we have spoken in falsehood becomes true.
 
 時は過ぎゆく。そして少しずつ、
@@ -561,7 +558,7 @@ Marcel Proust
 （マルセル・プルースト）
 （フランスの作家 / 1871～1922）
 </string>
-<string>
+		<string>
 The optimist sees the doughnut,
 the pessimist sees the hole.
 
@@ -574,7 +571,7 @@ Oscar Wilde
 （オスカー・ワイルド）
 （アイルランドの詩人、作家、劇作家 / 1854～1900）
 </string>
-<string>
+		<string>
 Wear a smile and have friends; 
 wear a scowl and have wrinkles.
 
@@ -588,7 +585,7 @@ George Eliot
 （ジョージ・エリオット)
 （英国の女性作家 / 1819～1880）
 </string>
-<string>
+		<string>
 Quitting smoking is easy.
 I’ve done it a thousand times.
 
@@ -601,7 +598,7 @@ Mark Twain
 （マーク・トウェイン）
 （米国の作家、小説家 / 1835～1910）
 </string>
-<string>
+		<string>
 God heals, and the doctor takes the fee.
 
 神が病を癒し、医者が料金を取る。
@@ -612,7 +609,7 @@ Benjamin Franklin
 （ベンジャミン・フランクリン）
 （米国の政治家、外交官、著述家、物理学者、気象学者 / 1706～1790）
 </string>
-<string>
+		<string>
 I can live for two months on a good compliment.
 
 よいお世辞があれば、
@@ -624,7 +621,7 @@ Mark Twain
 （マーク・トウェイン）
 （米国の作家、小説家 / 1835～1910）
 </string>
-<string>
+		<string>
 Love is what happens to men and women who don’t know each other.
 
 愛とは、お互いに相手を知らない男女の間に発生するものである。
@@ -635,7 +632,7 @@ W. Somerset Maugham
 （サマセット・モーム）
 （英国の劇作家、小説家 / 1874～1965）
 </string>
-<string>
+		<string>
 Let us leave pretty women to men with no imagination.
 
 美しい女たちのことは、
@@ -647,7 +644,7 @@ Marcel Proust
 （マルセル・プルースト）
 （フランスの作家 / 1871～1922）
 </string>
-<string>
+		<string>
 Name the greatest of all inventors. Accident.
 
 最も偉大な発明家は誰か。
@@ -659,7 +656,7 @@ Mark Twain
 （マーク・トウェイン）
 （米国の作家、小説家 / 1835～1910）
 </string>
-<string>
+		<string>
 Intelligent women have millions of enemies
 from the time they were born.
 They are all foolish men.
@@ -672,7 +669,7 @@ They are all foolish men.
 
 Anonymous（作者不明）
 </string>
-<string>
+		<string>
 Politeness is half good manners
 and half good lying.
 
@@ -685,7 +682,7 @@ Mary Wilson Little
 （メアリー・ウィスソン・リトル）
 （アメリカの作家、1900- ）
 </string>
-<string>
+		<string>
 The best way to keep one’s word is not to give it.
 
 約束を守る最上の方法は、決して約束しないことだ	。
@@ -695,7 +692,7 @@ Napoleon
 （ナポレオン・ボナパルト）
 （フランスの皇帝、政治家、軍人 / 1769～1821）
 </string>
-<string>
+		<string>
 Forgive your enemies, but never forget their names.
 
 あなたの敵を許しなさい。
@@ -706,10 +703,9 @@ John F. Kennedy
 （ジョン・F・ケネディ）
 （米国の第35代大統領、1963年にダラスにて暗殺 / 1917～1963）
 </string>
-</array>
-
-<array>
-<string>
+	</array>
+	<array>
+		<string>
 As you dream about everything,
 your life is brilliant
 
@@ -721,7 +717,7 @@ Wolfgang Amadeus Mozart
 （モーツァルト）
 （オーストリアの作曲家、演奏家 / 1756～1791）
 </string>
-<string>
+		<string>
 Never let your memories be greater
 than your dreams.
 
@@ -733,7 +729,7 @@ Douglas
 （ダグラス・アイベスター）
 （米国の経営者 / 1947～）
 </string>
-<string>
+		<string>
 If you can dream it, you can do it.
 
 夢見ることができれば、それは実現できる。
@@ -744,7 +740,7 @@ Walt Disney
 （ウォルト・ディズニー）
 （米国のエンターテイナー、実業家 / 1901～1966）
 </string>
-<string>
+		<string>
 The future belongs to those
 who believe in the beauty of their dreams.
 
@@ -756,7 +752,7 @@ Anna Eleanor Roosevelt
 （エレノア・ルーズベルト）
 （米国のファーストレディ、人権活動家 / 1884～1962）
 </string>
-<string>
+		<string>
 If there were dreams to sell,
 what would you buy?
 
@@ -769,7 +765,7 @@ Thomas Lovell Beddoes
 （トーマス・ロベル・ベドス）
 （英国の詩人 / 1803～1849）
 </string>
-<string>
+		<string>
 The biggest adventure you can take is to live the life of your dreams.
 
 あなたにとっての最も大きな冒険は、
@@ -781,7 +777,7 @@ Oprah Gail Winfrey
 （オプラ・ウィンフリー）
 （米国の女性テレビ司会者、女優 / 1954～）
 </string>
-<string>
+		<string>
 The special secret of making dreams come true can be summarized in four C’s.
 They are Curiosity, Confidence,
 Courage, and Constancy.
@@ -798,7 +794,7 @@ Walt Disney
 （ウォルト・ディズニー）
 （米国のエンターテイナー、実業家 / 1901～1966）
 </string>
-<string>
+		<string>
 Dream no small dreams for they have no power to move the hearts of men.
 
 小さい夢は見るな。
@@ -810,7 +806,7 @@ Johann Wolfgang von Goethe
 （ゲーテ）
 （ドイツの詩人、小説家、劇作家 / 1749～1832）
 </string>
-<string>
+		<string>
 (※)If you want to have a dream in children,
 adult should have a dream.
 
@@ -826,7 +822,7 @@ adult should have a dream.
 
 ※not original
 </string>
-<string>
+		<string>
 夢なき者は理想なし。理想なき者は信念なし。
 信念なき者は計画なし。計画なき者は実行なし。
 実行なき者は成果なし。成果なき者は幸福なし。
@@ -841,7 +837,7 @@ adult should have a dream.
 
 ※No English
 </string>
-<string>
+		<string>
 1年目には種をまき、2年目には水をやり、
 3年目には花を咲かせましょう。
 
@@ -854,7 +850,7 @@ adult should have a dream.
 
 ※No English
 </string>
-<string>
+		<string>
 Laughter is timeless.
 Imagination has no age.
 And dreams are forever.
@@ -868,7 +864,7 @@ Walt Disney
 （ウォルト・ディズニー）
 （米国のエンターテイナー、実業家 / 1901～1966）
 </string>
-<string>
+		<string>
 If your heart is in your dreams,
 no request is too extreme.
 
@@ -882,10 +878,9 @@ When You Wish Upon a Star from Pinocchio
 （アニメ映
 画 『ピノキオ』の主題歌）
 </string>
-</array>
-
-<array>
-<string>
+	</array>
+	<array>
+		<string>
 I would rather walk with a friend in the dark,
 than alone in the light.
 
@@ -897,7 +892,7 @@ Helen Keller
 （ヘレン・ケラー）
 （米国の教育家、社会福祉活動家、著作家 / 1880～1968）
 </string>
-<string>
+		<string>
 The trouble is not in dying for a friend,
 but in finding a friend worth dying for.
 
@@ -909,7 +904,7 @@ but in finding a friend worth dying for.
 Mark Twain\n（マーク・トウェイン）
 （米国の作家、小説家 / 1835～1910）
 </string>
-<string>
+		<string>
 I wish they would only take me as I am.
 
 私はあるがままの自分を受け入れてくれることだけを望む。
@@ -919,7 +914,7 @@ I wish they would only take me as I am.
 Vincent van Gogh\n（ゴッホ）
 （オランダ出身のポスト印象派の画家 / 1853～1890）
 </string>
-<string>
+		<string>
 My best friend is the one who brings out the best in me.
 
 最高の友は、
@@ -931,7 +926,7 @@ Henry Ford
 （ヘンリー・フォード）
 （米国の実業家、フォード・モーター創業者 / 1863～1947）
 </string>
-<string>
+		<string>
 Other men are lenses through
 which we read our own minds.
 
@@ -943,7 +938,7 @@ Ralph Waldo Emerson
 （エマーソン）
 （米国の思想家、哲学者、作家、詩人 / 1803～1882）
 </string>
-<string>
+		<string>
 A slip of the foot you may soon recover,
 but a slip of the tongue you may never get over.
 
@@ -954,7 +949,7 @@ Benjamin Franklin
 （ベンジャミン・フランクリン）
 （米国の政治家、外交官、著述家、物理学者、気象学者 / 1706～1790）
 </string>
-<string>
+		<string>
 The best way to cheer yourself up
 is to try to cheer somebody else up.
 
@@ -967,7 +962,7 @@ Mark Twain
 （マーク・トウェイン）
 （米国の作家、小説家 / 1835～1910）
 </string>
-<string>
+		<string>
 The best way to find out
 if you can trust somebody is to trust them.
 
@@ -980,7 +975,7 @@ Ernest Hemingway
 （ヘミングウェイ）
 米国の小説家、ノーベル文学賞受賞者 / 1899～1961）
 </string>
-<string>
+		<string>
 The proper office of a friend is to side with you
 when you are in the wrong.
 Nearly anybody will side with you
@@ -996,10 +991,9 @@ Mark Twain
 （マーク・トウェイン）
 （米国の作家、小説家 / 1835～1910）
 </string>
-</array>
-
-<array>
-<string>
+	</array>
+	<array>
+		<string>
 Hope for the best and prepare for the worst.
 
 
@@ -1011,7 +1005,7 @@ Hope for the best and prepare for the worst.
 Proverb of the West
 （西洋のことわざ）
 </string>
-<string>
+		<string>
 (※)What is live without a doubt, not so smart.
 
 
@@ -1027,7 +1021,7 @@ French proverb
 
 ※not original
 </string>
-<string>
+		<string>
 Experience without learning is better 
 than learning without experience.
 
@@ -1040,7 +1034,7 @@ than learning without experience.
 British proverb
 イギリスのことわざ
 </string>
-<string>
+		<string>
 Let him that would be happy for a day,
 go to the barber;
 for a week, marry a wife;
@@ -1060,7 +1054,7 @@ for all his lifetime, be an honest man.
 British proverb
 イギリスのことわざ
 </string>
-<string>
+		<string>
 (※)Chess is finished,
 the king also infantry also are
 going back in the same box.
@@ -1077,7 +1071,7 @@ Italy proverb
 
 ※not original
 </string>
-<string>
+		<string>
 (※)After happiness has left,gives off light.
 
 
@@ -1093,7 +1087,7 @@ British proverb
 
 ※not original
 </string>
-<string>
+		<string>
 (※)Opportunity than abandon the people,
 better people abandon the opportunity in many cases.
 
@@ -1110,7 +1104,7 @@ French proverb
 
 ※not original
 </string>
-<string>
+		<string>
 Better〈thank God〉
 rather than〈God forbid.〉
 
@@ -1123,7 +1117,7 @@ rather than〈God forbid.〉
 Russia proverb
 ロシアのことわざ
 </string>
-<string>
+		<string>
 (※)Unfortunate people should have hope.
 But happy people beware.
 
@@ -1140,7 +1134,7 @@ Latin proverb
 
 ※not original
 </string>
-<string>
+		<string>
 (※)What you want to warm up after taking a year,
 make a fireplace while young.
 
@@ -1157,7 +1151,7 @@ Germany proverb
 
 ※not original
 </string>
-<string>
+		<string>
 (※)Thing I knew the taste of bitterness
 do not know even sweetness.
 
@@ -1174,7 +1168,7 @@ Germany proverb
 
 ※not original
 </string>
-<string>
+		<string>
 (※)Who spit in the well,
 must drink the water someday.
 
@@ -1191,7 +1185,7 @@ Judea proverb
 
 ※not original
 </string>
-<string>
+		<string>
 (※)The dance together when people dance.
 
 
@@ -1206,7 +1200,7 @@ Germany proverb
 
 ※not original
 </string>
-<string>
+		<string>
 Eat to live, but do not live to eat.
 
 
@@ -1218,7 +1212,7 @@ Eat to live, but do not live to eat.
 British proverb
 イギリスのことわざ
 </string>
-<string>
+		<string>
 Looking at yourself is the hardest of all.
 Criticizing others is the easiest of all.
 
@@ -1230,7 +1224,7 @@ Criticizing others is the easiest of all.
 British proverb
 イギリスのことわざ
 </string>
-<string>
+		<string>
 When you give up dreaming, you are lost.
 
 夢見る気持ちを失った人は迷子である。
@@ -1240,7 +1234,7 @@ When you give up dreaming, you are lost.
 Aboriginal proverb
 アボリジニのことわざ
 </string>
-<string>
+		<string>
 Imitation is the sincerest form of flattery.
 
 真似することは心からの賛辞である。
@@ -1249,7 +1243,7 @@ Imitation is the sincerest form of flattery.
 
 Proverb(ことわざ)
 </string>
-<string>
+		<string>
 Love me little and love me long.
 
 少し愛して、長く愛して。
@@ -1258,10 +1252,9 @@ Love me little and love me long.
 
 Proverb(ことわざ)
 </string>
-</array>
-
-<array>
-<string>
+	</array>
+	<array>
+		<string>
 Dressing is a way of life.
 
 服装は生き方である。
@@ -1272,7 +1265,7 @@ Yves Saint-Laurent
 （イヴ・サン＝ローラン）
 （フランスのファッションデザイナー / 1936～2008）
 </string>
-<string>
+		<string>
 (※)At one time or another,
 a woman let me love a bad man in life.
 But why, is it can feel to thank
@@ -1292,7 +1285,7 @@ Marjorie Kinnan Rawlings
 
 ※not original
 </string>
-<string>
+		<string>
 (※)Because should be for yourself
 in your own life,
 waiting the prince riding a white horse
@@ -1312,7 +1305,7 @@ Cameron Michelle Diaz
 
 ※not original
 </string>
-<string>
+		<string>
 (※)The more who cried a lot
 eyes wash with tears,
 field of view becomes widely.
@@ -1329,7 +1322,7 @@ Dorothy Dix
 
 ※not original
 </string>
-<string>
+		<string>
 For attractive lips, speak words of kindness.
 For lovely eyes, seek out the good in people
 
@@ -1344,7 +1337,7 @@ Audrey Hepburn
 （オードリー・ヘップバーン）
 （英国の女優 / 1929～1993）
 </string>
-<string>
+		<string>
 Adornment, what a science!Beauty,
 what a weapon!Modesty, what elegance!
 
@@ -1358,7 +1351,7 @@ Coco Chanel
 （ココ・シャネル）
 （フランスの女性ファッションデザイナー / 1883～1971）
 </string>
-<string>
+		<string>
 (※)恋愛がうまく行かない時は、
 良い仕事が来るもの。
 幸せを全部手に入れようとしたら命と引き換え。
@@ -1373,7 +1366,7 @@ Coco Chanel
 
 ※No English
 </string>
-<string>
+		<string>
 Beautiful young people are accidents of nature,
 but beautiful old people are works of art.
 
@@ -1387,7 +1380,7 @@ Anna Eleanor Roosevelt
 （エレノア・ルーズベルト）
 （米国のファーストレディ、人権活動家、世界人権宣言の起草者 / 1884～1962）
 </string>
-<string>
+		<string>
 (※)Talking is the last refuge.
 
 
@@ -1403,7 +1396,7 @@ Zora Neale Hurston
 
 ※not original
 </string>
-<string>
+		<string>
 (※)Not only cleaning and cooking and child care,
 there are more important things in life.
 I do not want to send life
@@ -1422,10 +1415,10 @@ Margaret Hilda Thatcher
 
 ※not original
 </string>
-<string>
+		<string>
 People laughed at the way I dressed,
 but that was the secret of my success.
-I didn't look like anyone.
+I didn&apos;t look like anyone.
 
 
 みんな、私の着ているものを見て笑ったわ。
@@ -1437,7 +1430,7 @@ Coco Chanel
 （ココ・シャネル）
 （フランスの女性ファッションデザイナー / 1883～1971）
 </string>
-<string>
+		<string>
 (※)Woman, please independence.
 Stand on their feet.
 
@@ -1454,8 +1447,8 @@ Florence Nightingale
 
 ※not original
 </string>
-<string>
-I'm very definitely a woman and I enjoy it.
+		<string>
+I&apos;m very definitely a woman and I enjoy it.
 
 
 私は女だし、
@@ -1466,7 +1459,7 @@ Marilyn Monroe
 （マリリン・モンロー）
 （米国の女優 / 1926～1962）
 </string>
-<string>
+		<string>
 A woman without perfume
 is a woman without future.
 
@@ -1479,8 +1472,8 @@ Coco Chanel
 （ココ・シャネル）
 （フランスの女性ファッションデザイナー / 1883～1971）
 </string>
-<string>
-I don't want to make money,
+		<string>
+I don&apos;t want to make money,
 I just want to be wonderful.
 
 
@@ -1490,7 +1483,7 @@ Marilyn Monroe
 （マリリン・モンロー）
 （米国の女優 / 1926～1962）
 </string>
-<string>
+		<string>
 人から多くの好意を寄せられる人は、
 その分多くの嫉妬も受ける。
 美しく生まれた人にはそれがハンデとなる。
@@ -1504,10 +1497,9 @@ Marilyn Monroe
 
 ※No English
 </string>
-</array>
-
-<array>
-<string>
+	</array>
+	<array>
+		<string>
 All it takes is faith and trust.
 
 必要なのは、ただ信じる事さ。
@@ -1515,15 +1507,15 @@ All it takes is faith and trust.
 
 ピーター・パン
 </string>
-<string>
-They can't order me to stop dreaming.
+		<string>
+They can&apos;t order me to stop dreaming.
 
 夢を見ることは、誰にも止められないわ。
 
 
 シンデレラ
 </string>
-<string>
+		<string>
 If you keep on believing,
 the dreams that you wish will come true.
 
@@ -1532,8 +1524,8 @@ the dreams that you wish will come true.
 
 シンデレラ
 </string>
-<string>
-The world's a stage and
+		<string>
+The world&apos;s a stage and
 it is time for your debut.
 
 世界は君を待っているよ。
@@ -1541,7 +1533,7 @@ it is time for your debut.
 
 フィニアスとファーブ
 </string>
-<string>
+		<string>
 Always let your conscience be your guide.
 
 常に良心に従いなさい。
@@ -1549,7 +1541,7 @@ Always let your conscience be your guide.
 
 ピノキオ
 </string>
-<string>
+		<string>
 Do what you think is right.
 
 君が正しいと思うことをしろ。
@@ -1557,7 +1549,7 @@ Do what you think is right.
 
 ノートルダムの鐘
 </string>
-<string>
+		<string>
 The flower that blooms in adversity
 is the rarest and most beautiful of all.
 
@@ -1567,8 +1559,8 @@ is the rarest and most beautiful of all.
 
 ムーラン
 </string>
-<string>
-I know it's tough,
+		<string>
+I know it&apos;s tough,
 but heroes have to make the tough choices sometimes.
 悲しいことだが、ヒーローには
 辛い決断をしなければならん時もあるのだ。
@@ -1576,7 +1568,7 @@ but heroes have to make the tough choices sometimes.
 
 シュガー・ラッシュ
 </string>
-<string>
+		<string>
 Keep your chin up.
 Someday there will be happiness again.
 
@@ -1586,8 +1578,8 @@ Someday there will be happiness again.
 
 ロビン・フッド
 </string>
-<string>
-You're braver than you believe,
+		<string>
+You&apos;re braver than you believe,
 and stronger than you seem,
 and smarter than you think.
 
@@ -1597,7 +1589,7 @@ and smarter than you think.
 
 くまのプーさん
 </string>
-<string>
+		<string>
 All at once everything looks different,
 now that I see you.
 
@@ -1606,7 +1598,7 @@ now that I see you.
 
 塔の上のラプンツェル
 </string>
-<string>
+		<string>
 Lost forever if I never knew you.
 
 もしあなたと出会わなければ、
@@ -1615,7 +1607,7 @@ Lost forever if I never knew you.
 
 ポカホンタス
 </string>
-<string>
+		<string>
 Trust me!
 
 僕を信じて！
@@ -1623,7 +1615,7 @@ Trust me!
 
 アラジン
 </string>
-<string>
+		<string>
 It is not what is outside,
 but what is inside that counts!
 
@@ -1632,16 +1624,16 @@ but what is inside that counts!
 
 アラジン
 </string>
-<string>
-You're the one,
-the one that I've been looking for!
+		<string>
+You&apos;re the one,
+the one that I&apos;ve been looking for!
 
 君こそ、僕のずっと探し求めていた人だ！
 
 
 リトル・マーメイド
 </string>
-<string>
+		<string>
 Like a bolt out of the blue,
 Fate steps in and sees you through.
 
@@ -1650,14 +1642,14 @@ Fate steps in and sees you through.
 
 ピノキオ
 </string>
-<string>
+		<string>
 You are my new dream.
 君が僕の新しい夢だ。
 
 
 塔の上のラプンツェル
 </string>
-<string>
+		<string>
 Every hour we spent together,
 lives within my heart.
 
@@ -1667,17 +1659,17 @@ lives within my heart.
 
 トイ・ストーリ―2
 </string>
-<string>
-Sometimes it's better to be alone.
+		<string>
+Sometimes it&apos;s better to be alone.
 
 ひとりでいるほうが良かったりもするものよ。
 
 
 ヘラクレス
 </string>
-<string>
+		<string>
 All females is poison!
-They're full of wicked wiles!
+They&apos;re full of wicked wiles!
 
 女は有害だ！
 やつらは謀略に満ちあふれてる！
@@ -1685,8 +1677,8 @@ They're full of wicked wiles!
 
 白雪姫
 </string>
-<string>
-If there's a prize for rotten judgment,
+		<string>
+If there&apos;s a prize for rotten judgment,
 I guess I already won that.
 
 間違った判断だったの。
@@ -1695,7 +1687,7 @@ I guess I already won that.
 
 ヘラクレス
 </string>
-<string>
+		<string>
 Everybody deserves true love.
 
 誰だって真の愛に出会う資格はある。
@@ -1703,7 +1695,7 @@ Everybody deserves true love.
 
 シンデレラ3
 </string>
-<string>
+		<string>
 I let her go,
 ...because I love her!
 
@@ -1712,7 +1704,6 @@ I let her go,
 
 美女と野獣
 </string>
-</array>
-
+	</array>
 </array>
 </plist>

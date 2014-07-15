@@ -16,4 +16,5 @@
 }
 @property (weak, nonatomic) IBOutlet UIButton *backbutton;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
+@property (nonatomic,assign)NSInteger category_number;
 @end

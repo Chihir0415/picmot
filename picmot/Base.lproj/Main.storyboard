@@ -137,7 +137,6 @@
         <!--Navigation Controller - Mot-->
         <scene sceneID="RtD-60-8ok">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rWl-no-qkA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="UINavigationController" automaticallyAdjustsScrollViewInsets="NO" id="78p-XU-tmE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Mot" id="yCG-JG-0Pu"/>
                     <toolbarItems/>
@@ -154,6 +153,7 @@
                         <segue destination="UDW-Dw-C9E" kind="relationship" relationship="rootViewController" id="eSC-F7-taT"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rWl-no-qkA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-27" y="633"/>
         </scene>

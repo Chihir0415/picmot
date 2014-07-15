@@ -80,6 +80,9 @@
 		60DED49918E407CB0077C7A7 /* round41.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DED49418E407CB0077C7A7 /* round41.png */; };
 		751E50F4195A6D840059E8D5 /* slice1.png in Resources */ = {isa = PBXBuildFile; fileRef = 751E50F3195A6D840059E8D5 /* slice1.png */; };
 		751E50F6195A76340059E8D5 /* motList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 751E50F5195A76340059E8D5 /* motList.plist */; };
+		753C813A1975144600B817EB /* GBFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 753C81351975144600B817EB /* GBFlatButton.m */; };
+		753C813B1975144600B817EB /* GBFlatSelectableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 753C81371975144600B817EB /* GBFlatSelectableButton.m */; };
+		753C813C1975144600B817EB /* UIColor+GBFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 753C81391975144600B817EB /* UIColor+GBFlatButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +211,12 @@
 		60DED49418E407CB0077C7A7 /* round41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round41.png; sourceTree = "<group>"; };
 		751E50F3195A6D840059E8D5 /* slice1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slice1.png; sourceTree = "<group>"; };
 		751E50F5195A76340059E8D5 /* motList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = motList.plist; sourceTree = "<group>"; };
+		753C81341975144600B817EB /* GBFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBFlatButton.h; sourceTree = "<group>"; };
+		753C81351975144600B817EB /* GBFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBFlatButton.m; sourceTree = "<group>"; };
+		753C81361975144600B817EB /* GBFlatSelectableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBFlatSelectableButton.h; sourceTree = "<group>"; };
+		753C81371975144600B817EB /* GBFlatSelectableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBFlatSelectableButton.m; sourceTree = "<group>"; };
+		753C81381975144600B817EB /* UIColor+GBFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GBFlatButton.h"; sourceTree = "<group>"; };
+		753C81391975144600B817EB /* UIColor+GBFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GBFlatButton.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +295,7 @@
 				6006B6B118D044750046A82F /* MotTableViewController.m */,
 				6006B6B518D047570046A82F /* MotDetailViewController.h */,
 				6006B6B618D047570046A82F /* MotDetailViewController.m */,
+				753C81331975144600B817EB /* favoriteBtn */,
 				6006B61418CF48F70046A82F /* Images.xcassets */,
 				751E50F2195A6D840059E8D5 /* mot_img */,
 				6006B60318CF48F70046A82F /* Supporting Files */,
@@ -551,6 +561,19 @@
 			path = mot_img;
 			sourceTree = "<group>";
 		};
+		753C81331975144600B817EB /* favoriteBtn */ = {
+			isa = PBXGroup;
+			children = (
+				753C81341975144600B817EB /* GBFlatButton.h */,
+				753C81351975144600B817EB /* GBFlatButton.m */,
+				753C81361975144600B817EB /* GBFlatSelectableButton.h */,
+				753C81371975144600B817EB /* GBFlatSelectableButton.m */,
+				753C81381975144600B817EB /* UIColor+GBFlatButton.h */,
+				753C81391975144600B817EB /* UIColor+GBFlatButton.m */,
+			);
+			path = favoriteBtn;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -672,8 +695,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6006B6B718D047570046A82F /* MotDetailViewController.m in Sources */,
+				753C813C1975144600B817EB /* UIColor+GBFlatButton.m in Sources */,
 				6006B69718CF49450046A82F /* CLFilterBase.m in Sources */,
 				6006B68A18CF49450046A82F /* CLImageToolInfo.m in Sources */,
+				753C813B1975144600B817EB /* GBFlatSelectableButton.m in Sources */,
 				6006B68C18CF49450046A82F /* CLBlurTool.m in Sources */,
 				6006B69018CF49450046A82F /* CLHighlightShadowEffect.m in Sources */,
 				6006B61318CF48F70046A82F /* ViewController.m in Sources */,
@@ -706,6 +731,7 @@
 				6006B69418CF49450046A82F /* CLSpotEffect.m in Sources */,
 				6006B68818CF49450046A82F /* CLImageEditor.m in Sources */,
 				6006B69118CF49450046A82F /* CLHueEffect.m in Sources */,
+				753C813A1975144600B817EB /* GBFlatButton.m in Sources */,
 				6006B68F18CF49450046A82F /* CLGloomEffect.m in Sources */,
 				6006B69318CF49450046A82F /* CLPosterizeEffect.m in Sources */,
 				6006B69A18CF49450046A82F /* CLRotateTool.m in Sources */,
