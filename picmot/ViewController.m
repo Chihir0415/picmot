@@ -41,6 +41,16 @@
 
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"001.png"] drawInRect:self.view.bounds];
+    NSMutableArray *savephotos = [NSMutableArray array];
+    for (int i = 0; i <= 20; i++) {
+        UIImage *savedimage = [UIImage imageNamed:[NSString stringWithFormat:@"../Documents/Album/pic%d.jpg",i]];
+        if (savedimage != nil) {
+            [savephotos addObject:savedimage];
+        }
+    }
+
+    
+    
     UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
@@ -89,13 +99,16 @@
 
 - (void)pushedOldBtn
 {
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-        UIImagePickerController *library = [[UIImagePickerController alloc] init];
-        library.delegate = self;
-        library.allowsEditing = NO;
-        library.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:library  animated:YES completion: nil];
-    }
+    
+    UINavigationController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"UINavigationController2"];
+    [self presentViewController:nvc animated:YES completion:nil];
+//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+//        UIImagePickerController *library = [[UIImagePickerController alloc] init];
+//        library.delegate = self;
+//        library.allowsEditing = NO;
+//        library.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//        [self presentViewController:library  animated:YES completion: nil];
+//    }
 }
 
 - (void)pushedNewBtn

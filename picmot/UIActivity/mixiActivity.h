@@ -1,5 +1,5 @@
 //
-//  DCKakaoActivity.h
+//  mixiActivity.h
 //  picmot
 //
 //  Created by Chihiro Murata on 2014/07/03.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DCKakaoActivity : UIActivity
+@interface mixiActivity : UIActivity
 
 @end

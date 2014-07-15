@@ -1,15 +1,14 @@
 //
-//  DCKakaoActivity.m
+//  InstagramActivity.m
 //  picmot
 //
 //  Created by Chihiro Murata on 2014/07/03.
 //  Copyright (c) 2014年 Chihiro Murata. All rights reserved.
 //
 
+#import "InstagramActivity.h"
 
-#import "DCKakaoActivity.h"
-
-@implementation DCKakaoActivity
+@implementation InstagramActivity
 
 + (UIActivityCategory)activityCategory
 {
@@ -17,15 +16,15 @@
 }
 
 - (NSString *)activityType {
-    return @"MBKakaoActivity";
+    return @"UIActivityTypePostToInstagram";
 }
 
 - (UIImage *)_activityImage {
-    return [UIImage imageNamed:@"icon_kakao"];
+    return [UIImage imageNamed:@"instagram.jpeg"];
 }
 
 - (NSString *)activityTitle {
-    return @"KakaoTalk";
+    return @"Instagram";
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems {
@@ -39,34 +38,34 @@
 
 - (void)prepareWithActivityItems:(NSArray *)activityItems {
     for (id activityItem in activityItems) {
-        if ([self openKakaoWithItem:activityItem]) {
+        if ([self openInstagramWithItem:activityItem]) {
             break;
         }
     }
 }
 
-- (BOOL)isUsableKakao
+- (BOOL)isUsableINSTAGRAM
 {
-    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"kakaolink://"]];
+    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"instagram://"]];
 }
 
-- (void)openKakaoOnITunes
+- (void)openINSTAGRAMOnITunes
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/kakaotalk-messenger/id362057947?mt=8"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/instagram/id389801252?mt=8"]];
 }
 
 
-- (BOOL)openKakaoWithItem:(id)item {
+- (BOOL)openInstagramWithItem:(id)item {
     
-    if (![self isUsableKakao]) {
-        [self openKakaoOnITunes];
+    if (![self isUsableINSTAGRAM]) {
+        [self openINSTAGRAMOnITunes];
         return NO;
     }
     
-    NSString *kakaoURLString = nil;
+    NSString *instagramURLString = nil;
     if ([item isKindOfClass:[NSString class]]) {
         NSString *urlEncodeString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL, (CFStringRef)item, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 ));
-        kakaoURLString = [NSString stringWithFormat:@"kakaolink://msg/text/%@", urlEncodeString];
+        instagramURLString = [NSString stringWithFormat:@"instagram://msg/text/%@", urlEncodeString];
     } else if ([item isKindOfClass:[UIImage class]]) {
         UIPasteboard *pasteboard;
         if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending) {
@@ -75,16 +74,15 @@
             pasteboard = [UIPasteboard pasteboardWithUniqueName];
         }
         [pasteboard setData:UIImagePNGRepresentation(item) forPasteboardType:@"public.png"];
-        kakaoURLString = [NSString stringWithFormat:@"kakaolink://msg/image/%@", pasteboard.name];
+        instagramURLString = [NSString stringWithFormat:@"instagram://msg/image/%@", pasteboard.name];
     } else {
         return NO;
     }
     
-    NSURL *kakaotalk = [NSURL URLWithString:kakaoURLString];
-    [[UIApplication sharedApplication] openURL:kakaotalk];
+    NSURL *INSTAGRAMURL = [NSURL URLWithString:instagramURLString];
+    [[UIApplication sharedApplication] openURL:INSTAGRAMURL];
     return YES;
-    
-    
+
 }
 
 @end

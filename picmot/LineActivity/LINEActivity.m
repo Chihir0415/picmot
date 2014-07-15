@@ -9,6 +9,11 @@
 
 @implementation LINEActivity
 
++ (UIActivityCategory)activityCategory
+{
+    return UIActivityCategoryShare;
+}
+
 - (NSString *)activityType {
     return @"jp.naver.LINEActivity";
 }

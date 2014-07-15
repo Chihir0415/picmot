@@ -1,31 +1,29 @@
 //
-//  DCKakaoActivity.m
+//  flickrActivity.m
 //  picmot
 //
 //  Created by Chihiro Murata on 2014/07/03.
 //  Copyright (c) 2014年 Chihiro Murata. All rights reserved.
 //
 
+#import "flickrActivity.h"
 
-#import "DCKakaoActivity.h"
-
-@implementation DCKakaoActivity
-
+@implementation flickrActivity
 + (UIActivityCategory)activityCategory
 {
     return UIActivityCategoryShare;
 }
 
 - (NSString *)activityType {
-    return @"MBKakaoActivity";
+    return @"FlickrActivity";
 }
 
 - (UIImage *)_activityImage {
-    return [UIImage imageNamed:@"icon_kakao"];
+    return [UIImage imageNamed:@"flickr_icon"];
 }
 
 - (NSString *)activityTitle {
-    return @"KakaoTalk";
+    return @"Flickr";
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems {
@@ -39,34 +37,34 @@
 
 - (void)prepareWithActivityItems:(NSArray *)activityItems {
     for (id activityItem in activityItems) {
-        if ([self openKakaoWithItem:activityItem]) {
+        if ([self openFlickrWithItem:activityItem]) {
             break;
         }
     }
 }
 
-- (BOOL)isUsableKakao
+- (BOOL)isUsableFlickr
 {
-    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"kakaolink://"]];
+    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"flickr://"]];
 }
 
-- (void)openKakaoOnITunes
+- (void)openFlickrOnITunes
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/kakaotalk-messenger/id362057947?mt=8"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/flickr/id328407587?ls=1&mt=8"]];
 }
 
 
-- (BOOL)openKakaoWithItem:(id)item {
+- (BOOL)openFlickrWithItem:(id)item {
     
-    if (![self isUsableKakao]) {
-        [self openKakaoOnITunes];
+    if (![self isUsableFlickr]) {
+        [self openFlickrOnITunes];
         return NO;
     }
     
-    NSString *kakaoURLString = nil;
+    NSString *FlickrURLString = nil;
     if ([item isKindOfClass:[NSString class]]) {
         NSString *urlEncodeString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL, (CFStringRef)item, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 ));
-        kakaoURLString = [NSString stringWithFormat:@"kakaolink://msg/text/%@", urlEncodeString];
+        FlickrURLString = [NSString stringWithFormat:@"flickr://msg/text/%@", urlEncodeString];
     } else if ([item isKindOfClass:[UIImage class]]) {
         UIPasteboard *pasteboard;
         if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending) {
@@ -75,15 +73,14 @@
             pasteboard = [UIPasteboard pasteboardWithUniqueName];
         }
         [pasteboard setData:UIImagePNGRepresentation(item) forPasteboardType:@"public.png"];
-        kakaoURLString = [NSString stringWithFormat:@"kakaolink://msg/image/%@", pasteboard.name];
+        FlickrURLString = [NSString stringWithFormat:@"flickr://msg/image/%@", pasteboard.name];
     } else {
         return NO;
     }
     
-    NSURL *kakaotalk = [NSURL URLWithString:kakaoURLString];
-    [[UIApplication sharedApplication] openURL:kakaotalk];
+    NSURL *FlickrURL = [NSURL URLWithString:FlickrURLString];
+    [[UIApplication sharedApplication] openURL:FlickrURL];
     return YES;
-    
     
 }
 

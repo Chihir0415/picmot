@@ -8,6 +8,10 @@
 #import "_CLImageEditorViewController.h"
 #import "LINEActivity.h"
 #import "DCKakaoActivity.h"
+#import "InstagramActivity.h"
+#import "mixiActivity.h"
+#import "flickrActivity.h"
+#import "SelfActivity.h"
 #import "CLImageToolBase.h"
 
 
@@ -588,39 +592,16 @@
 
 - (void)pushedFinishBtn:(id)sender
 {
- 
-//    // ModalViewController生成
-//    SaveModalViewController *savemodalViewController;
-//    savemodalViewController = [[SaveModalViewController alloc]
-//                               initWithNibName:@"SaveModalViewController" bundle:nil];
-//
-//    //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    
-////    SaveModalViewController *savemodalViewController = [storyboard instantiateViewControllerWithIdentifier:@"SaveModalViewController"];
-//   
-//    savemodalViewController.modalPresentationStyle = UIModalPresentationFormSheet;
-//    // 浮かびあがってくるスタイル
-//    savemodalViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//    // モーダルを表示
-//    [self presentViewController:savemodalViewController animated:YES completion:nil];
-//    //モーダルビューのサイズ変更
-//    savemodalViewController.view.superview.frame = CGRectMake(70, 90, 180, 330);
-    
-    
     
     //edit後のsaveを押した画面
     if(_imageView.image){
         
-        //LINE用
-        //NSArray *activityItems = @[item];
-        NSArray *applicationActivities = @[[[LINEActivity alloc] init],[[DCKakaoActivity alloc] init]];
         
-        //kakao talk用
-        //NSArray *kakao = @[[[DCKakaoActivity alloc] init]];
+        //LINE、kakao talk、instagram、mixi、flickr用
+        NSArray *applicationActivities = @[[[LINEActivity alloc] init],[[InstagramActivity alloc] init],[[DCKakaoActivity alloc] init],[[mixiActivity alloc] init],[[flickrActivity alloc] init],[[SelfActivity alloc] init]];
         
         
-        
-        NSArray *excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMessage,UIActivityTypePostToTencentWeibo,UIActivityTypePostToFlickr];
+        NSArray *excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard,UIActivityTypePostToFlickr,UIActivityTypePrint];
         
         UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[_imageView.image,] applicationActivities:applicationActivities];
         
@@ -634,26 +615,13 @@
         
         [self presentViewController:activityView animated:YES completion:nil];
     }
-//    else{
-//        [self pushedNewBtn];
-//    }
-//
-//
-//    if(self.initialImageViewState==nil){
-//        if([self.delegate respondsToSelector:@selector(imageEditor:didFinishEdittingWithImage:)]){
-//            [self.delegate imageEditor:self didFinishEdittingWithImage:_originalImage];
-//        }
-//        else{
-//            [self dismissViewControllerAnimated:YES completion:nil];
-//        }
-//    }
-//    else{
-//        _imageView.image = _originalImage;
-//        [self restoreImageView:NO];
-//    }
+
+
 }
 
+
 #pragma mark- ScrollView delegate
+
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
