@@ -182,7 +182,7 @@
         // UserDefaultから取ってきたデータをfavListに入れる
         NSArray* favList = [favDefault arrayForKey:@"favorite_key"];
         NSLog(@"%@", favList);
-        
+        [favDefault synchronize];
         [_tableview deselectRowAtIndexPath:indexPath animated:YES];
         FavoriteViewController* fdvc = [self.storyboard instantiateViewControllerWithIdentifier:@"FavoriteViewController"];
         fdvc.str = favList[indexPath.row];
@@ -193,7 +193,7 @@
         
         
         
-        [favDefault synchronize];
+        
         
     } else {
         

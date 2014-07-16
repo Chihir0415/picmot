@@ -38,6 +38,13 @@
 {
     [super viewDidLoad];
     
+    favDefault = [NSUserDefaults standardUserDefaults];
+    favList = [favDefault arrayForKey:@"favorite_key"];
+    NSLog(@"favList %@", favList);
+    
+    
+    [favDefault synchronize];
+    
     _currentPage = 0;
     
     UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
@@ -57,9 +64,7 @@
     UIView* view[n];
     UITextView* textView[n];
     for (int i = 0; i < n; i++) {
-        favDefault = [NSUserDefaults standardUserDefaults];
-        favList = [favDefault arrayForKey:@"favorite_key"];
-        NSLog(@"naw %@", favList);
+        
         
         view[i] = [[UIView alloc] init];
         view[i].tag = i;
@@ -68,7 +73,7 @@
         textView[i].tag = i;
         textView[i].frame =CGRectMake(320 * i, 100, s.width, s.height-130);
         textView[i].font = [UIFont systemFontOfSize:14];
-        textView[i].text = favList[_i][i];
+        textView[i].text = motList[_i][i];
         textView[i].textAlignment = NSTextAlignmentCenter;
         
         // view[i].backgroundColor = [UIColor clearColor];
@@ -76,7 +81,7 @@
         
         [contentView addSubview:view[i]];
         [contentView addSubview:textView[i]];
-        [favDefault synchronize];
+        
     }
     
     // スクロールViewにコンテンツViewを追加する。
@@ -90,19 +95,23 @@
     //scrollView.contentOffset = CGPointMake(320, 0);
     scrollView.contentOffset = CGPointMake(0, 0);
     
-    // FavoriteBtn / ToolBarを生成
-    motTool = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 44, 320, 44)];
-    [self.view addSubview:motTool];
     
-    
-
 }
 
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGPoint offset = scrollView.contentOffset;
+    int page = (offset.x + 160)/320;
+    if (_currentPage != page) {
+        _currentPage = page;
+        NSLog(@"%d", _currentPage);
+    }
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 /*
 #pragma mark - Navigation
