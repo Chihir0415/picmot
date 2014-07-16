@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1519F0601974A73A006FBA84 /* StickerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1519F05F1974A73A006FBA84 /* StickerDetailViewController.m */; };
+		1519F0631974A754006FBA84 /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1519F0621974A754006FBA84 /* DownloadViewController.m */; };
+		1519F0661974A770006FBA84 /* DownloadpageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1519F0651974A770006FBA84 /* DownloadpageViewController.m */; };
+		15CFAA6919628C7200889EED /* ServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CFAA6819628C7200889EED /* ServerViewController.m */; };
+		15F140081975232400C147AE /* ChangeLogUnzip in Resources */ = {isa = PBXBuildFile; fileRef = 15F13FFD1975232400C147AE /* ChangeLogUnzip */; };
+		15F140091975232400C147AE /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 15F13FFF1975232400C147AE /* ioapi.c */; };
+		15F1400A1975232400C147AE /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 15F140011975232400C147AE /* Makefile */; };
+		15F1400B1975232400C147AE /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 15F140021975232400C147AE /* mztools.c */; };
+		15F1400C1975232400C147AE /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 15F140041975232400C147AE /* unzip.c */; };
+		15F1400D1975232400C147AE /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 15F140061975232400C147AE /* zip.c */; };
+		15F140101975233300C147AE /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15F1400F1975233300C147AE /* ZipArchive.mm */; };
+		15F140121975239900C147AE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F140111975239900C147AE /* libz.dylib */; };
+		15F1401F19757C9200C147AE /* 1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 15F1401B19757C9200C147AE /* 1.txt */; };
+		15F1402019757C9200C147AE /* 2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 15F1401C19757C9200C147AE /* 2.txt */; };
+		15F1402119757C9200C147AE /* 3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 15F1401D19757C9200C147AE /* 3.txt */; };
+		15F1402219757C9200C147AE /* 4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 15F1401E19757C9200C147AE /* 4.txt */; };
 		6006B5FD18CF48F70046A82F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6006B5FC18CF48F70046A82F /* Foundation.framework */; };
 		6006B5FF18CF48F70046A82F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6006B5FE18CF48F70046A82F /* CoreGraphics.framework */; };
 		6006B60118CF48F70046A82F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6006B60018CF48F70046A82F /* UIKit.framework */; };
@@ -91,6 +107,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1519F05E1974A73A006FBA84 /* StickerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerDetailViewController.h; sourceTree = "<group>"; };
+		1519F05F1974A73A006FBA84 /* StickerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerDetailViewController.m; sourceTree = "<group>"; };
+		1519F0611974A754006FBA84 /* DownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
+		1519F0621974A754006FBA84 /* DownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
+		1519F0641974A770006FBA84 /* DownloadpageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadpageViewController.h; sourceTree = "<group>"; };
+		1519F0651974A770006FBA84 /* DownloadpageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadpageViewController.m; sourceTree = "<group>"; };
+		15CFAA6719628C7200889EED /* ServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerViewController.h; sourceTree = "<group>"; };
+		15CFAA6819628C7200889EED /* ServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerViewController.m; sourceTree = "<group>"; };
+		15F13FFD1975232400C147AE /* ChangeLogUnzip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChangeLogUnzip; sourceTree = "<group>"; };
+		15F13FFE1975232400C147AE /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		15F13FFF1975232400C147AE /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		15F140001975232400C147AE /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		15F140011975232400C147AE /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		15F140021975232400C147AE /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		15F140031975232400C147AE /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		15F140041975232400C147AE /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		15F140051975232400C147AE /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		15F140061975232400C147AE /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		15F140071975232400C147AE /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		15F1400E1975233300C147AE /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZipArchive.h; path = ziparchive/ZipArchive.h; sourceTree = "<group>"; };
+		15F1400F1975233300C147AE /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ZipArchive.mm; path = ziparchive/ZipArchive.mm; sourceTree = "<group>"; };
+		15F140111975239900C147AE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		15F1401B19757C9200C147AE /* 1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.txt; sourceTree = "<group>"; };
+		15F1401C19757C9200C147AE /* 2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2.txt; sourceTree = "<group>"; };
+		15F1401D19757C9200C147AE /* 3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3.txt; sourceTree = "<group>"; };
+		15F1401E19757C9200C147AE /* 4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 4.txt; sourceTree = "<group>"; };
 		6006B5F918CF48F70046A82F /* picmot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = picmot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6006B5FC18CF48F70046A82F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6006B5FE18CF48F70046A82F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -211,6 +253,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15F140121975239900C147AE /* libz.dylib in Frameworks */,
 				608E489C18EA85C100DA0FC7 /* QuartzCore.framework in Frameworks */,
 				6006B6AF18CF499A0046A82F /* AVFoundation.framework in Frameworks */,
 				6006B6AD18CF49870046A82F /* CoreImage.framework in Frameworks */,
@@ -234,6 +277,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15F13FFC1975232400C147AE /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				15F13FFD1975232400C147AE /* ChangeLogUnzip */,
+				15F13FFE1975232400C147AE /* crypt.h */,
+				15F13FFF1975232400C147AE /* ioapi.c */,
+				15F140001975232400C147AE /* ioapi.h */,
+				15F140011975232400C147AE /* Makefile */,
+				15F140021975232400C147AE /* mztools.c */,
+				15F140031975232400C147AE /* mztools.h */,
+				15F140041975232400C147AE /* unzip.c */,
+				15F140051975232400C147AE /* unzip.h */,
+				15F140061975232400C147AE /* zip.c */,
+				15F140071975232400C147AE /* zip.h */,
+			);
+			name = minizip;
+			path = ziparchive/minizip;
+			sourceTree = "<group>";
+		};
 		6006B5F018CF48F70046A82F = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +320,7 @@
 		6006B5FB18CF48F70046A82F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				15F140111975239900C147AE /* libz.dylib */,
 				608E489B18EA85C100DA0FC7 /* QuartzCore.framework */,
 				6006B6AE18CF499A0046A82F /* AVFoundation.framework */,
 				6006B6AC18CF49870046A82F /* CoreImage.framework */,
@@ -273,6 +336,9 @@
 		6006B60218CF48F70046A82F /* picmot */ = {
 			isa = PBXGroup;
 			children = (
+				15F1400E1975233300C147AE /* ZipArchive.h */,
+				15F1400F1975233300C147AE /* ZipArchive.mm */,
+				15F13FFC1975232400C147AE /* minizip */,
 				6006B60E18CF48F70046A82F /* Main.storyboard */,
 				6006B60B18CF48F70046A82F /* AppDelegate.h */,
 				6006B60C18CF48F70046A82F /* AppDelegate.m */,
@@ -282,6 +348,14 @@
 				6006B6B118D044750046A82F /* MotTableViewController.m */,
 				6006B6B518D047570046A82F /* MotDetailViewController.h */,
 				6006B6B618D047570046A82F /* MotDetailViewController.m */,
+				15CFAA6719628C7200889EED /* ServerViewController.h */,
+				15CFAA6819628C7200889EED /* ServerViewController.m */,
+				1519F05E1974A73A006FBA84 /* StickerDetailViewController.h */,
+				1519F05F1974A73A006FBA84 /* StickerDetailViewController.m */,
+				1519F0611974A754006FBA84 /* DownloadViewController.h */,
+				1519F0621974A754006FBA84 /* DownloadViewController.m */,
+				1519F0641974A770006FBA84 /* DownloadpageViewController.h */,
+				1519F0651974A770006FBA84 /* DownloadpageViewController.m */,
 				6006B61418CF48F70046A82F /* Images.xcassets */,
 				6006B60318CF48F70046A82F /* Supporting Files */,
 			);
@@ -517,6 +591,10 @@
 		60DED48D18E3FE960077C7A7 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				15F1401B19757C9200C147AE /* 1.txt */,
+				15F1401C19757C9200C147AE /* 2.txt */,
+				15F1401D19757C9200C147AE /* 3.txt */,
+				15F1401E19757C9200C147AE /* 4.txt */,
 				60A4591318ED27B500220A3B /*  icon1.png */,
 				60A4591418ED27B500220A3B /*  icon2.png */,
 				60A4591518ED27B500220A3B /*  icon3.png */,
@@ -618,10 +696,12 @@
 			files = (
 				6006B61518CF48F70046A82F /* Images.xcassets in Resources */,
 				60A4591B18ED27B500220A3B /*  icon3.png in Resources */,
+				15F1402119757C9200C147AE /* 3.txt in Resources */,
 				6006B68718CF49450046A82F /* CLImageEditor.bundle in Resources */,
 				60DED49818E407CB0077C7A7 /* pencil32.png in Resources */,
 				60C4287418EAAE600029FB7A /* 001.png in Resources */,
 				60A4591C18ED27B500220A3B /*  icon4.png in Resources */,
+				15F140081975232400C147AE /* ChangeLogUnzip in Resources */,
 				60DED49918E407CB0077C7A7 /* round41.png in Resources */,
 				60DED49718E407CB0077C7A7 /* film40.png in Resources */,
 				60DED49618E407CB0077C7A7 /* camera44.png in Resources */,
@@ -632,9 +712,12 @@
 				60A4591218ED268C00220A3B /* Default@2x.png in Resources */,
 				60A4591A18ED27B500220A3B /*  icon2.png in Resources */,
 				60A4591018ED268C00220A3B /* Default-568h@2x.png in Resources */,
+				15F1401F19757C9200C147AE /* 1.txt in Resources */,
+				15F1402219757C9200C147AE /* 4.txt in Resources */,
 				60A4591E18ED27B500220A3B /*  icon6.png in Resources */,
 				6006B6A718CF49450046A82F /* _CLImageEditorViewController.xib in Resources */,
 				6006B6B418D046150046A82F /* pic01.jpg in Resources */,
+				15F1402019757C9200C147AE /* 2.txt in Resources */,
 				60C4287618EAB11B0029FB7A /* check30.png in Resources */,
 				60A4591118ED268C00220A3B /* Default.png in Resources */,
 			);
@@ -655,24 +738,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15F140091975232400C147AE /* ioapi.c in Sources */,
 				6006B6B718D047570046A82F /* MotDetailViewController.m in Sources */,
 				6006B69718CF49450046A82F /* CLFilterBase.m in Sources */,
 				6006B68A18CF49450046A82F /* CLImageToolInfo.m in Sources */,
 				6006B68C18CF49450046A82F /* CLBlurTool.m in Sources */,
 				6006B69018CF49450046A82F /* CLHighlightShadowEffect.m in Sources */,
+				15F1400D1975232400C147AE /* zip.c in Sources */,
 				6006B61318CF48F70046A82F /* ViewController.m in Sources */,
 				6006B69C18CF49450046A82F /* CLCircleView.m in Sources */,
 				6006B68B18CF49450046A82F /* CLAdjustmentTool.m in Sources */,
+				15F140101975233300C147AE /* ZipArchive.mm in Sources */,
 				6006B69D18CF49450046A82F /* CLImageEditorTheme+Private.m in Sources */,
 				6006B60D18CF48F70046A82F /* AppDelegate.m in Sources */,
 				6006B69518CF49450046A82F /* CLEffectBase.m in Sources */,
 				6006B69F18CF49450046A82F /* CLToolbarMenuItem.m in Sources */,
 				6006B6A018CF49450046A82F /* UIView+CLImageToolInfo.m in Sources */,
+				15F1400A1975232400C147AE /* Makefile in Sources */,
 				6006B6A918CF49450046A82F /* CLStickerTool.m in Sources */,
 				6006B6A618CF49450046A82F /* _CLImageEditorViewController.m in Sources */,
+				1519F0601974A73A006FBA84 /* StickerDetailViewController.m in Sources */,
 				6006B6A418CF49450046A82F /* UIImage+Utility.m in Sources */,
 				6006B69618CF49450046A82F /* CLEffectTool.m in Sources */,
 				6006B69918CF49450046A82F /* CLImageToolBase.m in Sources */,
+				15CFAA6919628C7200889EED /* ServerViewController.m in Sources */,
 				6006B6B218D044750046A82F /* MotTableViewController.m in Sources */,
 				6006B6A218CF49450046A82F /* CLSplineInterpolator.m in Sources */,
 				6006B68E18CF49450046A82F /* CLBloomEffect.m in Sources */,
@@ -680,18 +769,22 @@
 				6006B6A818CF49450046A82F /* CLResizeTool.m in Sources */,
 				6006B6A118CF49450046A82F /* CLClassList.m in Sources */,
 				6006B6A318CF49450046A82F /* UIDevice+SystemVersion.m in Sources */,
+				15F1400B1975232400C147AE /* mztools.c in Sources */,
 				6006B69218CF49450046A82F /* CLPixellateEffect.m in Sources */,
 				6006B6A518CF49450046A82F /* UIView+Frame.m in Sources */,
 				6006B69818CF49450046A82F /* CLFilterTool.m in Sources */,
 				6006B68918CF49450046A82F /* CLImageEditorTheme.m in Sources */,
 				6006B60918CF48F70046A82F /* main.m in Sources */,
 				6006B69E18CF49450046A82F /* CLImageToolInfo+Private.m in Sources */,
+				1519F0631974A754006FBA84 /* DownloadViewController.m in Sources */,
 				6006B69B18CF49450046A82F /* CLToneCurveTool.m in Sources */,
+				1519F0661974A770006FBA84 /* DownloadpageViewController.m in Sources */,
 				6006B69418CF49450046A82F /* CLSpotEffect.m in Sources */,
 				6006B68818CF49450046A82F /* CLImageEditor.m in Sources */,
 				6006B69118CF49450046A82F /* CLHueEffect.m in Sources */,
 				6006B68F18CF49450046A82F /* CLGloomEffect.m in Sources */,
 				6006B69318CF49450046A82F /* CLPosterizeEffect.m in Sources */,
+				15F1400C1975232400C147AE /* unzip.c in Sources */,
 				6006B69A18CF49450046A82F /* CLRotateTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

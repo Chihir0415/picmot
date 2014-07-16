@@ -7,6 +7,8 @@
 
 #import "CLImageToolBase.h"
 
+#import "_CLImageEditorViewController.h"
+
 @interface CLStickerTool : CLImageToolBase
 
 @end
