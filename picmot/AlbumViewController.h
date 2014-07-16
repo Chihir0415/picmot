@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlbumViewController :  UICollectionViewController
 
+@interface AlbumViewController :  UICollectionViewController
 
 @end

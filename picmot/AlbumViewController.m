@@ -7,6 +7,7 @@
 //
 
 #import "AlbumViewController.h"
+#import "AppDelegate.h"
 #import "DetailAlbumViewController.h"
 #import "CollectionCell.h"
 #import "SelfActivity.h"
@@ -14,6 +15,8 @@
 
 @interface AlbumViewController (){
     NSMutableArray *_objects;
+    NSArray *_numArr;
+    int u;
 }
 
 @property (nonatomic, strong) NSArray *photos;
@@ -36,47 +39,40 @@
     [super awakeFromNib];
 }
 
-- (void)viewDidLoad
+-(void)loadSaveAlbum
 {
-    [super viewDidLoad];
     
-    SelfActivity *selfact = [[SelfActivity alloc]init];
-    selfact.imagedata = [NSData dataWithContentsOfFile:selfact.imagestr];
-    NSString *homeDir =[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Album"];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error;
-    NSArray *list = [fileManager contentsOfDirectoryAtPath:homeDir
-                                                     error:&error];
+    //SelfActivityで設定したuserDefaultを引っ張ってくる
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSInteger num = [ud integerForKey:@"savepic"];
     
-    int n = (int)[list count];
-    NSLog(@"%d",n);
-    
-//    selfact.namecount = (int)[selfact.userD integerForKey:@"savepic"];
-//    [selfact.userD synchronize];
-    
-//    NSLog(@"%d",selfact.namecount);
-    
-    NSMutableArray *savephotos = [NSMutableArray array];
-    for (int i = 0; i <= 20; i++) {
-            UIImage *savedimage = [UIImage imageNamed:[NSString stringWithFormat:@"../Documents/Album/pic%d.jpg",i]];
-            if (savedimage != nil) {
-                [savephotos addObject:savedimage];
-            }
+    NSMutableArray *_imgNumArr = [[NSMutableArray alloc]init];
+    NSMutableArray *savephotos = [[NSMutableArray alloc]init];
+    for (u = 0; u <= num; u++) {
+        UIImage *savedimage = [UIImage imageNamed:[NSString stringWithFormat:@"../Documents/Album/pic%d.jpg",u]];
+        if (savedimage != nil) {
+            [_imgNumArr addObject:[NSNumber numberWithInt:u]];
+            [savephotos addObject:savedimage];
+        }
     }
+    _numArr = _imgNumArr;
+    NSLog(@"arr2 = %@",_numArr);
     self.photos = @[savephotos];
     _objects = savephotos;
     
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CollectionViewCell"];
     
     
-    // ナビゲーションバーの色を変更
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewDidLoad
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewDidLoad];
+    
+    [self loadSaveAlbum];
+    
+    // ナビゲーションバーの色を変更
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 }
 
 #pragma mark - Table View
@@ -90,24 +86,13 @@
 {
     // セクション内のアイテム数をカウント
     return [[self.photos objectAtIndex:section] count];
-    
-    
+        
     //return _objects.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-//    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewCell" forIndexPath:indexPath];
-//    
-//    UIImageView *imgView = [[UIImageView alloc] initWithImage:[[self.photos objectAtIndex:indexPath.section] objectAtIndex:indexPath.item]];
-//    imgView.frame = CGRectMake(3.0, 3.0, 100.0, 100.0);
-//    
-//    // cellにimgViewをセット
-//    [cell addSubview:imgView];
-    
     CollectionCell *cell = (CollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    
     [cell setImage:[_objects objectAtIndex:indexPath.item]];
     return cell;
 }
@@ -124,8 +109,32 @@
     if ([[segue identifier] isEqualToString:@"goDetail"]) {
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
         UIImage *img = _objects[indexPath.row];
+        NSLog(@"indexpath = %ld",(long)indexPath.row);
         [[segue destinationViewController] setDetailItem:img];
+
+        DetailAlbumViewController *davc = [segue destinationViewController];
+        NSInteger num = [[_numArr objectAtIndex:indexPath.row] integerValue];
+        davc.i = num;
         
-    }
+//        DetailAlbumViewController *davc = [[DetailAlbumViewController alloc]init];
+//        davc.i = [[_numArr objectAtIndex:indexPath.row] intValue];
+        
+        
+        }
 }
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    
+    [self.collectionView reloadData];
+
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
 @end

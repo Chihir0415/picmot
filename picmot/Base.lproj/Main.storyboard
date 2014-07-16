@@ -20,7 +20,7 @@
                                 <rect key="frame" x="20" y="25" width="280" height="378"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic01.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="D0k-v4-jhS">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D0k-v4-jhS">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="378"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
@@ -286,7 +286,6 @@
         <image name="check30.png" width="50" height="32"/>
         <image name="film40.png" width="30" height="30"/>
         <image name="pencil32.png" width="35" height="35"/>
-        <image name="pic01.jpg" width="500" height="668"/>
         <image name="round41.png" width="35" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

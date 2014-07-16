@@ -12,7 +12,7 @@
 
 @property (nonatomic,retain)NSString *imagestr;
 @property (nonatomic,retain)NSData *imagedata;
-@property (nonatomic,retain)NSUserDefaults *userD;
+@property (nonatomic,retain)NSUserDefaults *userDefault;
 @property int namecount;
 
 @end

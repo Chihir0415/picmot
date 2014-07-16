@@ -11,6 +11,7 @@
 @interface DetailAlbumViewController : UIViewController
 
 @property (strong, nonatomic) id detailItem;
+@property (nonatomic,assign)NSInteger i;
 
 @property (weak, nonatomic) IBOutlet UIImageView *detailImageView;
 - (IBAction)shereBtn:(id)sender;

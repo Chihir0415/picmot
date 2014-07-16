@@ -12,5 +12,6 @@
 {
     IBOutlet UIImageView *imageview;
 }
+
 - (void)setImage:(UIImage *)image;
 @end

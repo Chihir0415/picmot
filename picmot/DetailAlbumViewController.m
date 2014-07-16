@@ -30,7 +30,12 @@
         [self configureView];
     }
 }
-
+/*
+-(void)setI:(NSInteger)i
+{
+    _i = i;
+}
+*/
 - (void)configureView
 {
     // Update the user interface for the detail item.
@@ -38,6 +43,10 @@
     if (self.detailItem) {
         _detailImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.detailImageView.contentMode = UIViewContentModeScaleAspectFit;
+//        self.detailImageView.userInteractionEnabled = YES;
+//        //タグを設定する。
+//        self.detailImageView.tag = _i;
+//        NSLog(@"imgview = %ld",(long)_i);
         self.detailImageView.image = (UIImage*)_detailItem;
                
     }
@@ -48,6 +57,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    NSLog(@"tap = %ld",(long)_i);
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,13 +92,17 @@
 - (IBAction)deleteBtu:(id)sender {
     
     
-//    NSFileManager *fileManager = [NSFileManager defaultManager];
-//    NSString *itemPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Album"] stringByAppendingPathComponent:@"pic%d.jpg",i];
-//    
-//    // ファイルやディレクトリの削除
-//    [fileManager removeItemAtPath: itemPath // (NSString*) 削除したいアイテムのパス
-//                            error: NULL];   // (NSError**) エラー
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *imagePath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Album"] stringByAppendingPathComponent:[NSString stringWithFormat:@"pic%ld.jpg",(long)_i]];
     
+    // ファイルやディレクトリの削除
+    [fileManager removeItemAtPath: imagePath // (NSString*) 削除したいアイテムのパス
+                            error: NULL];   // (NSError**) エラー
+    
+   
+   
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete successfully" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
     
     
 }

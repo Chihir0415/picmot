@@ -7,7 +7,9 @@
 //
 
 #import "SelfActivity.h"
+#import "AppDelegate.h"
 #import "_CLImageEditorViewController.h"
+#import "AlbumViewController.h"
 
 @implementation SelfActivity
 
@@ -66,16 +68,13 @@
     // ここのUIImageJPEGRepresentationがミソ
     _imagedata = UIImageJPEGRepresentation(item, 0.8f);
     
-    _userD = [NSUserDefaults standardUserDefaults];
-    //[userD setInteger:i++ forKey:@"savepic"];
-    [_userD setInteger:([_userD integerForKey:@"savepic"]+1) forKey:@"savepic"];
-
-    _namecount = (int)[_userD integerForKey:@"savepic"];
-    [_userD synchronize];
+    _userDefault = [NSUserDefaults standardUserDefaults];
+    [_userDefault setInteger:([_userDefault integerForKey:@"savepic"]+1) forKey:@"savepic"];
+    [_userDefault synchronize];
+    _namecount = (int)[_userDefault integerForKey:@"savepic"];
 
     _imagestr = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Album"] stringByAppendingPathComponent:[NSString stringWithFormat:@"pic%d.jpg",_namecount]];
     
-    //NSLog(@"%d",_namecount);
     
     if([_imagedata writeToFile:_imagestr atomically: YES]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Saved successfully" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -85,7 +84,4 @@
     }
     return YES;
 }
-
-
-
 @end
