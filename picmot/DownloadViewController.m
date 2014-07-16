@@ -29,6 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = [NSString stringWithFormat:@"スタンプ一覧"];
+
     
     //ユーザ名格納配列　初期化
     stArr = [[NSMutableArray alloc] init];
@@ -51,7 +53,7 @@
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configration delegate:self delegateQueue:nil];
     
     //リクエスト作成
-    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.33.10/picmot/Stamps/feed.rss"]];
+    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://geechscamp.lovepop.jp/picmot/Stamps/feed.rss"]];
     
     // 先に作成したNSURLSessionに対して dataTaskWithRequest:メソッドを呼び出す
     dataTask = [session dataTaskWithRequest:request];

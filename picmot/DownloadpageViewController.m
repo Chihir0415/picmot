@@ -34,6 +34,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = [NSString stringWithFormat:@"%@",_pcTitle];
+
     
 //    imgView = [[UIView alloc] initWithFrame:CGRectMake(10, 300 , self, 750)];
 //    imgView.backgroundColor = [UIColor colorWithRed:0.55 green:0.78 blue:0.13 alpha:1.0];

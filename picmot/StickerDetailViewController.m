@@ -34,6 +34,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = [NSString stringWithFormat:@"%@",_pcTitle];
+
     
     dlBtn = [[UIButton alloc] init];
     dlBtn =  [ UIButton buttonWithType:UIButtonTypeRoundedRect ];

@@ -307,8 +307,8 @@
 {
    //muneに飛ぶよ
     //よろよろ
-//    UINavigationController *nvc1 = [self.storyboard instantiateViewControllerWithIdentifier:@"UIServerNavigationController"];
-//    [self presentViewController:nvc1 animated:YES completion:nil];
+    UINavigationController *nvc1 = [self.storyboard instantiateViewControllerWithIdentifier:@"UIServerNavigationController"];
+    [self presentViewController:nvc1 animated:YES completion:nil];
 }
 
 - (void)pushedNewBtn
