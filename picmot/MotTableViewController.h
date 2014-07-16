@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MotDetailViewController.h"
+#import "FavoriteViewController.h"
 
 
 @interface MotTableViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
@@ -16,4 +17,5 @@
 }
 @property (weak, nonatomic) IBOutlet UIButton *backbutton;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
+@property (nonatomic,assign)NSInteger category_number;
 @end
