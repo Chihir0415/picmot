@@ -5,31 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-<<<<<<< HEAD
-	<string>46D1358E-A9EC-447A-9589-02390FCC27F1</string>
-=======
-	<string>2CFC99A8-533A-480D-937B-0407B6E931DA</string>
->>>>>>> Mot
+	<string>538704C6-BB6F-4F3B-8963-00E4C02C0003</string>
 	<key>IDESourceControlProjectName</key>
 	<string>picmot</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-<<<<<<< HEAD
-		<key>6C702C13-AC74-492A-8091-6182BFD36F92</key>
-=======
-		<key>7AD9ABC4-2056-4551-AEE1-3D93E80EAC25</key>
->>>>>>> Mot
+		<key>C4D40C85-A268-44BD-A72E-7CA7684CA06A</key>
 		<string>https://github.com/Chihir0415/picmot.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>picmot.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-<<<<<<< HEAD
-		<key>6C702C13-AC74-492A-8091-6182BFD36F92</key>
-=======
-		<key>7AD9ABC4-2056-4551-AEE1-3D93E80EAC25</key>
->>>>>>> Mot
+		<key>C4D40C85-A268-44BD-A72E-7CA7684CA06A</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -37,22 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-<<<<<<< HEAD
-	<string>6C702C13-AC74-492A-8091-6182BFD36F92</string>
-=======
-	<string>7AD9ABC4-2056-4551-AEE1-3D93E80EAC25</string>
->>>>>>> Mot
+	<string>C4D40C85-A268-44BD-A72E-7CA7684CA06A</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-<<<<<<< HEAD
-			<string>6C702C13-AC74-492A-8091-6182BFD36F92</string>
-=======
-			<string>7AD9ABC4-2056-4551-AEE1-3D93E80EAC25</string>
->>>>>>> Mot
+			<string>C4D40C85-A268-44BD-A72E-7CA7684CA06A</string>
 			<key>IDESourceControlWCCName</key>
 			<string>picmot</string>
 		</dict>

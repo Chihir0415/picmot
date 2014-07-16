@@ -361,18 +361,15 @@
 				6006B6B118D044750046A82F /* MotTableViewController.m */,
 				6006B6B518D047570046A82F /* MotDetailViewController.h */,
 				6006B6B618D047570046A82F /* MotDetailViewController.m */,
-<<<<<<< HEAD
 				609D7B68196684B1009EE055 /* AlbumViewController.h */,
 				609D7B69196684B1009EE055 /* AlbumViewController.m */,
 				609D7B6B196684EA009EE055 /* DetailAlbumViewController.h */,
 				609D7B6C196684EA009EE055 /* DetailAlbumViewController.m */,
 				609920541967F27600F999B7 /* CollectionCell.h */,
 				609920551967F27600F999B7 /* CollectionCell.m */,
-=======
 				75B4BFFB19765DA2006D3FD1 /* FavoriteViewController.h */,
 				75B4BFFC19765DA2006D3FD1 /* FavoriteViewController.m */,
 				753C81331975144600B817EB /* favoriteBtn */,
->>>>>>> Mot
 				6006B61418CF48F70046A82F /* Images.xcassets */,
 				751E50F2195A6D840059E8D5 /* mot_img */,
 				6006B60318CF48F70046A82F /* Supporting Files */,
@@ -917,11 +914,8 @@
 				6006B69418CF49450046A82F /* CLSpotEffect.m in Sources */,
 				6006B68818CF49450046A82F /* CLImageEditor.m in Sources */,
 				6006B69118CF49450046A82F /* CLHueEffect.m in Sources */,
-<<<<<<< HEAD
 				609D7B6A196684B1009EE055 /* AlbumViewController.m in Sources */,
-=======
 				753C813A1975144600B817EB /* GBFlatButton.m in Sources */,
->>>>>>> Mot
 				6006B68F18CF49450046A82F /* CLGloomEffect.m in Sources */,
 				609920561967F27600F999B7 /* CollectionCell.m in Sources */,
 				6006B69318CF49450046A82F /* CLPosterizeEffect.m in Sources */,
