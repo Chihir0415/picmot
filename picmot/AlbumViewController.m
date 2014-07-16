@@ -15,7 +15,7 @@
 
 @interface AlbumViewController (){
     NSMutableArray *_objects;
-    NSArray *_numArr;
+   // NSArray *_numArr;
     int u;
 }
 
@@ -49,11 +49,21 @@
     NSMutableArray *_imgNumArr = [[NSMutableArray alloc]init];
     NSMutableArray *savephotos = [[NSMutableArray alloc]init];
     for (u = 0; u <= num; u++) {
-        UIImage *savedimage = [UIImage imageNamed:[NSString stringWithFormat:@"../Documents/Album/pic%d.jpg",u]];
-        if (savedimage != nil) {
+        UIImage *savedimage = [[UIImage alloc]init];
+        savedimage = [UIImage imageNamed:[NSString stringWithFormat:@"../Documents/Album/pic%d.jpg",u]];
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSString *filePath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Album"] stringByAppendingPathComponent:[NSString stringWithFormat:@"pic%ld.jpg",(long)u]];
+
+        if ([fileManager fileExistsAtPath:filePath]) {
             [_imgNumArr addObject:[NSNumber numberWithInt:u]];
             [savephotos addObject:savedimage];
         }
+        
+//        if (savedimage != nil) {
+//            [_imgNumArr addObject:[NSNumber numberWithInt:u]];
+//            [savephotos addObject:savedimage];
+//        }
     }
     _numArr = _imgNumArr;
     NSLog(@"arr2 = %@",_numArr);
@@ -68,8 +78,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self loadSaveAlbum];
     
     // ナビゲーションバーの色を変更
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
@@ -125,6 +133,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [self loadSaveAlbum];
     
     [self.collectionView reloadData];
     [super viewWillAppear:animated];

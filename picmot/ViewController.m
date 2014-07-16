@@ -37,20 +37,29 @@
     //[self refreshImageView];
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"001.png"] drawInRect:self.view.bounds];
+    
+    int i;
     NSMutableArray *savephotos = [NSMutableArray array];
-    for (int i = 0; i <= num; i++) {
+    for (i = 0; i <= num; i++) {
         UIImage *savedimage = [UIImage imageNamed:[NSString stringWithFormat:@"../Documents/Album/pic%d.jpg",i]];
         if (savedimage != nil) {
             [savephotos addObject:savedimage];
         }
     }
 //    NSLog(@"save = %@",savephotos);
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *filePath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Album"] stringByAppendingPathComponent:[NSString stringWithFormat:@"pic%ld.jpg",(long)i]];
+    
+    if (![fileManager fileExistsAtPath:filePath]) {
+        _imageView.image = [UIImage imageNamed:@"pic01.jpg"];
+    }else{
     _imageView.animationImages = savephotos;
-    _imageView.animationDuration = 12.0;
+    _imageView.animationDuration = 15.0;
     _imageView.animationRepeatCount = 0;
     
     [_imageView startAnimating];
-    
+    }
     
     UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

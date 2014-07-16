@@ -13,6 +13,7 @@
 #import "InstagramActivity.h"
 #import "mixiActivity.h"
 #import "flickrActivity.h"
+#import "AlbumViewController.h"
 
 
 @interface DetailAlbumViewController ()
@@ -98,11 +99,11 @@
     // ファイルやディレクトリの削除
     [fileManager removeItemAtPath: imagePath // (NSString*) 削除したいアイテムのパス
                             error: NULL];   // (NSError**) エラー
-    
-   
    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete successfully" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
+    
+    [self.navigationController popViewControllerAnimated:YES];
     
     
 }

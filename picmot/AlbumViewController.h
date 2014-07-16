@@ -11,4 +11,5 @@
 
 @interface AlbumViewController :  UICollectionViewController
 
+@property  NSArray *numArr;
 @end
