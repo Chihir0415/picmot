@@ -123,10 +123,11 @@
         }
 }
 
--(void)viewDidDisappear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
     
     [self.collectionView reloadData];
+    [super viewWillAppear:animated];
 
 }
 
