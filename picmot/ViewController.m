@@ -10,11 +10,15 @@
 #import "CLImageEditor.h"
 
 @interface ViewController ()
-<CLImageEditorDelegate, CLImageEditorThemeDelegate>
+<CLImageEditorDelegate, CLImageEditorThemeDelegate> {
+    UIImageView* _myImageView;
+
+}
 
 @end
 
 @implementation ViewController
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,11 +34,15 @@
 {
     [super viewDidLoad];
     
+<<<<<<< HEAD
     //SelfActivityで設定したuserDefaultを引っ張ってくる
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSInteger num = [ud integerForKey:@"savepic"];
     
     //[self refreshImageView];
+=======
+    [self refreshImageView];
+>>>>>>> Server
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"001.png"] drawInRect:self.view.bounds];
     
@@ -82,6 +90,226 @@
         [defaults synchronize];
         
     }
+    BOOL isstickerBool = [defaults boolForKey:@"STICKER_BOOL"];
+    if (!isstickerBool) {
+        
+        //ファイルを作成
+        // NSFileManagerを取得 (非スレッドセーフ)
+        // 0001pcen
+        NSFileManager *fileManager1pcen = [NSFileManager defaultManager];
+        // パス
+        NSString *directoryPath1pcen = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/stickers/0001pcen"];
+        
+        // ディレクトリを作成
+        [fileManager1pcen createDirectoryAtPath: directoryPath1pcen // (NSString*) 作成したいディレクトリパス
+                    withIntermediateDirectories: YES           // (BOOL) 中間ディレクトリが存在しないときに作成するか否か
+                                     attributes: nil           // (NSDictionary*) ディレクトリの属性
+                                          error: NULL];        // (NSError**) エラー
+        // 0001pcjp
+        NSFileManager *fileManager1pcjp = [NSFileManager defaultManager];
+        // パス
+        NSString *directoryPath1pcjp = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/stickers/0001pcjp"];
+        
+        // ディレクトリを作成
+        [fileManager1pcjp createDirectoryAtPath: directoryPath1pcjp // (NSString*) 作成したいディレクトリパス
+                    withIntermediateDirectories: YES           // (BOOL) 中間ディレクトリが存在しないときに作成するか否か
+                                     attributes: nil           // (NSDictionary*) ディレクトリの属性
+                                          error: NULL];        // (NSError**) エラー
+        // 0002pcen
+        NSFileManager *fileManager2pcen = [NSFileManager defaultManager];
+        // パス
+        NSString *directoryPath2pcen = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/stickers/0002pcen"];
+        
+        // ディレクトリを作成
+        [fileManager2pcen createDirectoryAtPath: directoryPath2pcen // (NSString*) 作成したいディレクトリパス
+                    withIntermediateDirectories: YES           // (BOOL) 中間ディレクトリが存在しないときに作成するか否か
+                                     attributes: nil           // (NSDictionary*) ディレクトリの属性
+                                          error: NULL];        // (NSError**) エラー
+        // 0001pcjp
+        NSFileManager *fileManager2pcjp = [NSFileManager defaultManager];
+        // パス
+        NSString *directoryPath2pcjp = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/stickers/0002pcjp"];
+        
+        // ディレクトリを作成
+        [fileManager2pcjp createDirectoryAtPath: directoryPath2pcjp // (NSString*) 作成したいディレクトリパス
+                    withIntermediateDirectories: YES           // (BOOL) 中間ディレクトリが存在しないときに作成するか否か
+                                     attributes: nil           // (NSDictionary*) ディレクトリの属性
+                                          error: NULL];        // (NSError**) エラー
+        
+        //ファイルを移動させる
+        //0001pcen
+        for (int i = 0; i < 12; i++) {
+            
+            NSString* imagePath = [NSString stringWithFormat:@"%@/CLStickerTool/stickers/%d.png",
+                                   [[NSBundle mainBundle] pathForResource:@"CLImageEditor" ofType:@"bundle"], i + 1 ];
+            NSLog(@"imagePath=%@", imagePath);
+            UIImage *image = [[UIImage alloc] initWithContentsOfFile:imagePath];
+            NSData* pngData = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
+            NSLog(@"%@",pngData);
+            // 今回は、Cacheディレクトリのstickersフォルダに、0.pngから順のファイル名で保存します。
+            NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+            NSString *cacheDirPath = [array objectAtIndex:0];
+            cacheDirPath = [cacheDirPath stringByAppendingString:@"/stickers/0001pcen"];
+            NSString* sticker = [NSString stringWithFormat:@"%d.png",i];
+            NSString *filePath = [cacheDirPath stringByAppendingPathComponent:sticker];
+            NSLog(@"filePath=%@",filePath);
+            
+            // 保存処理を呼び出し、0.pngから1足してとして保存します。
+            if ([pngData writeToFile:filePath atomically:YES]) {
+                NSLog(@"OK");
+            } else {
+                NSLog(@"Error");
+            }
+            
+        }
+        NSString *titlePath1 = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"txt"];
+        
+        NSData* Data1 = [[NSData alloc] init];
+        Data1 = [NSData dataWithContentsOfFile:titlePath1];
+        NSArray *array1 = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *cacheDirPath1 = [array1 objectAtIndex:0];
+        cacheDirPath1 = [cacheDirPath1 stringByAppendingString:@"/stickers/0001pcen"];
+        NSString *filePath1 = [cacheDirPath1 stringByAppendingPathComponent:@"1.txt"];
+        NSLog(@"%@",filePath1);
+        
+        // 保存処理を呼び出し、sample.pngとして保存します。
+        if ([Data1 writeToFile:filePath1 atomically:YES]) {
+            NSLog(@"OK");
+        } else {
+            NSLog(@"Error");
+        }
+        
+        //0001pcjp
+        for (int i = 0; i < 12; i++) {
+            
+            NSString* imagePath = [NSString stringWithFormat:@"%@/CLStickerTool/stickers/%d.png",
+                                   [[NSBundle mainBundle] pathForResource:@"CLImageEditor" ofType:@"bundle"], i + 13 ];
+            NSLog(@"imagePath=%@", imagePath);
+            UIImage *image = [[UIImage alloc] initWithContentsOfFile:imagePath];
+            NSData* pngData = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
+            NSLog(@"%@",pngData);
+            // 今回は、Cacheディレクトリのstickersフォルダに、0.pngから順のファイル名で保存します。
+            NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+            NSString *cacheDirPath = [array objectAtIndex:0];
+            cacheDirPath = [cacheDirPath stringByAppendingString:@"/stickers/0001pcjp"];
+            NSString* sticker = [NSString stringWithFormat:@"%d.png",i];
+            NSString *filePath = [cacheDirPath stringByAppendingPathComponent:sticker];
+            NSLog(@"filePath=%@",filePath);
+            
+            // 保存処理を呼び出し、0.pngから1足してとして保存します。
+            if ([pngData writeToFile:filePath atomically:YES]) {
+                NSLog(@"OK");
+            } else {
+                NSLog(@"Error");
+            }
+            
+        }
+        NSString *titlePath2 = [[NSBundle mainBundle] pathForResource:@"2" ofType:@"txt"];
+        
+        NSData* Data2 = [[NSData alloc] init];
+        Data2 = [NSData dataWithContentsOfFile:titlePath2];
+        NSArray *array2 = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *cacheDirPath2 = [array2 objectAtIndex:0];
+        cacheDirPath2 = [cacheDirPath2 stringByAppendingString:@"/stickers/0001pcjp"];
+        NSString *filePath2 = [cacheDirPath2 stringByAppendingPathComponent:@"1.txt"];
+        NSLog(@"%@",filePath2);
+        
+        // 保存処理を呼び出し、sample.pngとして保存します。
+        if ([Data2 writeToFile:filePath2 atomically:YES]) {
+            NSLog(@"OK");
+        } else {
+            NSLog(@"Error");
+        }
+        //0002pcen
+        for (int i = 0; i < 12; i++) {
+            
+            NSString* imagePath = [NSString stringWithFormat:@"%@/CLStickerTool/stickers/%d.png",
+                                   [[NSBundle mainBundle] pathForResource:@"CLImageEditor" ofType:@"bundle"], i + 25 ];
+            NSLog(@"imagePath=%@", imagePath);
+            UIImage *image = [[UIImage alloc] initWithContentsOfFile:imagePath];
+            NSData* pngData = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
+            NSLog(@"%@",pngData);
+            // 今回は、Cacheディレクトリのstickersフォルダに、0.pngから順のファイル名で保存します。
+            NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+            NSString *cacheDirPath = [array objectAtIndex:0];
+            cacheDirPath = [cacheDirPath stringByAppendingString:@"/stickers/0002pcen"];
+            NSString* sticker = [NSString stringWithFormat:@"%d.png",i];
+            NSString *filePath = [cacheDirPath stringByAppendingPathComponent:sticker];
+            NSLog(@"filePath=%@",filePath);
+            
+            // 保存処理を呼び出し、0.pngから1足してとして保存します。
+            if ([pngData writeToFile:filePath atomically:YES]) {
+                NSLog(@"OK");
+            } else {
+                NSLog(@"Error");
+            }
+            
+        }
+        NSString *titlePath3 = [[NSBundle mainBundle] pathForResource:@"3" ofType:@"txt"];
+        
+        NSData* Data3 = [[NSData alloc] init];
+        Data3 = [NSData dataWithContentsOfFile:titlePath3];
+        NSArray *array3 = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *cacheDirPath3 = [array3 objectAtIndex:0];
+        cacheDirPath3 = [cacheDirPath3 stringByAppendingString:@"/stickers/0002pcen"];
+        NSString *filePath3 = [cacheDirPath3 stringByAppendingPathComponent:@"1.txt"];
+        NSLog(@"%@",filePath3);
+        
+        // 保存処理を呼び出し、sample.pngとして保存します。
+        if ([Data3 writeToFile:filePath3 atomically:YES]) {
+            NSLog(@"OK");
+        } else {
+            NSLog(@"Error");
+        }
+        
+        //0002pcjp
+        for (int i = 0; i < 12; i++) {
+            
+            NSString* imagePath = [NSString stringWithFormat:@"%@/CLStickerTool/stickers/%d.png",
+                                   [[NSBundle mainBundle] pathForResource:@"CLImageEditor" ofType:@"bundle"], i + 37 ];
+            NSLog(@"imagePath=%@", imagePath);
+            UIImage *image = [[UIImage alloc] initWithContentsOfFile:imagePath];
+            NSData* pngData = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
+            NSLog(@"%@",pngData);
+            // 今回は、Cacheディレクトリのstickersフォルダに、0.pngから順のファイル名で保存します。
+            NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+            NSString *cacheDirPath = [array objectAtIndex:0];
+            cacheDirPath = [cacheDirPath stringByAppendingString:@"/stickers/0002pcjp"];
+            NSString* sticker = [NSString stringWithFormat:@"%d.png",i];
+            NSString *filePath = [cacheDirPath stringByAppendingPathComponent:sticker];
+            NSLog(@"filePath=%@",filePath);
+            
+            // 保存処理を呼び出し、0.pngから1足してとして保存します。
+            if ([pngData writeToFile:filePath atomically:YES]) {
+                NSLog(@"OK");
+            } else {
+                NSLog(@"Error");
+            }
+            
+        }
+        NSString *titlePath4 = [[NSBundle mainBundle] pathForResource:@"4" ofType:@"txt"];
+        
+        NSData* Data4 = [[NSData alloc] init];
+        Data4 = [NSData dataWithContentsOfFile:titlePath4];
+        NSArray *array4 = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *cacheDirPath4 = [array4 objectAtIndex:0];
+        cacheDirPath4 = [cacheDirPath4 stringByAppendingString:@"/stickers/0002pcjp"];
+        NSString *filePath4 = [cacheDirPath4 stringByAppendingPathComponent:@"1.txt"];
+        NSLog(@"%@",filePath4);
+        
+        // 保存処理を呼び出し、sample.pngとして保存します。
+        if ([Data4 writeToFile:filePath4 atomically:YES]) {
+            NSLog(@"OK");
+        } else {
+            NSLog(@"Error");
+        }
+        
+        //defaultsの値を変更して保持
+        [defaults setBool:YES forKey:@"STICKER_BOOL"];
+        [defaults synchronize];
+        
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,12 +330,13 @@
 
 - (void)pushedMotBtn
 {
-    UINavigationController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"UINavigationController"];
+    UINavigationController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"UINavigationController1"];
     [self presentViewController:nvc animated:YES completion:nil];
 }
 
 - (void)pushedOldBtn
 {
+<<<<<<< HEAD
     
     UINavigationController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"UINavigationController2"];
     [self presentViewController:nvc animated:YES completion:nil];
@@ -118,6 +347,12 @@
 //        library.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 //        [self presentViewController:library  animated:YES completion: nil];
 //    }
+=======
+   //muneに飛ぶよ
+    //よろよろ
+    UINavigationController *nvc1 = [self.storyboard instantiateViewControllerWithIdentifier:@"UIServerNavigationController"];
+    [self presentViewController:nvc1 animated:YES completion:nil];
+>>>>>>> Server
 }
 
 - (void)pushedNewBtn
@@ -150,7 +385,7 @@
         tool= [editor.toolInfo subToolInfoWithToolName:@"CLResizeTool" recursive:YES];
         tool.available = NO;
         
-                
+        
         [self presentViewController:editor animated:YES completion:nil];
         //[editor showInViewController:self withImageView:_imageView];
     }
@@ -158,7 +393,6 @@
         [self pushedNewBtn];
     }
 }
-
 - (void)pushedSaveBtn
 {
     if(_imageView.image){
@@ -250,9 +484,6 @@
             break;
         case 3:
             [self pushedEditBtn];
-            break;
-        case 4:
-            [self pushedSaveBtn];
             break;
         default:
             break;
