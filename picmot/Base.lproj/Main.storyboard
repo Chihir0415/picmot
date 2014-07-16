@@ -134,6 +134,24 @@
             </objects>
             <point key="canvasLocation" x="775" y="633"/>
         </scene>
+        <!--Favorite View Controller-->
+        <scene sceneID="pHx-ag-Spi">
+            <objects>
+                <viewController storyboardIdentifier="FavoriteViewController" id="GIr-lp-b2g" customClass="FavoriteViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Orh-0k-nCy"/>
+                        <viewControllerLayoutGuide type="bottom" id="j59-Jf-woj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ly6-rT-e7X">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XO0-LY-cTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1193" y="649"/>
+        </scene>
         <!--Navigation Controller - Mot-->
         <scene sceneID="RtD-60-8ok">
             <objects>
@@ -145,6 +163,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dSZ-1L-zwZ">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="UDW-Dw-C9E" kind="relationship" relationship="rootViewController" id="eSC-F7-taT"/>
                     </connections>

@@ -10,14 +10,19 @@
 
 @interface MotTableViewController (){
     NSArray *_proArray;
+    //NSInteger* category_number;
+    NSArray* sectionList;
+    NSString* sectionName;
 }
 
-@property (nonatomic, strong) NSArray *dataSourceiPhone;
-@property (nonatomic, strong) NSArray *dataSourceAndroid;
+@property (nonatomic, strong) NSArray *dataSourceFavorite;
+@property (nonatomic, strong) NSArray *dataSourceCategory;
 
 @end
 
 @implementation MotTableViewController
+
+@synthesize category_number;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,16 +41,20 @@
     self.tableview.dataSource = self;
     
     // テーブルに表示したいデータソースをセット
-    self.dataSourceiPhone = @[@"Fovorite"];
-    self.dataSourceAndroid = @[@"Life", @"Love", @"Work", @"Funny", @"Dreams", @"friendship", @"Proverbs", @"For Ladies", @"From Disney"];
+    self.dataSourceFavorite = @[@"My Fovorite"];
+    self.dataSourceCategory = @[@"Life", @"Love", @"Work", @"Funny", @"Dreams", @"friendship", @"Proverbs", @"For Ladies", @"From Disney"];
     
-//    UIBarButtonItem* menu = [[UIBarButtonItem alloc]
-//                              initWithTitle:@"Menu"
-//                              style:UIBarButtonItemStyleBordered
-//                              target:self
-//                              action:@selector(barbutton1:)];
-//    self.navigationItem.leftBarButtonItems = @[menu];
-//    
+    // SectionNameを生成する
+    sectionList = [NSArray arrayWithObjects:@"favoriteList", @"categoryList",nil];
+    
+    // BackButton
+    UIBarButtonItem* menu = [[UIBarButtonItem alloc]
+                              initWithTitle:@"Menu"
+                              style:UIBarButtonItemStyleBordered
+                              target:self
+                              action:@selector(barbutton1:)];
+    self.navigationItem.leftBarButtonItems = @[menu];
+//
 //    _tableview.dataSource = self;
 //    _tableview.delegate = self;
 //    
@@ -66,11 +75,17 @@
     backimage.alpha = 0.35;
     
     _tableview.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1];
-   }
+    
+}
 
 -(void)barbutton1:(UIBarButtonItem *)menu{
     [self dismissViewControllerAnimated:YES completion: NULL];
     
+}
+
+// 指定されたセクションのセクション名を返す
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [sectionList objectAtIndex:section];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -80,10 +95,10 @@
     // テーブルに表示するデータ件数を返す
     switch (section) {
         case 0:
-            dataCount = self.dataSourceiPhone.count;
+            dataCount = self.dataSourceFavorite.count;
             break;
         case 1:
-            dataCount = self.dataSourceAndroid.count;
+            dataCount = self.dataSourceCategory.count;
             break;
         default:
             break;
@@ -94,6 +109,7 @@
     
 }
 
+// Sectionの数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
@@ -109,14 +125,25 @@
         // 再利用できない場合は新規で作成
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:CellIdentifier];
+        cell.textLabel.textColor = [UIColor redColor];
+        cell.textLabel.textAlignment = UITextBorderStyleLine;
     }
     
     switch (indexPath.section) {
         case 0:
-            cell.textLabel.text = self.dataSourceiPhone[indexPath.row];
+        {
+            sectionName = [sectionList objectAtIndex:indexPath.section];
+            //NSLog(@"SectionName %@", sectionName);
+            cell.textLabel.text = self.dataSourceFavorite[indexPath.row];
+            
+            // TODO: ここにfavarite中身処理
+            
+            
+            
             break;
+        }
         case 1:
-            cell.textLabel.text = self.dataSourceAndroid[indexPath.row];
+            cell.textLabel.text = self.dataSourceCategory[indexPath.row];
             break;
         default:
             break;
@@ -142,8 +169,41 @@
     
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //NSLog(@"tap %d",indexPath.row);
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //NSLog(@"SectionName %@", sectionName);
+    NSLog(@"今のSection %d",indexPath.section);
+    //NSLog(@"Category %d",indexPath.row);
+    
+    // indexPath.sectionが 0 だったらfavoriteListを表示、indexPath.sectionが 1 だったらcaregoryListを表示する
+    if (indexPath.section==0) {
+        
+        // UserDefaulにアクセス
+        NSUserDefaults* favDefault = [NSUserDefaults standardUserDefaults];
+        // UserDefaultから取ってきたデータをfavListに入れる
+        NSArray* favList = [favDefault arrayForKey:@"favorite_key"];
+        NSLog(@"%@", favList);
+        
+        [_tableview deselectRowAtIndexPath:indexPath animated:YES];
+        FavoriteViewController* fdvc = [self.storyboard instantiateViewControllerWithIdentifier:@"FavoriteViewController"];
+        fdvc.str = favList[indexPath.row];
+        
+        fdvc.i = indexPath.row;
+        
+        fdvc.category_number = self.category_number;
+        
+        
+        
+        [favDefault synchronize];
+        
+    } else {
+        
+    
+    
+    
+    // 押されたCategoryをInteger型変数に代入
+    category_number = indexPath.row;
+    NSLog(@"カテゴリNo. %d" ,category_number);
+    
     [_tableview deselectRowAtIndexPath:indexPath animated:YES];
     MotDetailViewController *mdvc = [self.storyboard instantiateViewControllerWithIdentifier:@"MotDetailViewController"];
     
@@ -153,10 +213,16 @@
     // TODO: indexPath.rowをiに渡す
     mdvc.i = indexPath.row;
     
+    mdvc.category_number = self.category_number;
+    
     
     //NavigationControllerを使ってpushで遷移
     [[self navigationController] pushViewController:mdvc animated:YES];
-}
+    
+    
+    }
+    
+ }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch * touchBegan = [touches anyObject];
