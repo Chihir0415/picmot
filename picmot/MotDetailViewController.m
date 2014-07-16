@@ -7,7 +7,6 @@
 //
 
 #import "MotDetailViewController.h"
-#import "MotDetailViewController.m"
 #import "GBFlatButton.h"
 #import "UIColor+GBFlatButton.h"
 
@@ -34,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     
     // ページの番号を保持するcurrentPageの初期化
     _currentPage = 0;

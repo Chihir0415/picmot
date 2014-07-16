@@ -83,6 +83,7 @@
 		753C813A1975144600B817EB /* GBFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 753C81351975144600B817EB /* GBFlatButton.m */; };
 		753C813B1975144600B817EB /* GBFlatSelectableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 753C81371975144600B817EB /* GBFlatSelectableButton.m */; };
 		753C813C1975144600B817EB /* UIColor+GBFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 753C81391975144600B817EB /* UIColor+GBFlatButton.m */; };
+		75B4BFFD19765DA2006D3FD1 /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B4BFFC19765DA2006D3FD1 /* FavoriteViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,6 +218,8 @@
 		753C81371975144600B817EB /* GBFlatSelectableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBFlatSelectableButton.m; sourceTree = "<group>"; };
 		753C81381975144600B817EB /* UIColor+GBFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GBFlatButton.h"; sourceTree = "<group>"; };
 		753C81391975144600B817EB /* UIColor+GBFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GBFlatButton.m"; sourceTree = "<group>"; };
+		75B4BFFB19765DA2006D3FD1 /* FavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteViewController.h; sourceTree = "<group>"; };
+		75B4BFFC19765DA2006D3FD1 /* FavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +298,8 @@
 				6006B6B118D044750046A82F /* MotTableViewController.m */,
 				6006B6B518D047570046A82F /* MotDetailViewController.h */,
 				6006B6B618D047570046A82F /* MotDetailViewController.m */,
+				75B4BFFB19765DA2006D3FD1 /* FavoriteViewController.h */,
+				75B4BFFC19765DA2006D3FD1 /* FavoriteViewController.m */,
 				753C81331975144600B817EB /* favoriteBtn */,
 				6006B61418CF48F70046A82F /* Images.xcassets */,
 				751E50F2195A6D840059E8D5 /* mot_img */,
@@ -694,6 +699,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75B4BFFD19765DA2006D3FD1 /* FavoriteViewController.m in Sources */,
 				6006B6B718D047570046A82F /* MotDetailViewController.m in Sources */,
 				753C813C1975144600B817EB /* UIColor+GBFlatButton.m in Sources */,
 				6006B69718CF49450046A82F /* CLFilterBase.m in Sources */,

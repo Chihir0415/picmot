@@ -11,6 +11,8 @@
 @interface MotTableViewController (){
     NSArray *_proArray;
     //NSInteger* category_number;
+    NSArray* sectionList;
+    NSString* sectionName;
 }
 
 @property (nonatomic, strong) NSArray *dataSourceFavorite;
@@ -39,8 +41,11 @@
     self.tableview.dataSource = self;
     
     // テーブルに表示したいデータソースをセット
-    self.dataSourceFavorite = @[@"Fovorite"];
+    self.dataSourceFavorite = @[@"My Fovorite"];
     self.dataSourceCategory = @[@"Life", @"Love", @"Work", @"Funny", @"Dreams", @"friendship", @"Proverbs", @"For Ladies", @"From Disney"];
+    
+    // SectionNameを生成する
+    sectionList = [NSArray arrayWithObjects:@"favoriteList", @"categoryList",nil];
     
     // BackButton
     UIBarButtonItem* menu = [[UIBarButtonItem alloc]
@@ -76,6 +81,11 @@
 -(void)barbutton1:(UIBarButtonItem *)menu{
     [self dismissViewControllerAnimated:YES completion: NULL];
     
+}
+
+// 指定されたセクションのセクション名を返す
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [sectionList objectAtIndex:section];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -122,13 +132,13 @@
     switch (indexPath.section) {
         case 0:
         {
+            sectionName = [sectionList objectAtIndex:indexPath.section];
+            //NSLog(@"SectionName %@", sectionName);
             cell.textLabel.text = self.dataSourceFavorite[indexPath.row];
+            
             // TODO: ここにfavarite中身処理
-            NSUserDefaults* defalt = [NSUserDefaults standardUserDefaults];
-            NSArray* favsList = [[NSArray alloc] init];
-            favsList = [defalt arrayForKey:@"favorite_key"];
-            // NSLog(@"%@", favsList);
-            [defalt synchronize];
+            
+            
             
             break;
         }
@@ -160,13 +170,39 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    //NSLog(@"SectionName %@", sectionName);
+    NSLog(@"今のSection %d",indexPath.section);
     //NSLog(@"Category %d",indexPath.row);
+    
+    // indexPath.sectionが 0 だったらfavoriteListを表示、indexPath.sectionが 1 だったらcaregoryListを表示する
+    if (indexPath.section==0) {
+        
+        // UserDefaulにアクセス
+        NSUserDefaults* favDefault = [NSUserDefaults standardUserDefaults];
+        // UserDefaultから取ってきたデータをfavListに入れる
+        NSArray* favList = [favDefault arrayForKey:@"favorite_key"];
+        NSLog(@"%@", favList);
+        
+        [_tableview deselectRowAtIndexPath:indexPath animated:YES];
+        FavoriteViewController* fdvc = [self.storyboard instantiateViewControllerWithIdentifier:@"FavoriteViewController"];
+        fdvc.str = favList[indexPath.row];
+        
+        fdvc.i = indexPath.row;
+        
+        fdvc.category_number = self.category_number;
+        
+        
+        
+        [favDefault synchronize];
+        
+    } else {
+        
+    
+    
     
     // 押されたCategoryをInteger型変数に代入
     category_number = indexPath.row;
     NSLog(@"カテゴリNo. %d" ,category_number);
-    
     
     [_tableview deselectRowAtIndexPath:indexPath animated:YES];
     MotDetailViewController *mdvc = [self.storyboard instantiateViewControllerWithIdentifier:@"MotDetailViewController"];
@@ -182,7 +218,11 @@
     
     //NavigationControllerを使ってpushで遷移
     [[self navigationController] pushViewController:mdvc animated:YES];
-}
+    
+    
+    }
+    
+ }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch * touchBegan = [touches anyObject];

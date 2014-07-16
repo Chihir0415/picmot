@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MotDetailViewController.h"
+#import "FavoriteViewController.h"
 
 
 @interface MotTableViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
