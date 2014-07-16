@@ -30,20 +30,39 @@
 {
     [super viewDidLoad];
     
-    [self refreshImageView];
-//    CAGradientLayer *gradient = [CAGradientLayer layer];
-//    gradient.frame = self.view.bounds;
-//    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0.41 green:0.94 blue:0.55 alpha:1.0] CGColor], (id)[[UIColor colorWithRed:0.47 green:0.91 blue:0.97 alpha:1.0] CGColor], nil];
-//    [self.view.layer insertSublayer:gradient atIndex:0];
+    //SelfActivityで設定したuserDefaultを引っ張ってくる
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSInteger num = [ud integerForKey:@"savepic"];
     
-//    UIImage *newback = [UIImage imageNamed:@"001.png"];
-//    self.view.backgroundColor = [UIColor colorWithPatternImage:newback];
-
+    //[self refreshImageView];
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"001.png"] drawInRect:self.view.bounds];
+    
+    int i;
+    NSMutableArray *savephotos = [NSMutableArray array];
+    for (i = 0; i <= num; i++) {
+        UIImage *savedimage = [UIImage imageNamed:[NSString stringWithFormat:@"../Documents/Album/pic%d.jpg",i]];
+        if (savedimage != nil) {
+            [savephotos addObject:savedimage];
+        }
+    }
+//    NSLog(@"save = %@",savephotos);
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *filePath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Album"] stringByAppendingPathComponent:[NSString stringWithFormat:@"pic%ld.jpg",(long)i]];
+    
+    if (![fileManager fileExistsAtPath:filePath]) {
+        _imageView.image = [UIImage imageNamed:@"pic01.jpg"];
+    }else{
+    _imageView.animationImages = savephotos;
+    _imageView.animationDuration = 15.0;
+    _imageView.animationRepeatCount = 0;
+    
+    [_imageView startAnimating];
+    }
+    
     UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
     self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
     
     _tabBaritem.backgroundColor = [UIColor clearColor];
@@ -89,13 +108,16 @@
 
 - (void)pushedOldBtn
 {
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-        UIImagePickerController *library = [[UIImagePickerController alloc] init];
-        library.delegate = self;
-        library.allowsEditing = NO;
-        library.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:library  animated:YES completion: nil];
-    }
+    
+    UINavigationController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"UINavigationController2"];
+    [self presentViewController:nvc animated:YES completion:nil];
+//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+//        UIImagePickerController *library = [[UIImagePickerController alloc] init];
+//        library.delegate = self;
+//        library.allowsEditing = NO;
+//        library.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//        [self presentViewController:library  animated:YES completion: nil];
+//    }
 }
 
 - (void)pushedNewBtn
@@ -164,7 +186,11 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    
+    //撮影後すぐに保存する設定
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    }
     
     //カメラ・ライブラリからEditに進んだ時の画面
     CLImageEditor *editor = [[CLImageEditor alloc] initWithImage:image];
@@ -177,7 +203,11 @@
     tool= [editor.toolInfo subToolInfoWithToolName:@"CLResizeTool" recursive:YES];
     tool.available = NO;
     
-    [picker pushViewController:editor animated:YES];
+    //[self presentViewController:editor animated:YES completion:nil];
+    //[editor showInViewController:self withImageView:_imageView];
+
+    //editへ進んだときの画面を設定
+    [picker presentViewController:editor animated:YES completion:nil];
     [[UINavigationBar appearance] setAlpha:0.5];
 
 }
@@ -191,7 +221,7 @@
     _imageView.contentMode = UIViewContentModeScaleAspectFit;
     selfview.backgroundColor = [UIColor clearColor];
 
-    [self refreshImageView];
+   // [self refreshImageView];
     
     [editor dismissViewControllerAnimated:YES completion:nil];
 }
@@ -282,38 +312,38 @@
     _imageView.superview.frame = rct;
 }
 
-- (void)resetImageViewFrame
-{
-    CGSize size = (_imageView.image) ? _imageView.image.size : _imageView.frame.size;
-    CGFloat ratio = MIN(_scrollView.frame.size.width / size.width, _scrollView.frame.size.height / size.height);
-    CGFloat W = ratio * size.width;
-    CGFloat H = ratio * size.height;
-    _imageView.frame = CGRectMake(0, 0, W, H);
-    _imageView.superview.bounds = _imageView.bounds;
-}
-
-- (void)resetZoomScaleWithAnimate:(BOOL)animated
-{
-    CGFloat Rw = _scrollView.frame.size.width / _imageView.frame.size.width;
-    CGFloat Rh = _scrollView.frame.size.height / _imageView.frame.size.height;
-    
-    //CGFloat scale = [[UIScreen mainScreen] scale];
-    CGFloat scale = 1;
-    Rw = MAX(Rw, _imageView.image.size.width / (scale * _scrollView.frame.size.width));
-    Rh = MAX(Rh, _imageView.image.size.height / (scale * _scrollView.frame.size.height));
-    
-    _scrollView.contentSize = _imageView.frame.size;
-    _scrollView.minimumZoomScale = 1;
-    _scrollView.maximumZoomScale = MAX(MAX(Rw, Rh), 1);
-    
-    [_scrollView setZoomScale:_scrollView.minimumZoomScale animated:animated];
-    [self scrollViewDidZoom:_scrollView];
-}
-
-- (void)refreshImageView
-{
-    [self resetImageViewFrame];
-    [self resetZoomScaleWithAnimate:NO];
-}
+//- (void)resetImageViewFrame
+//{
+//    CGSize size = (_imageView.image) ? _imageView.image.size : _imageView.frame.size;
+//    CGFloat ratio = MIN(_scrollView.frame.size.width / size.width, _scrollView.frame.size.height / size.height);
+//    CGFloat W = ratio * size.width;
+//    CGFloat H = ratio * size.height;
+//    _imageView.frame = CGRectMake(0, 0, W, H);
+//    _imageView.superview.bounds = _imageView.bounds;
+//}
+//
+//- (void)resetZoomScaleWithAnimate:(BOOL)animated
+//{
+//    CGFloat Rw = _scrollView.frame.size.width / _imageView.frame.size.width;
+//    CGFloat Rh = _scrollView.frame.size.height / _imageView.frame.size.height;
+//    
+//    //CGFloat scale = [[UIScreen mainScreen] scale];
+//    CGFloat scale = 1;
+//    Rw = MAX(Rw, _imageView.image.size.width / (scale * _scrollView.frame.size.width));
+//    Rh = MAX(Rh, _imageView.image.size.height / (scale * _scrollView.frame.size.height));
+//    
+//    _scrollView.contentSize = _imageView.frame.size;
+//    _scrollView.minimumZoomScale = 1;
+//    _scrollView.maximumZoomScale = MAX(MAX(Rw, Rh), 1);
+//    
+//    [_scrollView setZoomScale:_scrollView.minimumZoomScale animated:animated];
+//    [self scrollViewDidZoom:_scrollView];
+//}
+//
+//- (void)refreshImageView
+//{
+//    [self resetImageViewFrame];
+//    [self resetZoomScaleWithAnimate:NO];
+//}
 
 @end

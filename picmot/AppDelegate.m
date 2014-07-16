@@ -7,16 +7,12 @@
 //
 
 #import "AppDelegate.h"
-//#import "ViewController.h"
-//#import "MotTableViewController.h"
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    return YES;
+          return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
