@@ -46,54 +46,7 @@
     self.navigationItem.rightBarButtonItems = @[download];
     _tableView.dataSource = self;
     _tableView.delegate = self;
-    _proArray = [[NSMutableArray alloc] init];
-    
-    NSArray * librarystickers = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-    NSString *stickerPath = [librarystickers lastObject];
-    stickerPath = [stickerPath stringByAppendingString:@"/Caches/stickers/"];
-    NSLog(@"nannyato=%@",stickerPath);
 
-    NSString *itemPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/stickers"];
-    
-    // ファイルマネージャを作成
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    
-    NSError *error;
-    NSArray *list = [fileManager contentsOfDirectoryAtPath:itemPath
-                                                     error:&error];
-    _proArray = [NSMutableArray array];
-    _imgArray = [NSMutableArray array];
-    _allimgArray = [NSMutableArray array];
-
-
-    for(NSString *path in list){
-        NSString *filePath = [NSString stringWithFormat:@"%@%@/1.txt", stickerPath, path];
-        NSData *data = [NSData dataWithContentsOfFile:filePath];
-
-        NSLog(@"tateteteetetet%@",data);
-
-        if (data == NULL) {
-            NSLog(@"empty");
-        }else{
-        
-        
-        NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//        NSLog(@"unnkotoittamododa=%@",newStr);//このstringをアレイに入れる
-        [_proArray addObject:newStr];
-            NSLog(@"sannkounishimasuka%@",_proArray);
-            
-        NSString *filePath1 = [NSString stringWithFormat:@"%@%@/1.png", stickerPath, path];
-        NSData *data1 = [NSData dataWithContentsOfFile:filePath1];
-        UIImage *image1 = [UIImage imageWithData:data1];
-        [_imgArray addObject:image1];
-            
-        NSString *filePath2 = [NSString stringWithFormat:@"%@%@/0.png", stickerPath, path];
-        NSData *data2 = [NSData dataWithContentsOfFile:filePath2];
-        UIImage *image2 = [UIImage imageWithData:data2];
-        [_allimgArray addObject:image2];
-        }
-        
-    }
     
     if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
         [_tableView setSeparatorInset:UIEdgeInsetsZero];
@@ -159,10 +112,58 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void) viewWillAppear:(BOOL)animated {
-    [_tableView reloadData];
-    NSLog(@"完了としたいところ");
 
+-(void) viewWillAppear:(BOOL)animated{
+    _proArray = [[NSMutableArray alloc] init];
+    
+    NSArray * librarystickers = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *stickerPath = [librarystickers lastObject];
+    stickerPath = [stickerPath stringByAppendingString:@"/Caches/stickers/"];
+    NSLog(@"nannyato=%@",stickerPath);
+    
+    NSString *itemPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/stickers"];
+    
+    // ファイルマネージャを作成
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSError *error;
+    NSArray *list = [fileManager contentsOfDirectoryAtPath:itemPath
+                                                     error:&error];
+    _proArray = [NSMutableArray array];
+    _imgArray = [NSMutableArray array];
+    _allimgArray = [NSMutableArray array];
+    
+    
+    for(NSString *path in list){
+        NSString *filePath = [NSString stringWithFormat:@"%@%@/1.txt", stickerPath, path];
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        
+        NSLog(@"tateteteetetet%@",data);
+        
+        if (data == NULL) {
+            NSLog(@"empty");
+        }else{
+            
+            
+            NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            //        NSLog(@"unnkotoittamododa=%@",newStr);//このstringをアレイに入れる
+            [_proArray addObject:newStr];
+            NSLog(@"sannkounishimasuka%@",_proArray);
+            
+            NSString *filePath1 = [NSString stringWithFormat:@"%@%@/1.png", stickerPath, path];
+            NSData *data1 = [NSData dataWithContentsOfFile:filePath1];
+            UIImage *image1 = [UIImage imageWithData:data1];
+            [_imgArray addObject:image1];
+            
+            NSString *filePath2 = [NSString stringWithFormat:@"%@%@/0.png", stickerPath, path];
+            NSData *data2 = [NSData dataWithContentsOfFile:filePath2];
+            UIImage *image2 = [UIImage imageWithData:data2];
+            [_allimgArray addObject:image2];
+        }
+        
+    }
+       [_tableView reloadData];
+    NSLog(@"viewWillAppear");
     [super viewWillAppear:animated];
 }
 
