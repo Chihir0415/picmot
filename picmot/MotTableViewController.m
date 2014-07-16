@@ -191,6 +191,8 @@
         
         fdvc.category_number = self.category_number;
         
+        [[self navigationController] pushViewController:fdvc animated:YES];
+        
         
         
         

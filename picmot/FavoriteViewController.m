@@ -25,6 +25,8 @@
 
 @implementation FavoriteViewController
 
+@synthesize category_number;
+
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 //{
 //    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -42,9 +44,17 @@
     favList = [favDefault arrayForKey:@"favorite_key"];
     NSLog(@"favList %@", favList);
     
-    
     [favDefault synchronize];
     
+    //Plist読み込み
+    bundle = [NSBundle mainBundle];
+    path = [bundle pathForResource:@"motList" ofType:@"plist"];
+    motList = [NSArray arrayWithContentsOfFile:path];
+    
+    // DOTO: if文でfavListとmotListを照合して一致しているデータをNewArrayに入れる
+    if ([favList isEqualToArray:motList]) {
+        
+    }
     _currentPage = 0;
     
     UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
@@ -53,8 +63,7 @@
     [self.view addSubview:scrollView];
     
     
-    
-    int n = (int)[motList[_i] count];
+    int n = (int)[favList[_i] count];
     
     CGSize s = scrollView.frame.size;
     CGRect contentRect = CGRectMake(0, 0, s.width * n, s.height);
@@ -64,8 +73,6 @@
     UIView* view[n];
     UITextView* textView[n];
     for (int i = 0; i < n; i++) {
-        
-        
         view[i] = [[UIView alloc] init];
         view[i].tag = i;
         view[i].frame = CGRectMake(320 * i, 30, s.width, s.height-20);
