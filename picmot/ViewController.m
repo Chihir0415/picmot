@@ -31,40 +31,53 @@
 {
     [super viewDidLoad];
     
-    //SelfActivityで設定したuserDefaultを引っ張ってくる
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSInteger num = [ud integerForKey:@"savepic"];
-    
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"001.png"] drawInRect:self.view.bounds];
-    
-    int i;
-    NSMutableArray *savephotos = [NSMutableArray array];
-    for (i = 0; i <= num; i++) {
-        UIImage *savedimage = [UIImage imageNamed:[NSString stringWithFormat:@"../Documents/Album/pic%d.jpg",i]];
-        if (savedimage != nil) {
-            [savephotos addObject:savedimage];
-        }
-    }
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *filePath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Album"] stringByAppendingPathComponent:[NSString stringWithFormat:@"pic%ld.jpg",(long)i]];
-    
-    if (![fileManager fileExistsAtPath:filePath]) {
-        _imageView.image = [UIImage imageNamed:@"pic01.jpg"];
-    }else{
-    _imageView.animationImages = savephotos;
-    _imageView.animationDuration = 15.0;
-    _imageView.animationRepeatCount = 0;
-    
-    [_imageView startAnimating];
-    }
-    
-    UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
-    
     _tabBaritem.backgroundColor = [UIColor clearColor];
     [self defaults];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+        UIGraphicsBeginImageContext(self.view.frame.size);
+        [[UIImage imageNamed:@"001.png"] drawInRect:self.view.bounds];
+        
+        //SelfActivityで設定したuserDefaultを引っ張ってくる
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        NSInteger num = [ud integerForKey:@"savepic"];
+    
+    
+    int i;
+    BOOL nonFlug = NO;
+        NSMutableArray *savephotos = [NSMutableArray array];
+        for (i = 0; i <= num; i++) {
+            UIImage *savedimage = [UIImage imageNamed:[NSString stringWithFormat:@"../Documents/Album/pic%d.jpg",i]];
+            NSFileManager *fileManager01 = [NSFileManager defaultManager];
+            NSString *filePath01 = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Album"] stringByAppendingPathComponent:[NSString stringWithFormat:@"pic%ld.jpg",(long)i]];
+            if ([fileManager01 fileExistsAtPath:filePath01]) {
+                [savephotos addObject:savedimage];
+                nonFlug = YES;
+            }
+        }
+    
+        if (nonFlug == YES) {
+        //    if([fileManager01 fileExistsAtPath:filePath01]){
+                _imageView.animationImages = savephotos;
+                _imageView.animationDuration = 15.0;
+                _imageView.animationRepeatCount = 0;
+                [_imageView startAnimating];
+          //  }
+        }else{
+            if(_imageView.isAnimating == YES)
+                {
+                    [_imageView stopAnimating];
+                }
+            _imageView.image = [UIImage imageNamed:@"pic01.jpg"];
+        }
+        
+        UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    
+        [super viewWillAppear:animated];
 }
 
 -(void)defaults{
