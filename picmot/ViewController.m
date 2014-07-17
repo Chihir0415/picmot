@@ -337,13 +337,6 @@
     [self presentViewController:nvc animated:YES completion:nil];
 }
 
-- (void)pushedOldBtn
-{
-    //muneに飛ぶよ
-    //よろよろ
-    UINavigationController *nvc1 = [self.storyboard instantiateViewControllerWithIdentifier:@"UIServerNavigationController"];
-    [self presentViewController:nvc1 animated:YES completion:nil];
-}
 
 - (void)pushedNewBtn
 {
@@ -376,7 +369,7 @@
 //}
 - (void)pushedMenuBtn
 {
-    UINavigationController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"UINavigationController2"];
+    UITabBarController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"UITabBarController"];
     [self presentViewController:nvc animated:YES completion:nil];}
 
 #pragma mark- ImagePicker delegate
@@ -439,9 +432,6 @@
     switch (item.tag) {
         case 0:
             [self pushedMotBtn];
-            break;
-        case 1:
-            [self pushedOldBtn];
             break;
         case 2:
             [self pushedNewBtn];
