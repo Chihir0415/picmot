@@ -43,6 +43,7 @@
     cateView.layer.borderColor = [UIColor colorWithRed:0.97 green:0.97 blue:1.00 alpha:1.0].CGColor;
     cateView.layer.borderWidth = 0.5f;
     [self.view addSubview:cateView];
+
     
     dlBtn = [[UIButton alloc] init];
     dlBtn =  [ UIButton buttonWithType:UIButtonTypeRoundedRect ];
