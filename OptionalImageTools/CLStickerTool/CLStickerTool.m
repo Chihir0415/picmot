@@ -90,6 +90,11 @@ static NSString* const kCLStickerToolStickerPathKey = @"stickerPath";
     _workingView.clipsToBounds = YES;
     [self.editor.view addSubview:_workingView];
     
+    _stickerScroll = [[UIScrollView alloc] initWithFrame:(CGRectMake(0, self.editor.imageView.height - 50, self.editor.view.width, 120))];
+    _stickerScroll.backgroundColor = self.editor.menuView.backgroundColor;
+    _stickerScroll.showsHorizontalScrollIndicator = NO;
+    [self.editor.view addSubview:_stickerScroll];
+    
     [self setStickerMenu];
     
     _menuScroll.transform = CGAffineTransformMakeTranslation(0, self.editor.view.height-_menuScroll.top);
@@ -194,14 +199,13 @@ static NSString* const kCLStickerToolStickerPathKey = @"stickerPath";
 
 - (void)tappedSticker:(UITapGestureRecognizer*)sender
 {
-    _stickerScroll = [[UIScrollView alloc] initWithFrame:(CGRectMake(0, self.editor.imageView.height - 80, self.editor.view.width, 150))];
-    _stickerScroll.backgroundColor = self.editor.menuView.backgroundColor;
-    _stickerScroll.showsHorizontalScrollIndicator = NO;
-    [self.editor.view addSubview:_stickerScroll];
-    
+    _stickerScroll.hidden = NO;
+
     for (UIView* subview in _stickerScroll.subviews) {
         [subview removeFromSuperview];
     }
+
+    
     UIView *view = sender.view;
     NSLog(@"nadesuka----%@",view);
     
@@ -211,7 +215,7 @@ static NSString* const kCLStickerToolStickerPathKey = @"stickerPath";
     stickerPath= [stickerPath stringByReplacingOccurrencesOfString:@"1.png" withString:@""];
     NSLog(@"%@",stickerPath);
     
-    CGFloat W2 = 150;
+    CGFloat W2 = 120;
     CGFloat H2 = _stickerScroll.height;
     CGFloat x2 = 0;
 //    NSString *stickerPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/stickers"];
@@ -243,7 +247,7 @@ static NSString* const kCLStickerToolStickerPathKey = @"stickerPath";
         if(image){
             CLToolbarMenuItem *view = [[CLToolbarMenuItem alloc]init];
             view = [CLImageEditorTheme menuItemWithFrame:CGRectMake(x2, 0, W2, H2) target:self action:@selector(tappedStickerPanel:) toolInfo:nil];
-            view.iconImage = [image aspectFit:CGSizeMake(150, 150)];
+            view.iconImage = [image aspectFit:CGSizeMake(120, 120)];
             view.userInfo = @{@"filePath" : filePath};
             
             [_stickerScroll addSubview:view];

@@ -9,6 +9,7 @@
 #import "DownloadpageViewController.h"
 
 @interface DownloadpageViewController (){
+    UIView *cateView;
     UIButton *dlBtn;
     UIProgressView *dlProg;
     UIImageView *cateImg;
@@ -35,38 +36,43 @@
 {
     [super viewDidLoad];
     self.navigationItem.title = [NSString stringWithFormat:@"%@",_pcTitle];
-
     
-//    imgView = [[UIView alloc] initWithFrame:CGRectMake(10, 300 , self, 750)];
-//    imgView.backgroundColor = [UIColor colorWithRed:0.55 green:0.78 blue:0.13 alpha:1.0];
-//    imgView.alpha = 1.0;
-//    [self.view addSubview:imgView];
+    self.view.backgroundColor = [UIColor colorWithRed:1.00 green:0.98 blue:0.98 alpha:1.0];
+    
+    cateView = [[UIView alloc] initWithFrame:CGRectMake(10, 68, 300, 168)];
+    cateView.backgroundColor = [UIColor whiteColor];
+    cateView.layer.borderColor = [UIColor colorWithRed:0.97 green:0.97 blue:1.00 alpha:1.0].CGColor;
+    cateView.layer.borderWidth = 0.5f;
+    [self.view addSubview:cateView];
+    
     
     dlBtn = [[UIButton alloc] init];
     dlBtn =  [ UIButton buttonWithType:UIButtonTypeRoundedRect ];
-    dlBtn.frame = CGRectMake( 60, 255, 200, 60 );
-    [self.view addSubview:dlBtn];
+    dlBtn.frame = CGRectMake( 50, 138, 200, 28 );
+    dlBtn.backgroundColor = [UIColor colorWithRed:0.86 green:0.86 blue:0.86 alpha:1.0];
+    [cateView addSubview:dlBtn];
     
-    dlLabel = [[UILabel alloc] initWithFrame:CGRectMake(170, 100, 130, 100)];
+    dlLabel = [[UILabel alloc] initWithFrame:CGRectMake(160, 10, 100, 100)];
     dlLabel.textColor = [UIColor blackColor];
-    [self.view addSubview:dlLabel];
+    [cateView addSubview:dlLabel];
     
     dlProg = [[UIProgressView alloc] init];
-    [self.view addSubview:dlProg];
     
-    cateImg = [[UIImageView alloc] initWithFrame:CGRectMake(10, 80, 150, 150)];
-    cateImg.layer.borderColor = [UIColor grayColor].CGColor;
+    cateImg = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 120, 120)];
+    cateImg.layer.borderColor = [UIColor colorWithRed:0.97 green:0.97 blue:1.00 alpha:1.0].CGColor;
     cateImg.layer.borderWidth = 0.5f;
     cateImg.layer.cornerRadius = 2.0f;
-    [self.view addSubview:cateImg];
+    [cateView addSubview:cateImg];
     
-    imgScrl = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 300, 300, self.view.bounds.size.height - 350)];
+    imgScrl = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 240, 300, self.view.bounds.size.height - 295)];
+    imgScrl.backgroundColor = [UIColor whiteColor];
     [imgScrl setContentSize:CGSizeMake(300, 750)];
-
+    
     imgScrl.userInteractionEnabled = YES;
     imgScrl.delegate = self;
-
-    imgScrl.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1.0];
+    
+    imgScrl.layer.borderColor = [UIColor colorWithRed:0.97 green:0.97 blue:1.00 alpha:1.0].CGColor;
+    imgScrl.layer.borderWidth = 0.5f;
     imgScrl.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:imgScrl];
     
@@ -101,6 +107,7 @@
             
             NSLog(@"no!");
             dlLabel.text = self.pcTitle;
+            dlLabel.textAlignment = NSTextAlignmentCenter;
             NSURL *url = [NSURL URLWithString:self.pcImage];
             NSData *data = [NSData dataWithContentsOfURL:url];
             UIImage *image = [UIImage imageWithData:data];
@@ -112,17 +119,18 @@
             UIImage *image1 = [UIImage imageWithData:data1];
             cateImg.image = image1;
             [dlBtn setTitle:@"download" forState:UIControlStateNormal ];
+            dlBtn.backgroundColor = [UIColor colorWithRed:0.18 green:0.55 blue:0.34 alpha:1.0];
+            [dlBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
             [dlBtn addTarget:self action:@selector(download:) forControlEvents:UIControlEventTouchUpInside];
             
             dlBtn.alpha = 1.0;
             dlBtn.enabled = YES;
-            dlProg.frame = CGRectMake(60, 250, 200, 5);
-            dlProg.trackTintColor = [UIColor colorWithRed:1.0f green:0.9f blue:0.9f alpha:1.0f];
-            dlProg.progressTintColor = [UIColor colorWithRed:0.6f green:0.98f blue:0.6f alpha:1.0f];
 
         }else{
             NSLog(@"yes!!");
             dlLabel.text = self.pcTitle;
+            dlLabel.textAlignment = NSTextAlignmentCenter;
             NSString *filePath0 = [NSString stringWithFormat:@"%@/0.png", stickerPath];
             NSData *data0 = [NSData dataWithContentsOfFile:filePath0];
             //        NSLog(@"uooooooo=%@",data);
@@ -137,6 +145,8 @@
             UIImage *image1 = [UIImage imageWithData:data1];
             allImg.image = image1;
             [dlBtn setTitle:@"downloaded" forState:UIControlStateNormal ];
+            dlBtn.backgroundColor = [UIColor colorWithRed:0.86 green:0.86 blue:0.86 alpha:1.0];
+            [dlBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             dlBtn.alpha = 1.0;
             dlBtn.enabled = NO;
 
@@ -146,6 +156,17 @@
 
 }
 - (void) download:(UIButton*)sender {
+    UIView *tmpBackView = [[UIView alloc] initWithFrame:CGRectZero];
+    [tmpBackView setBackgroundColor:[UIColor clearColor]];
+    UIBarButtonItem *tmpBackButton = [[UIBarButtonItem alloc] initWithCustomView:tmpBackView];
+    [tmpBackButton setEnabled:NO];
+    [self.navigationItem setLeftBarButtonItem:tmpBackButton];
+    
+    dlProg.frame = CGRectMake(60, 198, 200, 3);
+    dlProg.trackTintColor = [UIColor colorWithRed:1.0f green:0.9f blue:0.9f alpha:1.0f];
+    dlProg.progressTintColor = [UIColor colorWithRed:0.6f green:0.98f blue:0.6f alpha:1.0f];
+    [self.view addSubview:dlProg];
+    
     NSURL* url = [NSURL URLWithString:_pcZip];
     NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession* session = [NSURLSession sessionWithConfiguration:config
@@ -222,8 +243,12 @@
         NSString *messageStr =@"download error";
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"error" message:messageStr delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [alert show];
+        [self.navigationController popViewControllerAnimated:YES];
+
 
     }
+    [self.navigationItem setLeftBarButtonItem:nil];
+
     dlProg.progress = 1.0;
     
     

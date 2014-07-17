@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = [NSString stringWithFormat:@"スタンプ一覧"];
+    self.navigationItem.title = [NSString stringWithFormat:@"Sticker Shop"];
 
     
     //ユーザ名格納配列　初期化
@@ -89,8 +89,9 @@
     }
     [self.view addSubview:_tableView];
     
-    _tableView.rowHeight = 80;
-    _tableView.backgroundColor = [UIColor whiteColor];
+    _tableView.rowHeight = 60;
+    _tableView.backgroundColor = [UIColor colorWithRed:1.00 green:0.98 blue:0.98 alpha:1.0];
+
     [self.view addSubview:uv_load];
 
 }
@@ -245,6 +246,8 @@
     
     // indexPathよりrowを取得し、rowをもとにuserArr配列から該当するユーザー名を取得
     cell.textLabel.text = [stArr objectAtIndex:indexPath.row];
+    cell.backgroundColor = [UIColor colorWithRed:1.00 green:0.98 blue:0.98 alpha:1.0];
+
     NSLog(@"test=%@",cell.textLabel.text);
     
     NSString* cate = [stcateImage objectAtIndex:indexPath.row];
