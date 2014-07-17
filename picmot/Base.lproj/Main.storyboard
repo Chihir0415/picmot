@@ -20,11 +20,9 @@
                                 <rect key="frame" x="20" y="25" width="280" height="466"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-<<<<<<< HEAD
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D0k-v4-jhS">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="378"/>
                                     </imageView>
-=======
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic01.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="D0k-v4-jhS">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="466"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +34,6 @@
                                             <outlet property="delegate" destination="vXZ-lx-hvc" id="RLZ-zu-Cjt"/>
                                         </connections>
                                     </scrollView>
->>>>>>> Server
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
@@ -270,17 +267,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-<<<<<<< HEAD
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="HDz-W0-wUf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a94-tz-Hk8">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-=======
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HDz-W0-wUf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a94-tz-Hk8">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
->>>>>>> Server
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="separatorColor" red="1" green="0.0" blue="0.50196081400000003" alpha="0.88" colorSpace="calibratedRGB"/>
-                            </tableView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView> </tableView>      
                         </subviews>
                         <constraints>
                             <constraint firstItem="HDz-W0-wUf" firstAttribute="leading" secondItem="QBE-xB-Mgn" secondAttribute="leading" id="LnX-Dj-8e3"/>
@@ -298,11 +291,8 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZW-xZ-P4u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="380" y="633"/>
-=======
             <point key="canvasLocation" x="18" y="529"/>
->>>>>>> Server
         </scene>
         <!--Mot Detail View Controller-->
         <scene sceneID="wMY-kk-Th6">
@@ -320,7 +310,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YyG-iD-f0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="775" y="633"/>
         </scene>
         <!--Favorite View Controller-->
@@ -340,7 +329,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XO0-LY-cTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1193" y="649"/>
-=======
             <point key="canvasLocation" x="413" y="529"/>
         </scene>
         <!--Download View Controller-->
@@ -379,7 +367,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vFg-Ex-H3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1766" y="-42"/>
->>>>>>> Server
         </scene>
         <!--Navigation Controller - Mot-->
         <scene sceneID="RtD-60-8ok">
@@ -402,9 +389,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rWl-no-qkA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="-27" y="633"/>
-=======
             <point key="canvasLocation" x="-389" y="529"/>
         </scene>
         <!--Navigation Controller-->
@@ -424,7 +409,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGn-Ae-I1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="143" y="-487"/>
->>>>>>> Server
         </scene>
     </scenes>
     <resources>

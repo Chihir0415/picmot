@@ -34,15 +34,11 @@
 {
     [super viewDidLoad];
     
-<<<<<<< HEAD
     //SelfActivityで設定したuserDefaultを引っ張ってくる
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSInteger num = [ud integerForKey:@"savepic"];
     
-    //[self refreshImageView];
-=======
-    [self refreshImageView];
->>>>>>> Server
+//    [self refreshImageView];
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"001.png"] drawInRect:self.view.bounds];
     
@@ -336,7 +332,6 @@
 
 - (void)pushedOldBtn
 {
-<<<<<<< HEAD
     
     UINavigationController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"UINavigationController2"];
     [self presentViewController:nvc animated:YES completion:nil];
@@ -347,12 +342,10 @@
 //        library.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 //        [self presentViewController:library  animated:YES completion: nil];
 //    }
-=======
    //muneに飛ぶよ
     //よろよろ
     UINavigationController *nvc1 = [self.storyboard instantiateViewControllerWithIdentifier:@"UIServerNavigationController"];
     [self presentViewController:nvc1 animated:YES completion:nil];
->>>>>>> Server
 }
 
 - (void)pushedNewBtn

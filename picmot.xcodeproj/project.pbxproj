@@ -330,11 +330,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				609D7B0019639A79009EE055 /* Social.framework in Frameworks */,
-=======
 				15F140121975239900C147AE /* libz.dylib in Frameworks */,
->>>>>>> Server
 				608E489C18EA85C100DA0FC7 /* QuartzCore.framework in Frameworks */,
 				6006B6AF18CF499A0046A82F /* AVFoundation.framework in Frameworks */,
 				6006B6AD18CF49870046A82F /* CoreImage.framework in Frameworks */,
@@ -401,11 +398,8 @@
 		6006B5FB18CF48F70046A82F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				609D7AFF19639A79009EE055 /* Social.framework */,
-=======
 				15F140111975239900C147AE /* libz.dylib */,
->>>>>>> Server
 				608E489B18EA85C100DA0FC7 /* QuartzCore.framework */,
 				6006B6AE18CF499A0046A82F /* AVFoundation.framework */,
 				6006B6AC18CF49870046A82F /* CoreImage.framework */,
@@ -433,7 +427,6 @@
 				6006B6B118D044750046A82F /* MotTableViewController.m */,
 				6006B6B518D047570046A82F /* MotDetailViewController.h */,
 				6006B6B618D047570046A82F /* MotDetailViewController.m */,
-<<<<<<< HEAD
 				609D7B68196684B1009EE055 /* AlbumViewController.h */,
 				609D7B69196684B1009EE055 /* AlbumViewController.m */,
 				609D7B6B196684EA009EE055 /* DetailAlbumViewController.h */,
@@ -443,7 +436,6 @@
 				75B4BFFB19765DA2006D3FD1 /* FavoriteViewController.h */,
 				75B4BFFC19765DA2006D3FD1 /* FavoriteViewController.m */,
 				753C81331975144600B817EB /* favoriteBtn */,
-=======
 				15CFAA6719628C7200889EED /* ServerViewController.h */,
 				15CFAA6819628C7200889EED /* ServerViewController.m */,
 				1519F05E1974A73A006FBA84 /* StickerDetailViewController.h */,
@@ -452,7 +444,6 @@
 				1519F0621974A754006FBA84 /* DownloadViewController.m */,
 				1519F0641974A770006FBA84 /* DownloadpageViewController.h */,
 				1519F0651974A770006FBA84 /* DownloadpageViewController.m */,
->>>>>>> Server
 				6006B61418CF48F70046A82F /* Images.xcassets */,
 				751E50F2195A6D840059E8D5 /* mot_img */,
 				6006B60318CF48F70046A82F /* Supporting Files */,
@@ -936,11 +927,8 @@
 				60A4591E18ED27B500220A3B /*  icon6.png in Resources */,
 				6006B6A718CF49450046A82F /* _CLImageEditorViewController.xib in Resources */,
 				6006B6B418D046150046A82F /* pic01.jpg in Resources */,
-<<<<<<< HEAD
 				609D7B5B196560F9009EE055 /* mixi_icon.png in Resources */,
-=======
 				15F1402019757C9200C147AE /* 2.txt in Resources */,
->>>>>>> Server
 				60C4287618EAB11B0029FB7A /* check30.png in Resources */,
 				609D7B2319652E23009EE055 /* icon_line.png in Resources */,
 				603E5242196A67FB002BF4FB /* self_ icon@2x.png in Resources */,
@@ -964,11 +952,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				75B4BFFD19765DA2006D3FD1 /* FavoriteViewController.m in Sources */,
-=======
 				15F140091975232400C147AE /* ioapi.c in Sources */,
->>>>>>> Server
 				6006B6B718D047570046A82F /* MotDetailViewController.m in Sources */,
 				753C813C1975144600B817EB /* UIColor+GBFlatButton.m in Sources */,
 				6006B69718CF49450046A82F /* CLFilterBase.m in Sources */,
@@ -987,11 +972,8 @@
 				6006B69518CF49450046A82F /* CLEffectBase.m in Sources */,
 				6006B69F18CF49450046A82F /* CLToolbarMenuItem.m in Sources */,
 				6006B6A018CF49450046A82F /* UIView+CLImageToolInfo.m in Sources */,
-<<<<<<< HEAD
 				609D7B5819655E91009EE055 /* mixiActivity.m in Sources */,
-=======
 				15F1400A1975232400C147AE /* Makefile in Sources */,
->>>>>>> Server
 				6006B6A918CF49450046A82F /* CLStickerTool.m in Sources */,
 				6006B6A618CF49450046A82F /* _CLImageEditorViewController.m in Sources */,
 				1519F0601974A73A006FBA84 /* StickerDetailViewController.m in Sources */,
