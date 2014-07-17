@@ -52,7 +52,9 @@
         [_tableView setSeparatorInset:UIEdgeInsetsZero];
     }
 
-    self.tableView.rowHeight = 80;
+    self.tableView.rowHeight = 60;
+    _tableView.backgroundColor = [UIColor colorWithRed:1.00 green:0.98 blue:0.98 alpha:1.0];
+
 //    self.tableView.backgroundColor = [UIColor blackColor];
     
     
@@ -88,6 +90,8 @@
     
         cell.imageView.image = _imgArray[indexPath.row];
     cell.textLabel.textColor = [UIColor blackColor];
+    cell.backgroundColor = [UIColor colorWithRed:1.00 green:0.98 blue:0.98 alpha:1.0];
+
     cell.textLabel.font = [UIFont systemFontOfSize:20];
 //    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     
@@ -135,6 +139,7 @@
     
     
     for(NSString *path in list){
+        NSLog(@"path=====%@",path);
         NSString *filePath = [NSString stringWithFormat:@"%@%@/1.txt", stickerPath, path];
         NSData *data = [NSData dataWithContentsOfFile:filePath];
         
