@@ -281,7 +281,7 @@
             </objects>
             <point key="canvasLocation" x="-27" y="569"/>
         </scene>
-        <!--Server View Controller - Sticker-->
+        <!--Server View Controller - My Sticker-->
         <scene sceneID="ApR-x3-ePU">
             <objects>
                 <viewController storyboardIdentifier="ServerViewController" id="Swy-iY-HGN" customClass="ServerViewController" sceneMemberID="viewController">
@@ -301,7 +301,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sticker" id="g4Q-Y0-9Te"/>
+                    <navigationItem key="navigationItem" title="My Sticker" id="g4Q-Y0-9Te"/>
                     <connections>
                         <outlet property="tableView" destination="VN4-oJ-htX" id="FND-mP-sLS"/>
                     </connections>
