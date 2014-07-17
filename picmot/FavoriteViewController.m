@@ -19,11 +19,14 @@
     NSString* path;
     NSArray* motList;
     UIToolbar* motTool;
+    NSMutableArray* favText;
 }
 
 @end
 
 @implementation FavoriteViewController
+
+@synthesize category_number;
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 //{
@@ -42,8 +45,27 @@
     favList = [favDefault arrayForKey:@"favorite_key"];
     NSLog(@"favList %@", favList);
     
-    
     [favDefault synchronize];
+    
+    //Plist読み込み
+    bundle = [NSBundle mainBundle];
+    path = [bundle pathForResource:@"motList" ofType:@"plist"];
+    motList = [NSArray arrayWithContentsOfFile:path];
+    
+    // DOTO: favListでmotListから配列を引っ張ってくる
+    favText = [[NSMutableArray alloc] init];
+    int i;
+    for (i = 0; i < [favList count]; i++) {
+        NSArray* favs = [favList objectAtIndex:i];
+        NSInteger favCategory = [[favs objectAtIndex:0] integerValue];
+        NSInteger favPage = [[favs objectAtIndex:1] integerValue];
+        [favText addObject:motList[favCategory][favPage]];
+    }
+    NSLog(@"favText %@", favText);
+    
+    //    if (favText == nil) {
+    //        favText = [NSMutableArray array];
+    //    }
     
     _currentPage = 0;
     
@@ -53,8 +75,7 @@
     [self.view addSubview:scrollView];
     
     
-    
-    int n = (int)[motList[_i] count];
+    int n = (int)[favText count];
     
     CGSize s = scrollView.frame.size;
     CGRect contentRect = CGRectMake(0, 0, s.width * n, s.height);
@@ -64,16 +85,14 @@
     UIView* view[n];
     UITextView* textView[n];
     for (int i = 0; i < n; i++) {
-        
-        
-        view[i] = [[UIView alloc] init];
-        view[i].tag = i;
-        view[i].frame = CGRectMake(320 * i, 30, s.width, s.height-20);
+        //        view[i] = [[UIView alloc] init];
+        //        view[i].tag = i;
+        //        view[i].frame = CGRectMake(320 * i, 30, s.width, s.height-20);
         textView[i] = [[UITextView alloc] init];
         textView[i].tag = i;
         textView[i].frame =CGRectMake(320 * i, 100, s.width, s.height-130);
         textView[i].font = [UIFont systemFontOfSize:14];
-        textView[i].text = motList[_i][i];
+        textView[i].text = favText[i];
         textView[i].textAlignment = NSTextAlignmentCenter;
         
         // view[i].backgroundColor = [UIColor clearColor];
@@ -114,14 +133,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
