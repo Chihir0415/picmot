@@ -79,8 +79,20 @@
 {
     [super viewDidLoad];
     
+    // BackButton
+    UIBarButtonItem* menu = [[UIBarButtonItem alloc]
+                             initWithTitle:@"Back"
+                             style:UIBarButtonItemStyleBordered
+                             target:self
+                             action:@selector(barbutton1:)];
+    self.navigationItem.leftBarButtonItems = @[menu];
     // ナビゲーションバーの色を変更
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+}
+
+-(void)barbutton1:(UIBarButtonItem *)menu{
+    [self dismissViewControllerAnimated:YES completion: NULL];
+    
 }
 
 #pragma mark - Table View

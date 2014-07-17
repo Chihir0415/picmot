@@ -46,10 +46,9 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
                                     <tabBarItem title="Mot" image="round41.png" id="jxg-tQ-zFV"/>
-                                    <tabBarItem tag="1" title="library" image="film40.png" id="2LE-PX-rbO"/>
+                                    <tabBarItem tag="1" title="server" image="pencil32.png" id="2LE-PX-rbO"/>
                                     <tabBarItem tag="2" title="Camera" image="camera44.png" id="pir-T8-Kke"/>
-                                    <tabBarItem tag="3" title="Edit" image="pencil32.png" id="yg5-hE-1py"/>
-                                    <tabBarItem tag="4" title="Save" image="check30.png" id="zZB-GZ-kSe"/>
+                                    <tabBarItem tag="3" title="Menu" image="film40.png" id="yg5-hE-1py"/>
                                 </items>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <connections>
@@ -96,7 +95,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xHZ-46-bjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-27" y="-656"/>
+            <point key="canvasLocation" x="380" y="-52"/>
         </scene>
         <!--Album View Controller - picmot-Album-->
         <scene sceneID="cbF-4g-7jM">
@@ -142,7 +141,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0A-Cc-RFV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="380" y="-656"/>
+            <point key="canvasLocation" x="787" y="-52"/>
         </scene>
         <!--Detail Album View Controller - picmot-->
         <scene sceneID="VRy-48-JGv">
@@ -204,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cbj-C4-eej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="775" y="-656"/>
+            <point key="canvasLocation" x="1182" y="-52"/>
         </scene>
         <!--Mot Table View Controller - Mot-->
         <scene sceneID="6YX-xX-xb9">
@@ -264,7 +263,7 @@
         <!--Navigation Controller - Mot-->
         <scene sceneID="RtD-60-8ok">
             <objects>
-                <navigationController storyboardIdentifier="UINavigationController" automaticallyAdjustsScrollViewInsets="NO" id="78p-XU-tmE" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="UINavigationController1" automaticallyAdjustsScrollViewInsets="NO" id="78p-XU-tmE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Mot" id="yCG-JG-0Pu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cXz-Rm-Vqh">
@@ -404,7 +403,6 @@
     </scenes>
     <resources>
         <image name="camera44.png" width="33" height="33"/>
-        <image name="check30.png" width="50" height="32"/>
         <image name="film40.png" width="30" height="30"/>
         <image name="pencil32.png" width="35" height="35"/>
         <image name="round41.png" width="35" height="32"/>

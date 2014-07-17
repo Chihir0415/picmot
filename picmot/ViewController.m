@@ -12,14 +12,11 @@
 @interface ViewController ()
 <CLImageEditorDelegate, CLImageEditorThemeDelegate> {
     UIImageView* _myImageView;
-
 }
 
 @end
 
 @implementation ViewController
-
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +35,6 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSInteger num = [ud integerForKey:@"savepic"];
     
-//    [self refreshImageView];
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"001.png"] drawInRect:self.view.bounds];
     
@@ -50,8 +46,6 @@
             [savephotos addObject:savedimage];
         }
     }
-//    NSLog(@"save = %@",savephotos);
-    
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *filePath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Album"] stringByAppendingPathComponent:[NSString stringWithFormat:@"pic%ld.jpg",(long)i]];
     
@@ -332,17 +326,7 @@
 
 - (void)pushedOldBtn
 {
-    
-    UINavigationController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"UINavigationController2"];
-    [self presentViewController:nvc animated:YES completion:nil];
-//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-//        UIImagePickerController *library = [[UIImagePickerController alloc] init];
-//        library.delegate = self;
-//        library.allowsEditing = NO;
-//        library.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//        [self presentViewController:library  animated:YES completion: nil];
-//    }
-   //muneに飛ぶよ
+    //muneに飛ぶよ
     //よろよろ
     UINavigationController *nvc1 = [self.storyboard instantiateViewControllerWithIdentifier:@"UIServerNavigationController"];
     [self presentViewController:nvc1 animated:YES completion:nil];
@@ -350,63 +334,37 @@
 
 - (void)pushedNewBtn
 {
-    
         UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Photo Library", nil];
         [sheet showInView:self.view.window];
-    
-//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-//        UIImagePickerController *camera = [[UIImagePickerController alloc] init];
-//        camera.delegate = self;
-//        camera.allowsEditing = NO;
-//        camera.sourceType = UIImagePickerControllerSourceTypeCamera;
-//        [self presentViewController:camera  animated:YES completion: nil];
-//    }
 }
 
-- (void)pushedEditBtn
+//- (void)pushedEditBtn
+//{
+//    if(_imageView.image){
+//        CLImageEditor *editor = [[CLImageEditor alloc] initWithImage:_imageView.image];
+//        editor.delegate = self;
+//        //CLImageEditor *editor = [[CLImageEditor alloc] initWithDelegate:self];
+//        
+//        
+//        CLImageToolInfo *tool = [editor.toolInfo subToolInfoWithToolName:@"CLStickerTool" recursive:NO];
+//        tool.available = YES;
+//        tool.dockedNumber = -1;
+//        
+//        tool= [editor.toolInfo subToolInfoWithToolName:@"CLResizeTool" recursive:YES];
+//        tool.available = NO;
+//        
+//        
+//        [self presentViewController:editor animated:YES completion:nil];
+//        //[editor showInViewController:self withImageView:_imageView];
+//    }
+//    else{
+//        [self pushedNewBtn];
+//    }
+//}
+- (void)pushedMenuBtn
 {
-    if(_imageView.image){
-        CLImageEditor *editor = [[CLImageEditor alloc] initWithImage:_imageView.image];
-        editor.delegate = self;
-        //CLImageEditor *editor = [[CLImageEditor alloc] initWithDelegate:self];
-        
-        
-        CLImageToolInfo *tool = [editor.toolInfo subToolInfoWithToolName:@"CLStickerTool" recursive:NO];
-        tool.available = YES;
-        tool.dockedNumber = -1;
-        
-        tool= [editor.toolInfo subToolInfoWithToolName:@"CLResizeTool" recursive:YES];
-        tool.available = NO;
-        
-        
-        [self presentViewController:editor animated:YES completion:nil];
-        //[editor showInViewController:self withImageView:_imageView];
-    }
-    else{
-        [self pushedNewBtn];
-    }
-}
-- (void)pushedSaveBtn
-{
-    if(_imageView.image){
-        NSArray *excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMessage];
-        
-        UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[_imageView.image] applicationActivities:nil];
-        
-        activityView.excludedActivityTypes = excludedActivityTypes;
-        activityView.completionHandler = ^(NSString *activityType, BOOL completed){
-            if(completed && [activityType isEqualToString:UIActivityTypeSaveToCameraRoll]){
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Saved successfully" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alert show];
-            }
-        };
-        
-        [self presentViewController:activityView animated:YES completion:nil];
-    }
-    else{
-        [self pushedNewBtn];
-    }
-}
+    UINavigationController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"UINavigationController2"];
+    [self presentViewController:nvc animated:YES completion:nil];}
 
 #pragma mark- ImagePicker delegate
 
@@ -476,7 +434,7 @@
             [self pushedNewBtn];
             break;
         case 3:
-            [self pushedEditBtn];
+            [self pushedMenuBtn];
             break;
         default:
             break;

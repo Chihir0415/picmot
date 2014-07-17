@@ -49,7 +49,7 @@
     
     // BackButton
     UIBarButtonItem* menu = [[UIBarButtonItem alloc]
-                              initWithTitle:@"Menu"
+                              initWithTitle:@"Back"
                               style:UIBarButtonItemStyleBordered
                               target:self
                               action:@selector(barbutton1:)];
@@ -191,7 +191,7 @@
         
         fdvc.category_number = self.category_number;
         
-        
+        [[self navigationController] pushViewController:fdvc animated:YES];
         
         
         
