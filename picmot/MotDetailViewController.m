@@ -9,6 +9,7 @@
 #import "MotDetailViewController.h"
 #import "GBFlatButton.h"
 #import "UIColor+GBFlatButton.h"
+#import "DownloadViewController.h"
 
 @interface MotDetailViewController (){
     int _currentPage;
@@ -20,7 +21,8 @@
     NSArray* motList;
     NSMutableArray* favoMutaArr;
     NSUserDefaults* defalt;
-    GBFlatButton* flatButton;
+    GBFlatButton* favButton;
+    GBFlatButton* dlButton;
 }
 
 @end
@@ -67,6 +69,7 @@
                          [UIImage imageNamed:@"001.png"],
                          [UIImage imageNamed:@"pic01.jpg"],
                          nil];
+    NSLog(@"%@", bgimages);
     
     //背景画像を変える
     UIImageView *backimage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 586)];
@@ -114,16 +117,25 @@
     [self.view addSubview:motTool];
     
     // favoriteButtonを追加する
-    flatButton = [[GBFlatButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
-    flatButton.tintColor = [UIColor gb_blueColor];
-    [flatButton addTarget:self action:@selector(onTapFavorite:) forControlEvents:UIControlEventTouchUpInside];
-    [flatButton setTitle:@"☆" forState:UIControlStateNormal];
+    favButton = [[GBFlatButton alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
+    favButton.tintColor = [UIColor gb_blueColor];
+    [favButton addTarget:self action:@selector(onTapFavorite:) forControlEvents:UIControlEventTouchUpInside];
+    [favButton setTitle:@"☆" forState:UIControlStateNormal];
+    UIBarButtonItem* favoBtn = [[UIBarButtonItem alloc] initWithCustomView:favButton];
     
-    UIBarButtonItem* favoBtn = [[UIBarButtonItem alloc] initWithCustomView:flatButton];
+    // DownLoadButtonを追加
+    dlButton = [[GBFlatButton alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
+    dlButton.tintColor = [UIColor orangeColor];
+    [dlButton addTarget:self action:@selector(onTapDownLoad:) forControlEvents:UIControlEventTouchUpInside];
+    [dlButton setTitle:@"DL" forState:UIControlStateNormal];
+    UIBarButtonItem* dlBtn = [[UIBarButtonItem alloc] initWithCustomView:dlButton];
+    dlButton.selected = NO;
+//    UIBarButtonItem* dlBtn = [[UIBarButtonItem alloc] initWithTitle:@"DownLoad" style:UIBarButtonItemStyleBordered target:self action:@selector(onTapDownLoad:)];
     
-    UIBarButtonItem* dlBtn = [[UIBarButtonItem alloc] initWithTitle:@"DownLoad" style:UIBarButtonItemStyleBordered target:self action:@selector(onTapDownLoad:)];
+    UIBarButtonItem* fixedSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixedSpacer.width = 160;
     
-    motTool.items = [NSArray arrayWithObjects:favoBtn, dlBtn, nil];
+    motTool.items = [NSArray arrayWithObjects:favoBtn,fixedSpacer, dlBtn, nil];
     
     //_isFullscreen = NO;
     UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
@@ -133,7 +145,7 @@
     NSUserDefaults* favDefault = [NSUserDefaults standardUserDefaults];
     NSArray* favList = [favDefault arrayForKey:@"favorite_key"];
     
-    flatButton.selected = NO;
+    favButton.selected = NO;
     
     for (int i = 0; i < [favList count]; i++) {
         NSArray* favs = [favList objectAtIndex:i];
@@ -142,7 +154,7 @@
         
         if (category_number == favCategory && _currentPage == favPage) {
             NSLog(@"一致");
-            flatButton.selected = YES;
+            favButton.selected = YES;
             break;
         }
     }
@@ -175,7 +187,7 @@
         NSUserDefaults* favDefault = [NSUserDefaults standardUserDefaults];
         NSArray* favList = [favDefault arrayForKey:@"favorite_key"];
         
-        flatButton.selected = NO;
+        favButton.selected = NO;
         
         for (int i = 0; i < [favList count]; i++) {
             NSArray* favs = [favList objectAtIndex:i];
@@ -184,7 +196,7 @@
             
             if (category_number == favCategory && _currentPage == favPage) {
                 NSLog(@"一致");
-                flatButton.selected = YES;
+                favButton.selected = YES;
                 break;
             }
         }
@@ -203,10 +215,10 @@
     
     defalt = [NSUserDefaults standardUserDefaults];
     
-    if (flatButton.selected == YES) {
-        flatButton.selected = NO;
+    if (favButton.selected == YES) {
+        favButton.selected = NO;
     } else {
-        flatButton.selected = YES;
+        favButton.selected = YES;
     }
     
     // お気に入りを削除する場合YES, 追加する場合NO
@@ -285,7 +297,11 @@
 #pragma mark- TapDownLoad
 - (void)onTapDownLoad:(id)inSender {
     // ボタンを押された時の処理をここに追加
+//    dlButton.selected = YES;
     
+    DownloadViewController *download = [self.storyboard instantiateViewControllerWithIdentifier:@"DownloadViewController"];
+    [[self navigationController]pushViewController:download animated:YES];
+
     return;
 }
 

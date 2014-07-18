@@ -176,6 +176,7 @@
 		753C813B1975144600B817EB /* GBFlatSelectableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 753C81371975144600B817EB /* GBFlatSelectableButton.m */; };
 		753C813C1975144600B817EB /* UIColor+GBFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 753C81391975144600B817EB /* UIColor+GBFlatButton.m */; };
 		75B4BFFD19765DA2006D3FD1 /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B4BFFC19765DA2006D3FD1 /* FavoriteViewController.m */; };
+		75F382181978B2DF005F5EB3 /* NoneFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F382171978B2DF005F5EB3 /* NoneFavoriteViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -423,6 +424,8 @@
 		753C81391975144600B817EB /* UIColor+GBFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GBFlatButton.m"; sourceTree = "<group>"; };
 		75B4BFFB19765DA2006D3FD1 /* FavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteViewController.h; sourceTree = "<group>"; };
 		75B4BFFC19765DA2006D3FD1 /* FavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteViewController.m; sourceTree = "<group>"; };
+		75F382161978B2DF005F5EB3 /* NoneFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoneFavoriteViewController.h; sourceTree = "<group>"; };
+		75F382171978B2DF005F5EB3 /* NoneFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoneFavoriteViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -570,6 +573,8 @@
 		6006B60218CF48F70046A82F /* picmot */ = {
 			isa = PBXGroup;
 			children = (
+				75F382161978B2DF005F5EB3 /* NoneFavoriteViewController.h */,
+				75F382171978B2DF005F5EB3 /* NoneFavoriteViewController.m */,
 				15F1400E1975233300C147AE /* ZipArchive.h */,
 				15F1400F1975233300C147AE /* ZipArchive.mm */,
 				15F13FFC1975232400C147AE /* minizip */,
@@ -1218,6 +1223,7 @@
 				753C813A1975144600B817EB /* GBFlatButton.m in Sources */,
 				6006B68F18CF49450046A82F /* CLGloomEffect.m in Sources */,
 				609920561967F27600F999B7 /* CollectionCell.m in Sources */,
+				75F382181978B2DF005F5EB3 /* NoneFavoriteViewController.m in Sources */,
 				6006B69318CF49450046A82F /* CLPosterizeEffect.m in Sources */,
 				15F1400C1975232400C147AE /* unzip.c in Sources */,
 				6006B69A18CF49450046A82F /* CLRotateTool.m in Sources */,
