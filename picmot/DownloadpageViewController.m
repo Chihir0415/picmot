@@ -108,13 +108,13 @@
             NSLog(@"no!");
             dlLabel.text = self.pcTitle;
             dlLabel.textAlignment = NSTextAlignmentCenter;
-            NSURL *url = [NSURL URLWithString:self.pcImage];
+            NSURL *url = [NSURL URLWithString:self.pccateImage];
             NSData *data = [NSData dataWithContentsOfURL:url];
             UIImage *image = [UIImage imageWithData:data];
             allImg.image = image;
             
             
-            NSURL *url1 = [NSURL URLWithString:self.pccateImage];
+            NSURL *url1 = [NSURL URLWithString:self.pcImage];
             NSData *data1 = [NSData dataWithContentsOfURL:url1];
             UIImage *image1 = [UIImage imageWithData:data1];
             cateImg.image = image1;
