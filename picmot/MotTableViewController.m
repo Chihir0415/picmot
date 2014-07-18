@@ -7,6 +7,7 @@
 //
 
 #import "MotTableViewController.h"
+#import "NoneFavoriteViewController.h"
 
 @interface MotTableViewController (){
     NSArray *_proArray;
@@ -45,7 +46,7 @@
     self.dataSourceCategory = @[@"Life", @"Love", @"Work", @"Funny", @"Dreams", @"friendship", @"Proverbs", @"For Ladies", @"From Disney"];
     
     // SectionNameを生成する
-    sectionList = [NSArray arrayWithObjects:@"favoriteList", @"categoryList",nil];
+    sectionList = [NSArray arrayWithObjects:@"お気に入り", @"カテゴリ",nil];
     
     // BackButton
     UIBarButtonItem* menu = [[UIBarButtonItem alloc]
@@ -176,6 +177,19 @@
     
     // indexPath.sectionが 0 だったらfavoriteListを表示、indexPath.sectionが 1 だったらcaregoryListを表示する
     if (indexPath.section==0) {
+        NSUserDefaults* hoge = [NSUserDefaults standardUserDefaults];
+        
+        NSArray* fuga = [hoge arrayForKey:@"favorite_key"];
+        NSLog(@"%@", fuga);
+        
+        [hoge synchronize];
+        
+        if ([fuga count] == 0) {
+            [_tableview deselectRowAtIndexPath:indexPath animated:YES];
+            NoneFavoriteViewController* ndvc = [self.storyboard instantiateViewControllerWithIdentifier:@"NoneFavoriteViewController"];
+            [[self navigationController] pushViewController:ndvc animated:YES];
+        } else {
+            
         
         // UserDefaulにアクセス
         NSUserDefaults* favDefault = [NSUserDefaults standardUserDefaults];
@@ -192,7 +206,7 @@
         fdvc.category_number = self.category_number;
         
         [[self navigationController] pushViewController:fdvc animated:YES];
-        
+        }
         
         
     } else {
