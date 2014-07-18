@@ -9,6 +9,7 @@
 #import "FavoriteViewController.h"
 #import "GBFlatButton.h"
 #import "UIColor+GBFlatButton.h"
+#import "DownloadViewController.h"
 
 
 @interface FavoriteViewController () {
@@ -147,15 +148,18 @@
     dlButton.selected = NO;
     //    UIBarButtonItem* dlBtn = [[UIBarButtonItem alloc] initWithTitle:@"DownLoad" style:UIBarButtonItemStyleBordered target:self action:@selector(onTapDownLoad:)];
     
-    motTool.items = [NSArray arrayWithObjects:favoBtn, dlBtn, nil];
+    UIBarButtonItem* fixedSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixedSpacer.width = 160;
+    
+    motTool.items = [NSArray arrayWithObjects:favoBtn, fixedSpacer, dlBtn, nil];
     
     //_isFullscreen = NO;
     UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     [self.view addGestureRecognizer:tapGesture];
     
     
-    NSUserDefaults* favDefault = [NSUserDefaults standardUserDefaults];
-    NSArray* favList = [favDefault arrayForKey:@"favorite_key"];
+    favDefault = [NSUserDefaults standardUserDefaults];
+    favList = [favDefault arrayForKey:@"favorite_key"];
     
     favButton.selected = NO;
     
@@ -307,6 +311,18 @@
     //アニメーション開始
     [UIView commitAnimations];
 }
+
+#pragma mark- TapDownLoad
+- (void)onTapDownLoad:(id)inSender {
+    // ボタンを押された時の処理をここに追加
+    //    dlButton.selected = YES;
+    
+    DownloadViewController *download = [self.storyboard instantiateViewControllerWithIdentifier:@"DownloadViewController"];
+    [[self navigationController]pushViewController:download animated:YES];
+    
+    return;
+}
+
 
 
 /*

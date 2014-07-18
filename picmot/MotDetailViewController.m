@@ -57,19 +57,6 @@
     CGRect contentRect = CGRectMake(0, 0, s.width * n, s.height);
     UIView *contentView = [[UIView alloc] initWithFrame:contentRect];
     
-    // 画像を用意する
-    NSArray* bgimages = [NSArray arrayWithObjects:
-                         [UIImage imageNamed:@"001.png"],
-                         [UIImage imageNamed:@"pic01.jpg"],
-                         [UIImage imageNamed:@"001.png"],
-                         [UIImage imageNamed:@"pic01.jpg"],
-                         [UIImage imageNamed:@"pic01.jpg"],
-                         [UIImage imageNamed:@"001.png"],
-                         [UIImage imageNamed:@"pic01.jpg"],
-                         [UIImage imageNamed:@"001.png"],
-                         [UIImage imageNamed:@"pic01.jpg"],
-                         nil];
-    NSLog(@"%@", bgimages);
     
     //背景画像を変える
     UIImageView *backimage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 586)];
