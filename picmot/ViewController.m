@@ -332,29 +332,6 @@
         [sheet showInView:self.view.window];
 }
 
-//- (void)pushedEditBtn
-//{
-//    if(_imageView.image){
-//        CLImageEditor *editor = [[CLImageEditor alloc] initWithImage:_imageView.image];
-//        editor.delegate = self;
-//        //CLImageEditor *editor = [[CLImageEditor alloc] initWithDelegate:self];
-//        
-//        
-//        CLImageToolInfo *tool = [editor.toolInfo subToolInfoWithToolName:@"CLStickerTool" recursive:NO];
-//        tool.available = YES;
-//        tool.dockedNumber = -1;
-//        
-//        tool= [editor.toolInfo subToolInfoWithToolName:@"CLResizeTool" recursive:YES];
-//        tool.available = NO;
-//        
-//        
-//        [self presentViewController:editor animated:YES completion:nil];
-//        //[editor showInViewController:self withImageView:_imageView];
-//    }
-//    else{
-//        [self pushedNewBtn];
-//    }
-//}
 - (void)pushedMenuBtn
 {
     UITabBarController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"UITabBarController"];
@@ -484,39 +461,5 @@
     rct.origin.y = MAX((Hs-H)/2, 0);
     _imageView.superview.frame = rct;
 }
-
-//- (void)resetImageViewFrame
-//{
-//    CGSize size = (_imageView.image) ? _imageView.image.size : _imageView.frame.size;
-//    CGFloat ratio = MIN(_scrollView.frame.size.width / size.width, _scrollView.frame.size.height / size.height);
-//    CGFloat W = ratio * size.width;
-//    CGFloat H = ratio * size.height;
-//    _imageView.frame = CGRectMake(0, 0, W, H);
-//    _imageView.superview.bounds = _imageView.bounds;
-//}
-//
-//- (void)resetZoomScaleWithAnimate:(BOOL)animated
-//{
-//    CGFloat Rw = _scrollView.frame.size.width / _imageView.frame.size.width;
-//    CGFloat Rh = _scrollView.frame.size.height / _imageView.frame.size.height;
-//    
-//    //CGFloat scale = [[UIScreen mainScreen] scale];
-//    CGFloat scale = 1;
-//    Rw = MAX(Rw, _imageView.image.size.width / (scale * _scrollView.frame.size.width));
-//    Rh = MAX(Rh, _imageView.image.size.height / (scale * _scrollView.frame.size.height));
-//    
-//    _scrollView.contentSize = _imageView.frame.size;
-//    _scrollView.minimumZoomScale = 1;
-//    _scrollView.maximumZoomScale = MAX(MAX(Rw, Rh), 1);
-//    
-//    [_scrollView setZoomScale:_scrollView.minimumZoomScale animated:animated];
-//    [self scrollViewDidZoom:_scrollView];
-//}
-//
-//- (void)refreshImageView
-//{
-//    [self resetImageViewFrame];
-//    [self resetZoomScaleWithAnimate:NO];
-//}
 
 @end
