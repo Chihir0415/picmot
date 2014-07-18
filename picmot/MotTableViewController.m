@@ -55,18 +55,6 @@
                               target:self
                               action:@selector(barbutton1:)];
     self.navigationItem.leftBarButtonItems = @[menu];
-//
-//    _tableview.dataSource = self;
-//    _tableview.delegate = self;
-//    
-//    //名前を持った配列を用意する
-//    _proArray = @[@"Life",@"Love",@"Work",@"Funny",@"Dreams",@"friendship",@"Proverbs",@"For Ladies",@"From Disney"];
-//    //10番目に@"My favorite!"を入れこむ
-//    
-//    self.tableview.rowHeight = 45;
-   
-//    UIImage *back = [UIImage imageNamed:@"pic01.jpg"];
-//    self.view.backgroundColor = [UIColor colorWithPatternImage:back];
     
     UIImageView *backimage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 586)];
     UIImage *image = [UIImage imageNamed:@"pic01.jpg"];
@@ -152,35 +140,14 @@
     
     return cell;
     
-    //定数でCellを用意
-//    static NSString *CellIdentifier = @"Cell";
-//    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//    }
-//    
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@",_proArray[indexPath.row]];
-//    cell.textLabel.textColor = [UIColor redColor];
-//    cell.textLabel.textAlignment = UITextBorderStyleLine;
-//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//    cell.backgroundColor = [UIColor clearColor];
-//    return cell;
-    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //NSLog(@"SectionName %@", sectionName);
-    NSLog(@"今のSection %d",indexPath.section);
-    //NSLog(@"Category %d",indexPath.row);
-    
-    // indexPath.sectionが 0 だったらfavoriteListを表示、indexPath.sectionが 1 だったらcaregoryListを表示する
+ 
     if (indexPath.section==0) {
         NSUserDefaults* hoge = [NSUserDefaults standardUserDefaults];
         
         NSArray* fuga = [hoge arrayForKey:@"favorite_key"];
-        NSLog(@"%@", fuga);
         
         [hoge synchronize];
         
@@ -195,7 +162,7 @@
         NSUserDefaults* favDefault = [NSUserDefaults standardUserDefaults];
         // UserDefaultから取ってきたデータをfavListに入れる
         NSArray* favList = [favDefault arrayForKey:@"favorite_key"];
-        NSLog(@"%@", favList);
+
         [favDefault synchronize];
         [_tableview deselectRowAtIndexPath:indexPath animated:YES];
         FavoriteViewController* fdvc = [self.storyboard instantiateViewControllerWithIdentifier:@"FavoriteViewController"];
@@ -216,7 +183,7 @@
     
     // 押されたCategoryをInteger型変数に代入
     category_number = indexPath.row;
-    NSLog(@"カテゴリNo. %d" ,category_number);
+    // NSLog(@"カテゴリNo. %d" ,category_number);
     
     [_tableview deselectRowAtIndexPath:indexPath animated:YES];
     MotDetailViewController *mdvc = [self.storyboard instantiateViewControllerWithIdentifier:@"MotDetailViewController"];

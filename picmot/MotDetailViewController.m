@@ -43,8 +43,6 @@
     scrollView.delegate = self;
     [self.view addSubview:scrollView];
     
-    //NSArray *myArr10 = [[NSArray alloc]initWithObjects:@"作成中...",nil];  お気に入り画面を作成する
-    
     //Plist読み込み
     bundle =[NSBundle mainBundle];
     path = [bundle pathForResource:@"motList" ofType:@"plist"];
@@ -69,9 +67,6 @@
     UIView* view[n];
     UITextView* textView[n];
     for (int i = 0; i < n; i++) {
-        //        view[i] = [[UIView alloc] init];
-        //        view[i].tag = i;
-        //        view[i].frame = CGRectMake(320 * i, 30, s.width, s.height-20);
         
         textView[i] = [[UITextView alloc]init];
         textView[i].tag = i;
@@ -79,8 +74,6 @@
         textView[i].font = [UIFont systemFontOfSize:14];
         textView[i].text = motList[_i][i];
         textView[i].textAlignment = NSTextAlignmentCenter;
-        
-        // view[i].backgroundColor = [UIColor clearColor];
         textView[i].editable = NO;
         
         [contentView addSubview:view[i]];
@@ -117,7 +110,6 @@
     [dlButton setTitle:@"DL" forState:UIControlStateNormal];
     UIBarButtonItem* dlBtn = [[UIBarButtonItem alloc] initWithCustomView:dlButton];
     dlButton.selected = NO;
-//    UIBarButtonItem* dlBtn = [[UIBarButtonItem alloc] initWithTitle:@"DownLoad" style:UIBarButtonItemStyleBordered target:self action:@selector(onTapDownLoad:)];
     
     UIBarButtonItem* fixedSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     fixedSpacer.width = 160;
@@ -182,7 +174,7 @@
             NSInteger favPage = [[favs objectAtIndex:1] integerValue];
             
             if (category_number == favCategory && _currentPage == favPage) {
-                NSLog(@"一致");
+                
                 favButton.selected = YES;
                 break;
             }
@@ -217,7 +209,6 @@
         favs = [NSArray array];
     }
     
-    NSLog(@"before\n//////////////////////////////\n%@",favs);
     
     int i;
     // for文 = お気に入り一覧からお気に入りを列挙する
@@ -233,7 +224,6 @@
         // currentPage = 今見てるページ
         NSInteger currentPage = _currentPage;
         
-        //NSLog(@"all_number %@, %@, %@, %@", favCategory, favPage, currentCategory, currentPage);
         
         // お気に入りにあるカテゴリとページが今見てるカテゴリとページが、同じだったらすでにお気に入りに登録されているので、次favoriteを押した時に削除
         if (favCategory == currentCategory && favPage == currentPage) {
@@ -251,14 +241,10 @@
         
         [mutableFavs removeObject:removingFav];
         
-        // NSLog(@"addFav %@", fav);
-        
         NSArray* savingFavs = [mutableFavs copy];
         [defalt setObject:savingFavs forKey:@"favorite_key"];
         //        [defalt removeObjectForKey:@"favorite_key"];
         [defalt synchronize];
-        
-        NSLog(@"afterRemove\n//////////////////////////////\n%@",[defalt arrayForKey:@"favorite_key"]);
     }
     // お気に入りを追加する場合
     else {
@@ -276,7 +262,7 @@
         NSArray* savingFavs = [mutableFavs copy];
         [defalt setObject:savingFavs forKey:@"favorite_key"];
         [defalt synchronize];
-        NSLog(@"afterSave\n//////////////////////////////\n%@",savingFavs);
+       
     }
     return;
 }
@@ -284,8 +270,7 @@
 #pragma mark- TapDownLoad
 - (void)onTapDownLoad:(id)inSender {
     // ボタンを押された時の処理をここに追加
-//    dlButton.selected = YES;
-    
+
     DownloadViewController *download = [self.storyboard instantiateViewControllerWithIdentifier:@"DownloadViewController"];
     [[self navigationController]pushViewController:download animated:YES];
 

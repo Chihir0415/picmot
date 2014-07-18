@@ -33,22 +33,12 @@
 
 @synthesize category_number;
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     favDefault = [NSUserDefaults standardUserDefaults];
     favList = [favDefault arrayForKey:@"favorite_key"];
-    NSLog(@"favList %@", favList);
     
     [favDefault synchronize];
     
@@ -57,7 +47,7 @@
     path = [bundle pathForResource:@"motList" ofType:@"plist"];
     motList = [NSArray arrayWithContentsOfFile:path];
     
-    // DOTO: favListでmotListから配列を引っ張ってくる
+    // favListでmotListから配列を引っ張ってくる
     favText = [[NSMutableArray alloc] init];
     int i;
     for (i = 0; i < [favList count]; i++) {
@@ -66,11 +56,6 @@
         NSInteger favPage = [[favs objectAtIndex:1] integerValue];
         [favText addObject:motList[favCategory][favPage]];
     }
-    NSLog(@"favText %@", favText);
-    
-    //    if (favText == nil) {
-    //        favText = [NSMutableArray array];
-    //    }
     
     _currentPage = 0;
     
@@ -79,13 +64,11 @@
     scrollView.delegate = self;
     [self.view addSubview:scrollView];
     
-    
     int n = (int)[favText count];
     
     CGSize s = scrollView.frame.size;
     CGRect contentRect = CGRectMake(0, 0, s.width * n, s.height);
     UIView* contentView = [[UIView alloc] initWithFrame:contentRect];
-    
     
     UIImageView *backimage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 586)];
     UIImage *image = [UIImage imageNamed:@"pic01.jpg"];
@@ -94,21 +77,15 @@
     [self.view addSubview:backimage];
     backimage.alpha = 0.3;
     
-    
     UIView* view[n];
     UITextView* textView[n];
     for (int i = 0; i < n; i++) {
-        //        view[i] = [[UIView alloc] init];
-        //        view[i].tag = i;
-        //        view[i].frame = CGRectMake(320 * i, 30, s.width, s.height-20);
         textView[i] = [[UITextView alloc] init];
         textView[i].tag = i;
         textView[i].frame =CGRectMake(320 * i, 100, s.width, s.height-130);
         textView[i].font = [UIFont systemFontOfSize:14];
         textView[i].text = favText[i];
         textView[i].textAlignment = NSTextAlignmentCenter;
-        
-        // view[i].backgroundColor = [UIColor clearColor];
         textView[i].editable = NO;
         
         [contentView addSubview:view[i]];
@@ -124,7 +101,7 @@
     
     // 初期表示するコンテンツViewの場所を指定します。
     // ２ページ目から表示したいときはこう↓
-    //scrollView.contentOffset = CGPointMake(320, 0);
+
     scrollView.contentOffset = CGPointMake(0, 0);
     
     
@@ -161,7 +138,7 @@
     favDefault = [NSUserDefaults standardUserDefaults];
     favList = [favDefault arrayForKey:@"favorite_key"];
     
-    favButton.selected = NO;
+    favButton.selected = YES;
     
     for (int i = 0; i < [favList count]; i++) {
         NSArray* favs = [favList objectAtIndex:i];
@@ -169,7 +146,7 @@
         NSInteger favPage = [[favs objectAtIndex:1] integerValue];
         
         if (category_number == favCategory && _currentPage == favPage) {
-            NSLog(@"一致");
+
             favButton.selected = YES;
             break;
         }
@@ -191,6 +168,23 @@
     if (_currentPage != page) {
         _currentPage = page;
         NSLog(@"%d", _currentPage);
+        
+        favDefault = [NSUserDefaults standardUserDefaults];
+        favList = [favDefault arrayForKey:@"favorite_key"];
+        
+        favButton.selected = YES;
+        
+        for (int i = 0; i < [favList count]; i++) {
+            NSArray* favs = [favList objectAtIndex:i];
+            NSInteger favCategory = [[favs objectAtIndex:0] integerValue];
+            NSInteger favPage = [[favs objectAtIndex:1] integerValue];
+            
+            if (category_number == favCategory && _currentPage == favPage) {
+
+                favButton.selected = YES;
+                break;
+            }
+        }
     }
 }
 
@@ -261,7 +255,6 @@
         //        [defalt removeObjectForKey:@"favorite_key"];
         [defalt synchronize];
         
-        NSLog(@"afterRemove\n//////////////////////////////\n%@",[defalt arrayForKey:@"favorite_key"]);
     }
     // お気に入りを追加する場合
     else {
@@ -279,7 +272,7 @@
         NSArray* savingFavs = [mutableFavs copy];
         [defalt setObject:savingFavs forKey:@"favorite_key"];
         [defalt synchronize];
-        NSLog(@"afterSave\n//////////////////////////////\n%@",savingFavs);
+        
     }
     return;
 }
