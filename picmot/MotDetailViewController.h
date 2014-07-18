@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface MotDetailViewController :UIViewController<UIScrollViewDelegate>
 @property (nonatomic,retain)NSString *str;
 @property (nonatomic,assign)NSInteger i;
+@property (nonatomic,assign)NSInteger category_number;
 @property (nonatomic,assign)NSArray *proArray;
+
+
+
+//@property (nonatomic) BOOL isFullscreen;
+
 @end

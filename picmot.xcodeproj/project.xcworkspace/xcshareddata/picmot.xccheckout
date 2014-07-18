@@ -5,46 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>0A308520-A8B6-4952-9C79-D876D6BEEE96</string>
+	<string>5FF15715-5EEA-4D73-B728-E3C4A061DCF6</string>
 	<key>IDESourceControlProjectName</key>
 	<string>picmot</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>76DAC051-3A9B-4499-BECE-0D23CC967E3D</key>
-		<string>https://github.com/Chihir0415/picmot.xcodeproj.git</string>
+		<key>82DA17BD-FD12-4311-B33B-EAADC049710C</key>
+		<string>https://github.com/Chihir0415/picmot.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>picmot.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1B55468A-33EF-4BBE-8DE1-850E1B49285D</key>
+		<key>82DA17BD-FD12-4311-B33B-EAADC049710C</key>
 		<string>../..</string>
-		<key>76DAC051-3A9B-4499-BECE-0D23CC967E3D</key>
-		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/Chihir0415/picmot.xcodeproj.git</string>
+	<string>https://github.com/Chihir0415/picmot.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1B55468A-33EF-4BBE-8DE1-850E1B49285D</string>
+	<string>82DA17BD-FD12-4311-B33B-EAADC049710C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1B55468A-33EF-4BBE-8DE1-850E1B49285D</string>
+			<string>82DA17BD-FD12-4311-B33B-EAADC049710C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>picmot</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>76DAC051-3A9B-4499-BECE-0D23CC967E3D</string>
-			<key>IDESourceControlWCCName</key>
-			<string>picmot.xcodeproj</string>
 		</dict>
 	</array>
 </dict>

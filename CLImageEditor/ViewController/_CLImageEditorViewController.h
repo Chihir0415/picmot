@@ -7,6 +7,7 @@
 
 #import "CLImageEditor.h"
 
+
 @interface _CLImageEditorViewController : CLImageEditor
 <UIScrollViewDelegate, UIBarPositioningDelegate>
 {
@@ -15,6 +16,7 @@
 }
 @property (nonatomic, strong) UIImageView  *imageView;
 @property (nonatomic, weak) IBOutlet UIScrollView *menuView;
+@property (weak, nonatomic) IBOutlet UINavigationItem *_naviitem;
 
 - (IBAction)pushedCloseBtn:(id)sender;
 - (IBAction)pushedFinishBtn:(id)sender;

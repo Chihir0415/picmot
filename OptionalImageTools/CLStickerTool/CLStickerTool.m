@@ -27,6 +27,8 @@ static NSString* const kCLStickerToolStickerPathKey = @"stickerPath";
     UIView *_workingView;
     
     UIScrollView *_menuScroll;
+    
+    UIScrollView *_stickerScroll;
 }
 
 + (NSArray*)subtools
@@ -51,9 +53,14 @@ static NSString* const kCLStickerToolStickerPathKey = @"stickerPath";
 
 #pragma mark- optional info
 
+//+ (NSString*)defaultStickerPath
+//{
+//    return [[[CLImageEditorTheme bundle] bundlePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/stickers", NSStringFromClass(self)]];
+//}
 + (NSString*)defaultStickerPath
 {
-    return [[[CLImageEditorTheme bundle] bundlePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/stickers", NSStringFromClass(self)]];
+
+    return [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Library/Caches/stickers"]];
 }
 
 + (NSDictionary*)optionalInfo
@@ -74,9 +81,19 @@ static NSString* const kCLStickerToolStickerPathKey = @"stickerPath";
     _menuScroll.showsHorizontalScrollIndicator = NO;
     [self.editor.view addSubview:_menuScroll];
     
+    /*
+     ここにstickerのカテゴリー一覧から各カテゴリーのスタンプを表示させ
+     edit画面にstickerを表示させるメソッドを書く
+     */
+
     _workingView = [[UIView alloc] initWithFrame:[self.editor.view convertRect:self.editor.imageView.frame fromView:self.editor.imageView.superview]];
     _workingView.clipsToBounds = YES;
     [self.editor.view addSubview:_workingView];
+    
+    _stickerScroll = [[UIScrollView alloc] initWithFrame:(CGRectMake(0, self.editor.imageView.height - 50, self.editor.view.width, 120))];
+    _stickerScroll.backgroundColor = self.editor.menuView.backgroundColor;
+    _stickerScroll.showsHorizontalScrollIndicator = NO;
+    [self.editor.view addSubview:_stickerScroll];
     
     [self setStickerMenu];
     
@@ -84,6 +101,11 @@ static NSString* const kCLStickerToolStickerPathKey = @"stickerPath";
     [UIView animateWithDuration:kCLImageToolAnimationDuration
                      animations:^{
                          _menuScroll.transform = CGAffineTransformIdentity;
+                     }];
+    _stickerScroll.transform = CGAffineTransformMakeTranslation(0, self.editor.view.height-_stickerScroll.top);
+    [UIView animateWithDuration:kCLImageToolAnimationDuration
+                     animations:^{
+                         _stickerScroll.transform = CGAffineTransformIdentity;
                      }];
 }
 
@@ -96,6 +118,13 @@ static NSString* const kCLStickerToolStickerPathKey = @"stickerPath";
     [UIView animateWithDuration:kCLImageToolAnimationDuration
                      animations:^{
                          _menuScroll.transform = CGAffineTransformMakeTranslation(0, self.editor.view.height-_menuScroll.top);
+                     }
+                     completion:^(BOOL finished) {
+                         [_menuScroll removeFromSuperview];
+                     }];
+    [UIView animateWithDuration:kCLImageToolAnimationDuration
+                     animations:^{
+                         _stickerScroll.transform = CGAffineTransformMakeTranslation(0, self.editor.view.height-_stickerScroll.top);
                      }
                      completion:^(BOOL finished) {
                          [_menuScroll removeFromSuperview];
@@ -119,44 +148,136 @@ static NSString* const kCLStickerToolStickerPathKey = @"stickerPath";
 
 - (void)setStickerMenu
 {
-    CGFloat W = 70;
+    CGFloat W = 80;
     CGFloat H = _menuScroll.height;
     CGFloat x = 0;
     
-    NSString *stickerPath = self.toolInfo.optionalInfo[kCLStickerToolStickerPathKey];
-    if(stickerPath==nil){ stickerPath = [[self class] defaultStickerPath]; }
+    NSArray * librarystickers = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *stickerPath = [librarystickers lastObject];
+    stickerPath = [stickerPath stringByAppendingString:@"/Caches/stickers/"];
+    NSLog(@"nannyato=%@",stickerPath);
+
+    //    NSString *stickerPath = self.toolInfo.optionalInfo[kCLStickerToolStickerPathKey];
+
+//    if(stickerPath==nil){ stickerPath = [[self class] defaultStickerPath]; }
     
+    NSString *itemPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/stickers"];
+    
+    
+    // ファイルマネージャを作成
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    NSError *error = nil;
-    NSArray *list = [fileManager contentsOfDirectoryAtPath:stickerPath error:&error];
+    NSError *error;
+    NSArray *list = [fileManager contentsOfDirectoryAtPath:itemPath
+                                                     error:&error];
     
     for(NSString *path in list){
-        NSString *filePath = [NSString stringWithFormat:@"%@/%@", stickerPath, path];
-        UIImage *image = [UIImage imageWithContentsOfFile:filePath];
-        if(image){
-            CLToolbarMenuItem *view = [CLImageEditorTheme menuItemWithFrame:CGRectMake(x, 0, W, H) target:self action:@selector(tappedStickerPanel:) toolInfo:nil];
-            view.iconImage = [image aspectFit:CGSizeMake(50, 50)];
-            view.userInfo = @{@"filePath" : filePath};
+        
+        
+            NSString *filePath = [NSString stringWithFormat:@"%@%@/1.png", stickerPath, path];
+            NSLog(@"test=%@",filePath);
+            NSData *data = [NSData dataWithContentsOfFile:filePath];
+            //        NSLog(@"uooooooo=%@",data);
+            UIImage *image = [UIImage imageWithData:data];
             
-            [_menuScroll addSubview:view];
-            x += W;
+            //        UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+            NSLog(@"%@",image);
+            if(image){
+                CLToolbarMenuItem *view = [CLImageEditorTheme menuItemWithFrame:CGRectMake(x, 0, W, H) target:self action:@selector(tappedSticker:) toolInfo:nil];
+                
+                NSLog(@"shousaishirimasu=%@",view);
+                view.iconImage = [image aspectFit:CGSizeMake(50, 50)];
+                view.userInfo = @{@"filePath" : filePath};
+                
+                [_menuScroll addSubview:view];
+                x += W;
         }
     }
     _menuScroll.contentSize = CGSizeMake(MAX(x, _menuScroll.frame.size.width+1), 0);
+
+}
+
+- (void)tappedSticker:(UITapGestureRecognizer*)sender
+{
+    _stickerScroll.hidden = NO;
+
+    for (UIView* subview in _stickerScroll.subviews) {
+        [subview removeFromSuperview];
+    }
+
+    
+    UIView *view = sender.view;
+    NSLog(@"nadesuka----%@",view);
+    
+    NSString *stickerPath = view.userInfo[@"filePath"];
+    NSLog(@"-----koredemo---%@",stickerPath);
+    
+    stickerPath= [stickerPath stringByReplacingOccurrencesOfString:@"1.png" withString:@""];
+    NSLog(@"%@",stickerPath);
+    
+    CGFloat W2 = 120;
+    CGFloat H2 = _stickerScroll.height;
+    CGFloat x2 = 0;
+//    NSString *stickerPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/stickers"];
+
+//    NSString *stickerPath = self.toolInfo.optionalInfo[kCLStickerToolStickerPathKey];
+//    if(stickerPath==nil){ stickerPath = [[self class] defaultStickerPath]; }
+    
+//    NSString *itemPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/stickers"];
+    
+    
+    // ファイルマネージャを作成
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSError *error;
+    NSArray *list = [fileManager contentsOfDirectoryAtPath:stickerPath
+                                                     error:&error];
+    
+    for(NSString *path in list){
+        if ([path isEqualToString:@"0.png"]) {
+            NSLog(@"チュートリアル用");
+        }else if ([path isEqualToString:@"1.png"]){
+            NSLog(@"カテゴリーアイコン用");
+        }else{
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@", stickerPath, path];
+        NSLog(@"imagedesutoomoikiya=%@",filePath);
+        //        NSLog(@"test=%@/%@", stickerPath, path);
+        UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+        NSLog(@"imagedesu=%@",image);
+        if(image){
+            CLToolbarMenuItem *view = [[CLToolbarMenuItem alloc]init];
+            view = [CLImageEditorTheme menuItemWithFrame:CGRectMake(x2, 0, W2, H2) target:self action:@selector(tappedStickerPanel:) toolInfo:nil];
+            view.iconImage = [image aspectFit:CGSizeMake(120, 120)];
+            view.userInfo = @{@"filePath" : filePath};
+            
+            [_stickerScroll addSubview:view];
+            x2 += W2;
+        }
+        }
+        
+    }
+    _stickerScroll.contentSize = CGSizeMake(MAX(x2, _stickerScroll.frame.size.width+1), 0);
 }
 
 - (void)tappedStickerPanel:(UITapGestureRecognizer*)sender
 {
+    _stickerScroll.hidden = YES;
+
+    for (UIView* subview in _stickerScroll.subviews) {
+        [subview removeFromSuperview];
+    }
     UIView *view = sender.view;
+    NSLog(@"nadesuka----%@",view);
     
     NSString *filePath = view.userInfo[@"filePath"];
+    NSLog(@"-----koredemo---%@",filePath);
     if(filePath){
         _CLStickerView *view = [[_CLStickerView alloc] initWithImage:[UIImage imageWithContentsOfFile:filePath]];
         CGFloat ratio = MIN( (0.5 * _workingView.width) / view.width, (0.5 * _workingView.height) / view.height);
         view.width  = ratio * view.width + view.imageView.frame.origin.x;
         view.height = ratio * view.height + view.imageView.frame.origin.y;
         view.center = CGPointMake(_workingView.width/2, _workingView.height/2);
+        NSLog(@"nannyakannya=%@",view);
         
         [_workingView addSubview:view];
         [_CLStickerView setActiveStickerView:view];

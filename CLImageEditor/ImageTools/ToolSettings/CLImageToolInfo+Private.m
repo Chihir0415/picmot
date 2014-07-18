@@ -1,9 +1,10 @@
 //
 //  CLImageToolInfo+Private.m
 //
-//  Created by sho yakushiji on 2013/12/07.
-//  Copyright (c) 2013年 CALACULU. All rights reserved.
 //
+//  Created by sho yakushiji on 2013/11/05.
+//  Copyright (c) 2013年 CALACULU. All rights reserved.
+
 
 #import "CLImageToolInfo+Private.h"
 

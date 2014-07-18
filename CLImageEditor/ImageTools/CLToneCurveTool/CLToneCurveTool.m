@@ -1,9 +1,10 @@
 //
 //  CLToneCurveTool.m
 //
-//  Created by sho yakushiji on 2013/10/24.
-//  Copyright (c) 2013年 CALACULU. All rights reserved.
 //
+//  Created by sho yakushiji on 2013/11/05.
+//  Copyright (c) 2013年 CALACULU. All rights reserved.
+
 
 #import "CLToneCurveTool.h"
 
@@ -195,6 +196,7 @@
 {
     [_tonecurveView resetPoints];
     
+    //やじるしマークを回転させる
     CABasicAnimation* rotation;
     rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     rotation.toValue  = [NSNumber numberWithFloat:-M_PI*2.0];
