@@ -145,20 +145,14 @@
             NSString *imagePath = [NSString stringWithFormat:@"%d.png", i + 1];
             UIImage *image = [[UIImage alloc] init];
             image = [UIImage imageNamed:imagePath];
-//            NSString* imagePath = [NSString stringWithFormat:@"%@/CLStickerTool/stickers/%d.png",
-//                                   [[NSBundle mainBundle] pathForResource:@"CLImageEditor" ofType:@"bundle"], i + 1 ];
-//            NSLog(@"imagePath=%@", imagePath);
-//            UIImage *image = [[UIImage alloc] initWithContentsOfFile:imagePath];
-//            NSLog(@"imageimageimage=%@",image);
+
             NSData* pngData = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
-            NSLog(@"%@",pngData);
             // 今回は、Cacheディレクトリのstickersフォルダに、0.pngから順のファイル名で保存します。
             NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
             NSString *cacheDirPath = [array objectAtIndex:0];
             cacheDirPath = [cacheDirPath stringByAppendingString:@"/stickers/0001pcen"];
             NSString* sticker = [NSString stringWithFormat:@"%d.png",i];
             NSString *filePath = [cacheDirPath stringByAppendingPathComponent:sticker];
-            NSLog(@"filePath=%@",filePath);
             
             // 保存処理を呼び出し、0.pngから1足してとして保存します。
             if ([pngData writeToFile:filePath atomically:YES]) {
@@ -190,19 +184,13 @@
             NSString *imagePath = [NSString stringWithFormat:@"%d.png", i + 13];
             UIImage *image = [[UIImage alloc] init];
             image = [UIImage imageNamed:imagePath];
-//            NSString* imagePath = [NSString stringWithFormat:@"%@/CLStickerTool/stickers/%d.png",
-//                                   [[NSBundle mainBundle] pathForResource:@"CLImageEditor" ofType:@"bundle"], i + 13 ];
-//            NSLog(@"imagePath=%@", imagePath);
-//            UIImage *image = [[UIImage alloc] initWithContentsOfFile:imagePath];
             NSData* pngData = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
-            NSLog(@"%@",pngData);
             // 今回は、Cacheディレクトリのstickersフォルダに、0.pngから順のファイル名で保存します。
             NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
             NSString *cacheDirPath = [array objectAtIndex:0];
             cacheDirPath = [cacheDirPath stringByAppendingString:@"/stickers/0001pcjp"];
             NSString* sticker = [NSString stringWithFormat:@"%d.png",i];
             NSString *filePath = [cacheDirPath stringByAppendingPathComponent:sticker];
-            NSLog(@"filePath=%@",filePath);
             
             // 保存処理を呼び出し、0.pngから1足してとして保存します。
             if ([pngData writeToFile:filePath atomically:YES]) {
@@ -220,7 +208,6 @@
         NSString *cacheDirPath2 = [array2 objectAtIndex:0];
         cacheDirPath2 = [cacheDirPath2 stringByAppendingString:@"/stickers/0001pcjp"];
         NSString *filePath2 = [cacheDirPath2 stringByAppendingPathComponent:@"1.txt"];
-        NSLog(@"%@",filePath2);
         
         // 保存処理を呼び出し、sample.pngとして保存します。
         if ([Data2 writeToFile:filePath2 atomically:YES]) {
@@ -234,12 +221,7 @@
             NSString *imagePath = [NSString stringWithFormat:@"%d.png", i + 25];
             UIImage *image = [[UIImage alloc] init];
             image = [UIImage imageNamed:imagePath];
-//            NSString* imagePath = [NSString stringWithFormat:@"%@/CLStickerTool/stickers/%d.png",
-//                                   [[NSBundle mainBundle] pathForResource:@"CLImageEditor" ofType:@"bundle"], i + 25 ];
-//            NSLog(@"imagePath=%@", imagePath);
-//            UIImage *image = [[UIImage alloc] initWithContentsOfFile:imagePath];
             NSData* pngData = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
-            NSLog(@"%@",pngData);
             // 今回は、Cacheディレクトリのstickersフォルダに、0.pngから順のファイル名で保存します。
             NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
             NSString *cacheDirPath = [array objectAtIndex:0];
@@ -279,12 +261,7 @@
             NSString *imagePath = [NSString stringWithFormat:@"%d.png", i + 37];
             UIImage *image = [[UIImage alloc] init];
             image = [UIImage imageNamed:imagePath];
-//            NSString* imagePath = [NSString stringWithFormat:@"%@/CLStickerTool/stickers/%d.png",
-//                                   [[NSBundle mainBundle] pathForResource:@"CLImageEditor" ofType:@"bundle"], i + 37 ];
-//            NSLog(@"imagePath=%@", imagePath);
-//            UIImage *image = [[UIImage alloc] initWithContentsOfFile:imagePath];
             NSData* pngData = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
-            NSLog(@"%@",pngData);
             // 今回は、Cacheディレクトリのstickersフォルダに、0.pngから順のファイル名で保存します。
             NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
             NSString *cacheDirPath = [array objectAtIndex:0];

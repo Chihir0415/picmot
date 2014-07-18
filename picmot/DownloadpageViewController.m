@@ -84,25 +84,9 @@
     stickerPath = [stickerPath stringByAppendingString:@"/Caches/stickers/"];
     stickerPath = [stickerPath stringByAppendingString:self.pcFile];
     
-//    // ホームディレクトリを取得
-//    NSString *itemPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/stickers/"];
-//    itemPath = [itemPath stringByAppendingString:self.pcFile];
-    
-//    // ファイルマネージャを作成
-//    NSFileManager *fileManager = [NSFileManager defaultManager];
-//    
-//    NSError *error;
-//    NSArray *list = [fileManager contentsOfDirectoryAtPath:itemPath
-//                                                     error:&error];
-//
-//    // ファイルやディレクトリの一覧を表示する
-//    for (NSString *path in list) {
-//        NSLog(@"%@", path);
     NSString *filePathcheck = [NSString stringWithFormat:@"%@/0.png", stickerPath];
-    NSLog(@"testtesttest%@",filePathcheck);
 
     NSData *datacheck = [NSData dataWithContentsOfFile:filePathcheck];
-    NSLog(@"%@",datacheck);
         if (datacheck == nil) {
             
             NSLog(@"no!");
@@ -133,15 +117,12 @@
             dlLabel.textAlignment = NSTextAlignmentCenter;
             NSString *filePath0 = [NSString stringWithFormat:@"%@/0.png", stickerPath];
             NSData *data0 = [NSData dataWithContentsOfFile:filePath0];
-            //        NSLog(@"uooooooo=%@",data);
             UIImage *image0 = [UIImage imageWithData:data0];
             cateImg.image = image0;
             
             NSString *filePath1 = [NSString stringWithFormat:@"%@/1.png", stickerPath];
-            NSLog(@"uooooooo=%@",filePath1);
 
             NSData *data1 = [NSData dataWithContentsOfFile:filePath1];
-            NSLog(@"uooooooo=%@",data1);
             UIImage *image1 = [UIImage imageWithData:data1];
             allImg.image = image1;
             [dlBtn setTitle:@"downloaded" forState:UIControlStateNormal ];

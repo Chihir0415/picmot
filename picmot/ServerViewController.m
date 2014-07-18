@@ -143,8 +143,6 @@
         NSString *filePath = [NSString stringWithFormat:@"%@%@/1.txt", stickerPath, path];
         NSData *data = [NSData dataWithContentsOfFile:filePath];
         
-        NSLog(@"tateteteetetet%@",data);
-        
         if (data == NULL) {
             NSLog(@"empty");
         }else{
@@ -153,7 +151,6 @@
             NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             //        NSLog(@"unnkotoittamododa=%@",newStr);//このstringをアレイに入れる
             [_proArray addObject:newStr];
-            NSLog(@"sannkounishimasuka%@",_proArray);
             
             NSString *filePath1 = [NSString stringWithFormat:@"%@%@/1.png", stickerPath, path];
             NSData *data1 = [NSData dataWithContentsOfFile:filePath1];
@@ -168,7 +165,6 @@
         
     }
        [_tableView reloadData];
-    NSLog(@"viewWillAppear");
     [super viewWillAppear:animated];
 }
 

@@ -109,33 +109,27 @@
     if ([elementName isEqualToString:@"stampname"]) {
         //解析中タグの設定
         nowTagStr = [NSString stringWithString:elementName];
-        NSLog(@"md=%@",nowTagStr);
         
         //テキストバッファの初期化
         txtBuffer = @"";
-        NSLog(@"txtstart=%@",txtBuffer);
         
     } else if ([elementName isEqualToString:@"zip"]){
         nowTagStr = [NSString stringWithString:elementName];
-        NSLog(@"md=%@",nowTagStr);
         
         //テキストバッファの初期化
         txtBuffer = @"";
     } else if ([elementName isEqualToString:@"image"]){
         nowTagStr = [NSString stringWithString:elementName];
-        NSLog(@"md=%@",nowTagStr);
         
         //テキストバッファの初期化
         txtBuffer = @"";
     } else if ([elementName isEqualToString:@"filename"]){
         nowTagStr = [NSString stringWithString:elementName];
-        NSLog(@"md=%@",nowTagStr);
         
         //テキストバッファの初期化
         txtBuffer = @"";
     } else if ([elementName isEqualToString:@"imagecate"]){
         nowTagStr = [NSString stringWithString:elementName];
-        NSLog(@"md=%@",nowTagStr);
         
         //テキストバッファの初期化
         txtBuffer = @"";
@@ -148,7 +142,6 @@
     if ([nowTagStr isEqualToString:@"stampname"]) {
         //テキストバッファに文字を追加する
         txtBuffer = [txtBuffer stringByAppendingString:string];
-        NSLog(@"txtmd=%@",nowTagStr);
         
     } else if ([nowTagStr isEqualToString:@"zip"]){
         txtBuffer = [txtBuffer stringByAppendingString:string];
@@ -159,7 +152,6 @@
     }else if ([nowTagStr isEqualToString:@"imagecate"]){
         txtBuffer = [txtBuffer stringByAppendingString:string];
     }
-    NSLog(@"4");
     
 }
 
@@ -167,17 +159,14 @@
     //終了タグがtitleの場合
     if ([elementName isEqualToString:@"stampname"]) {
         NSString *xml_name = txtBuffer;
-        NSLog(@"efgh%@",xml_name);
         
         //userArrにユーザー名を格納
         [stArr insertObject:xml_name atIndex:xml_index];
         
         xml_index++;
-        NSLog(@"5");
         
     } else if ([elementName isEqualToString:@"zip"]) {
         NSString *xml_name = txtBuffer;
-        NSLog(@"efgh%@",xml_name);
         
         //userArrにユーザー名を格納
         [stZip insertObject:xml_name atIndex:xml_indexzip];
@@ -185,7 +174,6 @@
         xml_indexzip++;
     } else if ([elementName isEqualToString:@"image"]){
         NSString *xml_name = txtBuffer;
-        NSLog(@"efgh%@",xml_name);
         
         //userArrにユーザー名を格納
         [stImage insertObject:xml_name atIndex:xml_indeximage];
@@ -193,7 +181,6 @@
         xml_indeximage++;
     } else if ([elementName isEqualToString:@"filename"]){
         NSString *xml_name = txtBuffer;
-        NSLog(@"efgh%@",xml_name);
         
         //userArrにユーザー名を格納
         [stFile insertObject:xml_name atIndex:xml_indexfile];
@@ -201,7 +188,6 @@
         xml_indexfile++;
     } else if ([elementName isEqualToString:@"imagecate"]){
         NSString *xml_name = txtBuffer;
-        NSLog(@"efgh%@",xml_name);
         
         //userArrにユーザー名を格納
         [stcateImage insertObject:xml_name atIndex:xml_indexcateimage];
@@ -253,7 +239,6 @@
     NSString* cate = [stcateImage objectAtIndex:indexPath.row];
     NSURL *url = [NSURL URLWithString:cate];
     NSData *data1 = [NSData dataWithContentsOfURL:url];
-    NSLog(@"uooooooo=%@",data1);
     UIImage *image1 = [UIImage imageWithData:data1];
     cell.imageView.image = image1;
     cell.textLabel.textColor = [UIColor blackColor];
@@ -284,7 +269,6 @@
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     stData = [[NSMutableData alloc]init];
     [stData appendData:data];
-    NSLog(@"stData=%@",stData);
     
 }
 
